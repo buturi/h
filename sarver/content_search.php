@@ -1,5 +1,11 @@
 <?php
 
+
+$html_time = date("d", filemtime("test.html"));
+$today = date("d");
+
+if ( $html_time != $today or !file_exists("test.html") ) {
+
 $ch = curl_init("http://higashihiroshima.genki365.net/gnkh12/pub/calendar.php");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, True); //Trueの場合，curl_exec()の返り値を文字列で返す
 $output = curl_exec($ch); //実行
@@ -9,8 +15,10 @@ $replace_output = str_replace("sheet.php", "http://higashihiroshima.genki365.net
 
 print $replace_output; //確認用
 
-$fp = fopen('list.html', 'w');
+$fp = fopen('test.html', 'w');
 fwrite($fp, $replace_output);
 fclose($fp);
+
+}
 
 ?>  
