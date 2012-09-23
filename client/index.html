@@ -14,6 +14,15 @@
 		 trace(eventData);
 	});
 	});
+	
+var mapCanvas;
+var currentInfoWindow = null;
+window.onload = function() {
+    mapCanvas = new google.maps.Map(document.getElementById("mapCanvas"));
+    mapCanvas.setCenter(new google.maps.LatLng(34.426709,132.743629));
+    mapCanvas.setZoom(11);
+    mapCanvas.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+}
 
   var eventData={"event":new Array()};//グローバル変数､eventDataを定義､最初にイベント群を保持するArrayを定義する
   
@@ -414,9 +423,106 @@ function trace(s){
   $("#output").text(mylog.join(''));
 };
 </script>
+<style>
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul, li {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    <!-- 次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html -->
+    background: #555; <!-- 背景色, "#555"でも同じ色になる -->
+    border: #0000ff 1px solid;
+    color: white;
+}
+    
+li {
+    width: 100px;
+}
+    
+ul ul {
+    position: relative;
+    display: none;
+}
+    
+ul li:hover > ul {
+	display: inline-block;
+	position: absolute;
+	top: 100%;
+	left: 0px;
+}
+    
+#list {
+	width: 50px;
+	background-color: #000000;
+}
+/*
+#map_canvas {
+	position: absolute;
+}*/
+
+#mapCanvas {
+	position: absolute;
+	margin-top: 20px; // "debug button"の直下
+	/*width: 100%;
+	height: 100%;*/
+}
+
+#bar {
+	background-color: #000000;
+}
+
+#title {
+	text-align: center;
+	color: #ffffff;
+	background-color: #000000;
+}
+
+</style>
+
 </head>
 <body>
-<button id="debug">debug button</button>
-<div id="output"></div>
+
+<header>
+	<div id="bar" style="width: 100%; height: 20px"><!-- 上端の見出し -->
+	<ul>
+	<li><div id="title">alphabet</div>
+		<ul>
+			<li>abc</li>
+			<li>def</li>
+			<li>ghi</li>
+		</ul>
+	</ul>
+	</div>
+</header>
+
+<button id="debug">debug button</button><!-- コメントアウトすると消えてしまう -->
+<div id="output"></div><!-- コメントアウトすると"debug button"の右側に出てしまう -->
+<!--
+<style>
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+</style>
+-->
+<!-- 以下の"style"をコメントアウトすると、"<div id="mapCanvas>" -->
+<div id="mapCanvas" style="width:100%; height:100%"><!-- aiu(表示される本文) --></div>
 </body>
 </html>
