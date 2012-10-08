@@ -82,13 +82,12 @@ ul li:hover > ul {
 <body>
 <header>
   <div id="bar" style="width: 100%; height: 50px"><!-- 上端の見出し -->
+  <div id="title">
     <ul>
       <li>
-        <div id="title">
-          <button id="debug">debug button</button>
+        <button id="debug">debug button</button>
           <!-- コメントアウトすると消えてしまう -->
-        </div>
-      </li>
+        </li>
       <li>
         <a>名所一覧</a>
         <ul>
@@ -103,7 +102,8 @@ ul li:hover > ul {
         <a href="http://sakematsuri.com/">酒まつり</a>
       </li>
     </ul>
-  </div>
+  </div><!-- div id="title" ここまで -->
+  </div><!-- div id="bar" ここまで -->
 </header>
 <div id="output"></div>
 <!-- コメントアウトすると"debug button"の右側に出てしまう --> 
