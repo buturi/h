@@ -316,7 +316,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 
 	
 
-	
+	/*トレース用の関数*/
 function checkObject(_obj){
   	for(var key in _obj){
    	 alert(key +" : "+_obj[key]);
