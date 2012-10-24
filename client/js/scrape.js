@@ -305,7 +305,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				
 				/*eventDataに一時的に作っていたObjectを入れる*/
 				eventData.event.push(tmpEventData);
-				$("#box").append("<div class='eventBox'>"+tmpEventData[eventDataArray[0]]+"</div>");
+				$("#box").append("<div class='eventBox' onClick='moveMap()'>"+tmpEventData[eventDataArray[0]]+"</div>");
 			});
 			
   		});	
