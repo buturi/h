@@ -62,7 +62,7 @@ ul li:hover > ul {
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
-	height: calc(100% - 100px); /* 縦:100% - 100px */
+	height: calc(100% - 120px); /* 縦:100% - 120px */
 	height: -webkit-calc(100% - 100px); /* webkit対策 */
 	width: 300px; /* 横：300px */
 	position: absolute; /* 絶対位置 */
@@ -73,18 +73,21 @@ ul li:hover > ul {
 	padding-top: 20px;
 }
 
-
 .eventBox {
+	font-weight: bold; /* 文字を太字 */
 	height: 50px;
 	width: 250px;
 	margin: 0 0 10px 15px;
-	padding: 5px;
-	background-color: rgba(0,0,255,0.1);
+	padding: 5px; 
+	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
+	color: rgb(50,50,50); /* 文字色：灰色 */
 	border-radius: 3px; /* 角丸 */
+	cursor: default; /* マウスカーソルを常にデフォルト */
 }
 
 .eventBox:hover {
 	background-color: rgba(0,0,255,0.3);
+	color: rgb(0,0,0); /* 文字色：黒色 */
 }
 
 
