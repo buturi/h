@@ -58,15 +58,11 @@ ul li:hover > ul {
 	background-color: #000000;
 }
 
-#output {
-	z-index: 0;
-}
-
 #listArea {
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
-	height: 600px; /* 縦:600px */
+	height: calc(100% - 100px); /* 縦:100% - 100px */
 	width: 300px; /* 横：300px */
 	position: absolute; /* 絶対位置 */
 	bottom: 10px; /* 下から10pxの位置 */
@@ -75,3 +71,8 @@ ul li:hover > ul {
 	overflow:auto; /* はみ出したらスクロールバーを表示 */
 }
 
+#eventBox {
+	height: 100px;
+	width: 250px;
+	margin: 5px 25px;
+}

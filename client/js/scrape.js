@@ -225,6 +225,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				/*thに続いてtdタグがつづいている部分を探し､抽出する*/
 				var detailContent=$(detailData.responseText).find('th ~ td');
 				/*それぞれの部分に対して繰り返し処理を行い､相当するObjectの属性へ配置*/
+				
 				detailContent.each(function(i){
 					//alert(eventDataArray[i]);
 					/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
@@ -232,7 +233,6 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 					
 					/*デバッグ出力*/
 					//$('#output').append('<div>'+i+':'+$(this).text()+'</div>');
-					
 				});
 				
 				/*String型の年月日をDate型に変換する 未実装*/
@@ -305,7 +305,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				
 				/*eventDataに一時的に作っていたObjectを入れる*/
 				eventData.event.push(tmpEventData);
-				
+				$("#eventBox").append(tmpEventData[eventDataArray[0]]+"<br>");
 			});
 			
   		});	
