@@ -63,6 +63,7 @@ ul li:hover > ul {
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
 	height: calc(100% - 100px); /* 縦:100% - 100px */
+	height: -webkit-calc(100% - 100px); /* webkit対策 */
 	width: 300px; /* 横：300px */
 	position: absolute; /* 絶対位置 */
 	bottom: 10px; /* 下から10pxの位置 */
@@ -71,8 +72,10 @@ ul li:hover > ul {
 	overflow:auto; /* はみ出したらスクロールバーを表示 */
 }
 
-#eventBox {
+.eventBox {
 	height: 100px;
 	width: 250px;
 	margin: 5px 25px;
+	background-color: #CBFFD3;
+	opacity: 0.9;
 }
