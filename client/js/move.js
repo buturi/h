@@ -1,9 +1,10 @@
 // JavaScript Document
 function moveMap() {
-	var Latlng;
+	var latlng =new google.maps.LatLng(eventData.event[0]['latLng']['lat'],eventData.event[0]['latLng']['lng']);
 	var opts = {
-		zoom: 3,
-		center: Latlng
-  };
-	mapCanvas.setCenter(new google.maps.LatLng(eventData.event[0]['latLng']['lat'],eventData.event[0]['latLng']['lng']));
+		zoom: 13,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById("mapCanvas"), opts);
 }
