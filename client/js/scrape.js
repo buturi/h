@@ -9,8 +9,8 @@
 	
 
 
-  var eventData={"event":new Array()};//グローバル変数､eventDataを定義､最初にイベント群を保持するArrayを定義する
-  
+var eventData={"event":new Array()};//グローバル変数､eventDataを定義､最初にイベント群を保持するArrayを定義する
+var j=0;
 
 /*デバッグ用サイト1*/
 //var domain="http://www7b.biglobe.ne.jp/~pso/tmp/";
@@ -305,11 +305,11 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				
 				/*eventDataに一時的に作っていたObjectを入れる*/
 				eventData.event.push(tmpEventData);
-				$("#box").append("<div class='eventBox' onClick='moveMap()'>"+tmpEventData[eventDataArray[0]]+"</div>");
+				$("#box").append("<div class='eventBox' onClick='moveMap()'>"+eventData.event[j]['title']+"</div>");
+				j++;
 			});
 			
   		});	
-		
 		
     });
 	
@@ -359,7 +359,6 @@ function getLatLng(word,func){
               //alert( 'Faild：' + status );
 			  func(null);
           }
-		  
       } );
 }
 /*デバッグ用の関数 http://www.kuma-de.com/blog/2009-10-01/1274 */

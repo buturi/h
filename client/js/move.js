@@ -2,7 +2,7 @@
 function moveMap() {
 	var latlng =new google.maps.LatLng(eventData.event[0]['latLng']['lat'],eventData.event[0]['latLng']['lng']);
 	var opts = {
-		zoom: 13,
+		zoom: 16,
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
