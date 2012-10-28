@@ -1,9 +1,9 @@
 // JavaScript Document
-function moveMap() {
-	var latlng =new google.maps.LatLng(eventData.event[0]['latLng']['lat'],eventData.event[0]['latLng']['lng']);
+function moveMap(x) {
+	var lat_lng =new google.maps.LatLng(eventData.event[x]['latLng']['lat'],eventData.event[x]['latLng']['lng']);
 	var opts = {
 		zoom: 16,
-		center: latlng,
+		center: lat_lng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	var map = new google.maps.Map(document.getElementById("mapCanvas"), opts);
