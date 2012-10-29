@@ -18,7 +18,6 @@
 
 var eventData={"event":new Array()};//グローバル変数､eventDataを定義､最初にイベント群を保持するArrayを定義する
 var j=0;
-var date = new Date();
 
 /*デバッグ用サイト1*/
 //var domain="http://www7b.biglobe.ne.jp/~pso/tmp/";
@@ -263,6 +262,11 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 					tmpDateArray.push(dateObject);
 					//$('#output').append('<div>'+dateObject["from"]+'-'+dateObject["to"]+'</div>');
 				}
+				
+				if (tmpDateArray[0] && new Date().getTime() - tmpDateArray[tmpDateArray.length - 1]["to"].getTime() > 1000 * 60 * 60 * 24 * 7) {
+                            return;
+                }
+				
 				tmpEventData["date"]=tmpDateArray;
 				
 				
@@ -300,17 +304,13 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 					}
 				});
 				
-
-				var heldDate = new Date(tmpEventData["date"]["to"]);
-				alert(heldDate);
-				/*if (date.getTime() - heldDate.getTime() < 1000*60*60*24*7 ) {*/
 				
 				
-					/*eventDataに一時的に作っていたObjectを入れる*/
-					eventData.event.push(tmpEventData);
-					$("#box").append("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[j]['title']+"</div>");
-					j++;
-				/*}*/
+				
+				/*eventDataに一時的に作っていたObjectを入れる*/
+				eventData.event.push(tmpEventData);
+				$("#box").append("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[j]['title']+"</div>");
+				j++;
 			});
 			
   		});	
