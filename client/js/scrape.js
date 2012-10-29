@@ -1,4 +1,11 @@
 // JavaScript Document
+
+/*
+
+東広島市民活動情報サイトからソースをクロール､中身を配列に入れていくJS
+
+*/
+
 	$(function(){
 		$("button").click(function () {
 		alert("output Log");
@@ -199,7 +206,6 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
                 G0000179: { lat: 34.4116843, lng: 132.7172841 },
                 G0000180: { lat: 34.4277969, lng: 132.7400153 }}
 //119だけなぜか重複｡注意｡
-		//$("#output").append(data.responseText);
 	
 		//a[href*="sheet.php?"]
 		//aタグの中でhref属性がsheet.php?に部分一致
@@ -208,9 +214,6 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 
 		
 		content.each(function(){
-			/*デバッグ出力*/
-			//$('#output').append('<div><a href="'+$(this).attr('href')+'">'+$(this).text()+'</a> ');
-			//$('#output').append(' ID:'+$(this).attr('href').split('id=')[1]+'</div>');
 			
 			/*一時的なObjectを作成､これをあとでeventDataに入れる*/
 			var tmpEventData=new Object();
@@ -231,11 +234,9 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 					/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
 					tmpEventData[eventDataArray[i]]=$(this).text();
 					
-					/*デバッグ出力*/
-					//$('#output').append('<div>'+i+':'+$(this).text()+'</div>');
 				});
 				
-				/*String型の年月日をDate型に変換する 未実装*/
+				/*String型の年月日をDate型に変換する*/
 				/*複数日程記述時に､分離･記憶する必要がある*/
 				
 				var beforeYear=new Date().getYear();//年が記述されていない場合は今の年を使う
@@ -292,10 +293,8 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				//他の絞り込みが必要
 				getLatLng("東広島 "+tmpEventData["place"],function(latLng){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む
 					if(latLng){
-						//alert(latLng.lat+"+"+latLng.lng);
 						tmpEventData["latLng"]={"lat":latLng.lat,"lng":latLng.lng};//住所に対応する座標があったときはそれをいれる
 					}else{//見つからない､精度が極端に低い際は上のgroupID->座標変換リストを使う｡
-						//alert("null!!");
 						tmpEventData["latLng"]={"lat":34.426744,"lng":132.743763};
 					}
 				});
@@ -343,15 +342,9 @@ function getLatLng(word,func){
 			  latLng.lat = results[0].geometry.location.lat();
 			  latLng.lng = results[0].geometry.location.lng();
 			  
-			  func(latLng);
-			/*   var latLng = new object();
-              alert( results[ 0 ].geometry.location );
-			  $("#output").text(results[ 0 ].geometry.location);
-			  //var latLng = new object();
-			  latLng.lat = results[0].geometry.location.lat();
-			  latLng.lng = results[0].geometry.location.lng();
-			  */
 			  
+			  //引数で受け取っていた関数を呼ぶことにより､呼び出し元のコールバック関数を呼び出せる
+			  func(latLng);			  
 			  
           }
           else
