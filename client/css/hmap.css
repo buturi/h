@@ -121,7 +121,8 @@ ul a:hover > li {
 	margin-bottom: 35%;
 	margin-right: 0px;*/
 	writing-mode: tb-rl; /* 縦書き */
-	font-size: 12px;
+	font-size: large;
+	/*font-size: 12px;*/
 	background-color: pink;
 	border-radius: 3px;
 	z-index: 9999; /* 最前面に表示 */
