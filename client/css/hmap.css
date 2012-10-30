@@ -114,15 +114,15 @@ ul a:hover > li {
 #rightBar {
 	display: block;
 	font-weight: bold; /* 文字を太字 */
-	height: calc(100% - 120px); /* 縦:100% - 120px */
-	width: 80px;
+	height: calc(100% - 120px); /* 縦 */
+	width: calc(100% - 80px); /* 横 */
 	position: absolute; /* 絶対位置 */
 	/*margin-top: 35%;
 	margin-bottom: 35%;
 	margin-right: 0px;*/
 	writing-mode: tb-rl; /* 縦書き */
-	font-size: large;
-	/*font-size: 12px;*/
+	/*font-size: large;*/
+	font-size: 15px;
 	background-color: pink;
 	border-radius: 3px;
 	z-index: 9999; /* 最前面に表示 */
