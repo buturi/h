@@ -44,14 +44,14 @@ ul li:hover > ul {
 ul a{
 	display: block;
 	font-size: 16px;
-	color: green; /* 通常時の文字の色：緑 */
+	color: white; /* 通常時の文字の色 */
 	text-decoration: none; /* 下線なし */
 	cursor: pointer; /* マウスの形をポインター */
 	outline: none;
 }
 
-ul a:hover {
-	color: red; /* オンマウス時 */
+ul a:hover > li {
+	color: red; /* オンマウス時の文字の色 */
 	background-color: #272727;
 }
 
