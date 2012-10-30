@@ -115,7 +115,8 @@ ul a:hover > li {
 	display: block;
 	font-weight: bold; /* 文字を太字 */
 	height: calc(100% - 120px); /* 縦 */
-	width: calc(100% - 80px); /* 横 */
+	/*width: calc(100% - 80px);*/ /* 横(右側の80px以外が埋まる) */
+	width: calc(-80px);
 	position: absolute; /* 絶対位置 */
 	/*margin-top: 35%;
 	margin-bottom: 35%;
