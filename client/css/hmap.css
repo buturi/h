@@ -114,6 +114,7 @@ ul a:hover > li {
 #rightBar {
 	display: block;
 	font-weight: bold; /* 文字を太字 */
+	al
 	/*height: calc(100% - 120px);*/ /* 縦 */
 	height: 80px;
 	/*width: calc(100% - 80px);*/ /* 横(右側の80px以外が埋まる) */
@@ -125,7 +126,7 @@ ul a:hover > li {
 	margin-right: 40px;*/
 	writing-mode: tb-rl; /* 縦書き */
 	/*font-size: large;*/
-	font-size: 15px;
+	font-size: 36px ;
 	background-color: pink;
 	border-radius: 3px;
 	z-index: 9999; /* 最前面に表示 */
