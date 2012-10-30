@@ -111,11 +111,19 @@ ul a:hover > li {
 	cursor: default; /* マウスカーソルを常にデフォルト */
 }
 
+#rightBar {
+	display: block;
+	height: 100px;
+	width: 50px;
+	font-size: 12px;
+	margin-top: 300px;
+	margin-bottom: 300px;
+	margin-right: 0px;
+	background-color: pink;
+	z-index: 9999; /* 最前面に表示 */
+}
+
 .eventBox:hover {
 	background-color: rgba(0,0,255,0.3);
 	color: rgb(0,0,0); /* 文字色：黒色 */
 }
-
-
-
-
