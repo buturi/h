@@ -114,7 +114,7 @@ ul a:hover > li {
 #rightBar {
 	display: block;
 	font-weight: bold; /* 文字を太字 */
-	height: 100%;
+	height: calc(100% - 120px); /* 縦:100% - 120px */
 	width: 80px;
 	margin-top: 35%;
 	margin-bottom: 35%;
