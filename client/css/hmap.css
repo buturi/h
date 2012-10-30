@@ -116,9 +116,10 @@ ul a:hover > li {
 	font-weight: bold; /* 文字を太字 */
 	height: calc(100% - 120px); /* 縦:100% - 120px */
 	width: 80px;
-	margin-top: 35%;
+	position: absolute; /* 絶対位置 */
+	/*margin-top: 35%;
 	margin-bottom: 35%;
-	margin-right: 0px;
+	margin-right: 0px;*/
 	writing-mode: tb-rl; /* 縦書き */
 	font-size: 12px;
 	background-color: pink;
