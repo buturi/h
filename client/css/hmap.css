@@ -120,9 +120,9 @@ ul a:hover > li {
 	/*width: calc(100% + 80px);*/ /* 横(右側にはみ出して、さらに80pxが埋まる) */
 	width: 60px;
 	position: absolute; /* 絶対位置 */
-	margin-top: 35%;
+	/*margin-top: 35%;
 	margin-bottom: 35%;
-	margin-right: 40px;
+	margin-right: 40px;*/
 	writing-mode: tb-rl; /* 縦書き */
 	/*font-size: large;*/
 	font-size: 15px;
