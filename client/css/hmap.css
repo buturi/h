@@ -115,6 +115,7 @@ ul a:hover > li {
 	display: block;
 	height: 100px;
 	width: 50px;
+	writing-mode: tb-rl; /* 縦書き */
 	font-size: 12px;
 	margin-top: 300px;
 	margin-bottom: 300px;
