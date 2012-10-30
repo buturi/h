@@ -117,8 +117,7 @@ ul a:hover > li {
 	height: calc(100% - 120px); /* 縦 */
 	/*width: calc(100% - 80px);*/ /* 横(右側の80px以外が埋まる) */
 	/*width: calc(100% + 80px);*/ /* 横(右側にはみ出して、さらに80pxが埋まる) */
-	a = calc(100% - 80px);
-	width: calc(a);
+	width: calc(100% - 100px) + 100px;
 	position: absolute; /* 絶対位置 */
 	/*margin-top: 35%;
 	margin-bottom: 35%;
