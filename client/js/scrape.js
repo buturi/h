@@ -18,7 +18,6 @@
 
 var eventData={"event":new Array()};//グローバル変数､eventDataを定義､最初にイベント群を保持するArrayを定義する
 var j=0;
-var k=0;
 
 /*デバッグ用サイト1*/
 //var domain="http://www7b.biglobe.ne.jp/~pso/tmp/";
@@ -306,10 +305,8 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				});
 				
 				/*eventDataに一時的に作っていたObjectを入れる*/
-				eventData.event.push(tmpEventData);
-				var b = eventData.event.length-1;
 				eventData.event.unshift(tmpEventData);
-				
+				var b = eventData.event.length-1;
 				for (var a=0;a<b;a++) {
 					/*alert(eventData.event[a+1]["id"]+" - "+eventData.event[a]["id"]);*/
 					if (eventData.event[a+1]["id"] < eventData.event[a]["id"]) {
@@ -320,8 +317,8 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 						break;
 					}
 				}
-alert(eventData.event[j]['id']);
-				/*$("#box").append("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[j]['id']+"</div>");*/
+
+				$("#box").append("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[j]['id']+"</div>");
 				j++;
 			});
 			
