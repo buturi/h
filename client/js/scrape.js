@@ -18,6 +18,7 @@
 
 var eventData={"event":new Array()};//グローバル変数､eventDataを定義､最初にイベント群を保持するArrayを定義する
 var j=0;
+var k=0;
 
 /*デバッグ用サイト1*/
 //var domain="http://www7b.biglobe.ne.jp/~pso/tmp/";
@@ -218,7 +219,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 			/*一時的なObjectを作成､これをあとでeventDataに入れる*/
 			var tmpEventData=new Object();
 			/*クエリストリングをid=で分離することで､IDを抽出*/
-			tmpEventData["id"]=$(this).attr('href').split('id=')[1];
+			tmpEventData["id"] = parseInt($(this).attr('href').split('id=')[1]);
 			
 			/*それぞれに対して詳細データを取得する*/
 			$.get(domain+"sheet.php?id="+$(this).attr('href').split('id=')[1], function(detailData){
@@ -304,12 +305,23 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 					}
 				});
 				
-				
-				
-				
 				/*eventDataに一時的に作っていたObjectを入れる*/
 				eventData.event.push(tmpEventData);
-				$("#box").append("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[j]['title']+"</div>");
+				var b = eventData.event.length-1;
+				eventData.event.unshift(tmpEventData);
+				
+				for (var a=0;a<b;a++) {
+					/*alert(eventData.event[a+1]["id"]+" - "+eventData.event[a]["id"]);*/
+					if (eventData.event[a+1]["id"] < eventData.event[a]["id"]) {
+						var tmp = eventData.event[a];
+						eventData.event[a] = eventData.event[a+1];
+						eventData.event[a+1] = tmp;
+					}else {
+						break;
+					}
+				}
+alert(eventData.event[j]['id']);
+				/*$("#box").append("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[j]['id']+"</div>");*/
 				j++;
 			});
 			
