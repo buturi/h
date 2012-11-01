@@ -87,7 +87,6 @@ ul a:hover > li {
 }
 
 #listArea {
-	padding-left: 10px;
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
@@ -106,7 +105,7 @@ ul a:hover > li {
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
 	width: 250px;
-	margin-bottom: 15px;
+	margin: 0 0 10px 15px;
 	padding: 5px; 
 	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
 	color: rgb(50,50,50); /* 文字色：灰色 */
