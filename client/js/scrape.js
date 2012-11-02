@@ -306,21 +306,17 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				});
 				
 				/*eventDataに一時的に作っていたObjectを入れる*/
-				eventData.event.unshift(tmpEventData);
+				eventData.event.push(tmpEventData);
 				var b = eventData.event.length-1;
 
-				/*if (b==0){ //最初に取得したイベントを表示
-					$("#box").append("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[0]['id']+"</div>");
-				}*/
-
-				L: for (a=0;a<=b;a++) { // id順に並び替え
-					if (a<b) {
-						if (eventData.event[a+1]["id"] < eventData.event[a]["id"]) {
+				L: for (a=b;0<=a;a--) {
+					if (0<a) {
+						if (eventData.event[a-1]["id"] < eventData.event[a]["id"]) { // id順に並び替え
 							var tmp = eventData.event[a];
-							eventData.event[a] = eventData.event[a+1];
-							eventData.event[a+1] = tmp;
+							eventData.event[a] = eventData.event[a-1];
+							eventData.event[a-1] = tmp;
 						} else{
-						$(".eventBox:eq("+(a)+")").before("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['id']+"</div>");
+						$(".eventBox:eq("+(a-1)+")").after("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['id']+"</div>");
 						break L;
 						}
 					} else{
