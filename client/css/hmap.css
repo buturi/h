@@ -43,7 +43,7 @@ ul li:hover > ul {
 
 ul a{
 	display: block;
-	font-size: 16px;
+	font-size: 10px;
 	color: white; /* 通常時の文字の色 */
 	text-decoration: none; /* 下線なし */
 	cursor: pointer; /* マウスの形をポインター */
