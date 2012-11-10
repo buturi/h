@@ -16,18 +16,13 @@ ul {
 	margin-bottom: 2px;
 }
 
-ul, li {
+ul > li {	/* カンマは複数の記述を表すので、内包される意味で'>'を用いる */
 	position: relative;
 	display: inline-block;
 	list-style-type: none;
-/*
-次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html
-*/
- background: #555;
-/*
-背景色, "#555"でも同じ色になる
-*/
- border: #0000ff 1px solid;
+	/* 次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html */
+	background: #555;
+	border: #0000ff 1px solid;
 	color: white;
 }
 
@@ -62,11 +57,6 @@ ul a:hover > li {
 	color: red; /* オンマウス時の文字の色 */
 	background-color: #272727;
 }
-
-/*
-#map_canvas {
-	position: absolute;
-}*/
 
 #mapCanvas {
 	position: absolute; /* "debug button"の直下 */
@@ -124,8 +114,8 @@ ul a:hover > li {
 /*.cen {
 	background-color: #808080;
 	text-align: center;
-}
-*/
+}*/
+
 .cen {
 	width: 150px;
 	height: 30px; /* バーの高さ */
