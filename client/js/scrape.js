@@ -320,7 +320,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 						break L;
 						}
 					} else{
-						$("#box").append("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['id']+"</div>");
+						$("#box").prepend("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['id']+"</div>");
 					}
 				}
 				
