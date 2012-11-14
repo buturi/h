@@ -56,6 +56,12 @@ ul a:hover > .cen {
 	background-color: #272727;
 }
 
+.cen {
+	width: 150px;
+	height: 30px; /* バーの高さ */
+	line-height: 30px; /* 行間の高さ */
+}
+
 #mapCanvas {
 	position: absolute; /* "debug button"の直下 */
 	width: 100%;
@@ -81,13 +87,12 @@ ul a:hover > .cen {
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
-	height: calc(100% - 120px); /* 縦:100% - 120px */
+	height: calc(100% - 150px); /* 縦:100% - 150px */
 	height: -webkit-calc(100% - 100px); /* webkit対策 */
 	width: 300px; /* 横：300px */
 	position: absolute; /* 絶対位置 */
 	bottom: 10px; /* 下から10pxの位置 */
-	right: 10px; /* 右から10pxの位置 */
-	z-index: 9999; /* 最前面に表示 */
+	right: 50px; /* 右から10pxの位置 */
 	overflow: auto; /* はみ出したらスクロールバーを表示 */
 	padding-top: 20px;
 }
@@ -109,8 +114,38 @@ ul a:hover > .cen {
 	color: rgb(0,0,0); /* 文字色：黒色 */
 }
 
-.cen {
-	width: 150px;
-	height: 30px; /* バーの高さ */
-	line-height: 30px; /* 行間の高さ */
+#tabArea {
+	top: 90px;
+	right: 50px;
+	position: absolute; /* 絶対位置 */
 }
+
+.tabmenu {
+	margin: 0 1px 0 0;
+	padding: 0;
+	float:left; /* リストを横並びに */
+	list-style:none; /* リストの先頭のマークを非表示に */
+}
+
+.tabmenu a {
+	display: inline-block; /* インライン-ブロック要素に変換 */
+	color: black; /* 文字色：黒 */
+	background-color: #CCCCCC; /* 背景：lightGray */
+	text-decoration: none; /* リンクの下線：非表示 */
+	width: 80px;
+	height: 30px;
+	text-align: center; /* 中央寄せ */
+	line-height: 30px; /* 縦方向の中央寄せ */ /* heightと同じ値を指定すると縦方向の中央寄せになる */
+	border-top-left-radius: 5px; /* 左上の角丸：5px */
+	border-top-right-radius: 5px; /* 右上の角丸：5px */
+
+}
+
+.active a {
+	background-color: #000000; /* 背景：黒 */
+	color: white; /* 文字色：白 */
+	font-weight: bold; /* 太文字 */
+	border-top-left-radius: 5px; /* 左上の角丸：5px */
+	border-top-right-radius: 5px; /* 右上の角丸：5px */
+}
+

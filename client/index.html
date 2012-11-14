@@ -18,6 +18,24 @@ window.onload = function() {
     mapCanvas.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 }
 </script>
+<script type="text/javascript"><!-- あとで分離 -->
+$(function(){
+	$('#tabs div').hide();
+	$('#tabs div:first').show();
+	$('#tabs div:first div').show();
+	$('#tabs ul .tabmenu:first').addClass('active');
+	 
+	$('#tabs ul .tabmenu a').click(function(){
+		$('#tabs ul .tabmenu').removeClass('active');
+		$(this).parent().addClass('active');
+		var currentTab = $(this).attr('href');
+		$('#tabs div').hide();
+		$(currentTab).show();
+		$(currentTab).find("div").show();
+		return false;
+	});
+});
+</script>
 <script type="text/javascript" src="js/move.js"></script>
 </head>
 <body>
@@ -58,10 +76,17 @@ window.onload = function() {
 <div id="mapCanvas"><!-- aiu(表示される本文) --></div>
 <!-- <div id="rightBar">リスト</div> -->
 
-<>
+<div id="tabs">
+<ul id=tabArea>
+	<li class="tabmenu"><a href="listArea">リスト</a></li>
+	<li class="tabmenu"><a href="information">お知らせ</a></li>
+	<li class="tabmenu"><a href="twit">Twitter</a></li>
+</ul>
 <div id="listArea">
 <div id="box"></div>
-</div> <!-- listArea終わり -->
-<div id="twit"></div>
+</div> <!-- #listArea -->
+<div id="information"></div> <!-- #information -->
+<div id="twit"></div> <!-- #twit -->
+</div> <!-- #tabs -->
 </body>
 </html>
