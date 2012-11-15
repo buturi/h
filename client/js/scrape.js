@@ -316,13 +316,19 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 							eventData.event[a] = eventData.event[a-1];
 							eventData.event[a-1] = tmp;
 						} else{
-	
-							$(".eventBox:eq("+(a-1)+")").after("<div class='wrapBox'><div class='dateBox'></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
-						break L;
+							if ( eventData.event[a]['date'][0] == undefined  || eventData.event[a]['date'][0]['from'] == "Invalid Date") {
+								$(".eventBox:eq("+(a-1)+")").after("<div class='wrapBox'><div class='dateBox'></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
+							} else {
+								$(".eventBox:eq("+(a-1)+")").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
+							}
+							break L;
 						}
 					} else{
-
-						$("#box").prepend("<div class='wrapBox'><div class='dateBox'></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
+						if ( eventData.event[a]['date'][0] == undefined  || eventData.event[a]['date'][0]['from'] == "Invalid Date") {
+							$("#box").after("<div class='wrapBox'><div class='dateBox'></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
+						} else {
+							$("#box").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
+						}
 					}
 				}
 				
