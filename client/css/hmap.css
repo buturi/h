@@ -87,8 +87,8 @@ ul a:hover > .cen {
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
-	height: calc(100% - 150px); /* 縦:100% - 150px */
-	height: -webkit-calc(100% - 100px); /* webkit対策 */
+	height: calc(100% - 120px); /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 120px); /* webkit対策 */
 	width: 300px; /* 横：300px */
 	position: absolute; /* 絶対位置 */
 	bottom: 10px; /* 下から10pxの位置 */
@@ -115,15 +115,14 @@ ul a:hover > .cen {
 }
 
 #tabArea {
-	top: 90px;
-	right: 50px;
+	top: 200px;
+	right: 0;
 	position: absolute; /* 絶対位置 */
 }
 
 .tabmenu {
-	margin: 0 1px 0 0;
+	margin: 0 0 1px 0;
 	padding: 0;
-	float:left; /* リストを横並びに */
 	list-style:none; /* リストの先頭のマークを非表示に */
 }
 
@@ -132,12 +131,12 @@ ul a:hover > .cen {
 	color: black; /* 文字色：黒 */
 	background-color: #CCCCCC; /* 背景：lightGray */
 	text-decoration: none; /* リンクの下線：非表示 */
-	width: 80px;
-	height: 30px;
+	width: 30px;
+	height: 200px;
 	text-align: center; /* 中央寄せ */
 	line-height: 30px; /* 縦方向の中央寄せ */ /* heightと同じ値を指定すると縦方向の中央寄せになる */
 	border-top-left-radius: 5px; /* 左上の角丸：5px */
-	border-top-right-radius: 5px; /* 右上の角丸：5px */
+	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
 
 }
 

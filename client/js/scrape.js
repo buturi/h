@@ -316,11 +316,13 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 							eventData.event[a] = eventData.event[a-1];
 							eventData.event[a-1] = tmp;
 						} else{
-						$(".eventBox:eq("+(a-1)+")").after("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['id']+"</div>");
+	
+							$(".eventBox:eq("+(a-1)+")").after("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div>");
 						break L;
 						}
 					} else{
-						$("#box").prepend("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['id']+"</div>");
+
+						$("#box").prepend("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div>");
 					}
 				}
 				
