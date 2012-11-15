@@ -168,3 +168,7 @@ ul a:hover > .cen {
 	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
 }
 
+html , body , header {
+	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", Osaka-mono, monospace ; /* 文字のフォントを指定 */
+	color: #000000; /* 文字の色を指定 */
+}
