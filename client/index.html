@@ -50,8 +50,8 @@ $(function(){
       <li class="cen">
         <a><!-- <div class="cen"> -->地域センター▼<!-- </div> --></a>
         <ul>
-          <li class="cen">西条地区</li>
-          <li class="cen">高屋地区</li>
+          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.4267515, 132.7437521));"><a href="#">西条地区</a></li><!-- mapCanvas に対して指定した座標で panTo に移動させる, '#' -->
+          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.44793628, 132.78769929));"><a href="#">高屋地区</a></li>
           <li class="cen">志和地区</li>
           <li class="cen">八本松地区</li>
           <li class="cen">河内地区</li>
@@ -63,7 +63,7 @@ $(function(){
       </li>
       <!-- 次の"li"タグを作ると、横に表示される -->
       <li class="cen">
-        <a href="http://sakematsuri.com/">酒まつり</a>
+        <a href="http://higashihiroshima.genki365.net/">市民活動情報サイト</a>
       </li>
       <li class="cen">
         <a href="http://www.city.higashihiroshima.hiroshima.jp/">東広島市役所</a>
