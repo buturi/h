@@ -7,6 +7,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 ul {
@@ -97,16 +98,36 @@ ul a:hover > .cen {
 	padding-top: 20px;
 }
 
-.eventBox {
+.wrapBox {
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
-	width: 250px;
-	margin: 0 0 10px 15px;
+	width: 270px;
+}
+
+.dateBox {
+	font-weight: bold; /* 文字を太字 */
+	height: 50px;
+	width: 50px;
+	margin: 0 0 10px 5px;
 	padding: 5px;
 	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
 	color: rgb(50,50,50); /* 文字色：灰色 */
 	border-radius: 3px; /* 角丸 */
 	cursor: default; /* マウスカーソルを常にデフォルト */
+	float: left;
+}
+
+.eventBox {
+	font-weight: bold; /* 文字を太字 */
+	height: 50px;
+	width: 190px;
+	margin: 0 0 10px 5px;
+	padding: 5px;
+	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
+	color: rgb(50,50,50); /* 文字色：灰色 */
+	border-radius: 3px; /* 角丸 */
+	cursor: default; /* マウスカーソルを常にデフォルト */
+	float: right;
 }
 
 .eventBox:hover {
@@ -145,6 +166,6 @@ ul a:hover > .cen {
 	color: white; /* 文字色：白 */
 	font-weight: bold; /* 太文字 */
 	border-top-left-radius: 5px; /* 左上の角丸：5px */
-	border-top-right-radius: 5px; /* 右上の角丸：5px */
+	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
 }
 
