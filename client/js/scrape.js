@@ -317,12 +317,12 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 							eventData.event[a-1] = tmp;
 						} else{
 	
-							$(".eventBox:eq("+(a-1)+")").after("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div>");
+							$(".eventBox:eq("+(a-1)+")").after("<div class='wrapBox'><div class='dateBox'></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
 						break L;
 						}
 					} else{
 
-						$("#box").prepend("<div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div>");
+						$("#box").prepend("<div class='wrapBox'><div class='dateBox'></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
 					}
 				}
 				
@@ -332,17 +332,6 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
   		});	
 		
     });
-	
-
-	
-
-	/*トレース用の関数*/
-function checkObject(_obj){
-  	for(var key in _obj){
-   	 alert(key +" : "+_obj[key]);
- 	}
-
-}
 
 /*文字から座標を取得する関数 by nohki*/
 /*取得できなければnullが返る*/
@@ -375,50 +364,4 @@ function getLatLng(word,func){
           }
       } );
 }
-/*デバッグ用の関数 http://www.kuma-de.com/blog/2009-10-01/1274 */
-function trace(s){
-  mylog = [];
-  function getIndent(num){
-    var ind = [];
-    while(num){
-      ind.push('  ');
-      num--;
-    }
-    return ind.join('');
-  }
-  function addLog(txt, defaultIndent){
-    var cnt = defaultIndent;
-    //array
-    if((typeof txt == 'object') && (txt instanceof Array)){
-      cnt++;
-      mylog.push('[');
-      for(var i = 0; i < txt.length; i++){
-        mylog.push('\r\n' + getIndent(cnt));
-        addLog(txt[i], cnt);
-        if(i != txt.length - 1){
-          mylog.push(',');
-        }
-      }
-      mylog.push('\r\n' + getIndent(cnt - 1) + ']');
-    //object
-    }else if((typeof txt == 'object')){
-      cnt++;
-      mylog.push('{');
-      for(var i in txt){
-        mylog.push('\r\n' + getIndent(cnt) + i + ':');
-        addLog(txt[i], cnt);
-        mylog.push(',');
-      }
-      mylog.pop();
-      mylog.push('\r\n' + getIndent(cnt - 1) + '}');
-    }else{
-      mylog.push(txt);
-    }
-  }
-  addLog(s, 0);
-  console.log(mylog.join(''));
 
-  //Firebugが入っていなかったらこっち
-  //alert(mylog.join(''));
-  $("#output").text(mylog.join(''));
-};
