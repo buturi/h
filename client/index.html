@@ -16,7 +16,15 @@ window.onload = function() {
     mapCanvas.setCenter(new google.maps.LatLng(34.426709,132.743629));
     mapCanvas.setZoom(11);
     mapCanvas.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+var marker = new GMarker(new GLatLng(35.676148,139.74479));
+map.addOverlay(marker);
 }
+
+
+
+
+
+
 </script>
 <script type="text/javascript"><!-- あとで分離 -->
 $(function(){
@@ -69,7 +77,7 @@ $(function(){
       <li class="cen">
         <a href="http://www.city.higashihiroshima.hiroshima.jp/">東広島市役所</a>
       </li>
-      <li class="cen">
+      <!--<li class="cen">
         <a href="http://www.hiro.kindai.ac.jp/index.html">近畿大学工学部</a>
       </li>
       <li class="cen">
@@ -77,7 +85,7 @@ $(function(){
       </li>
       <li class="cen">
         <a href="http://www.hirokoku-u.ac.jp/">広島国際大学</a>
-      </li>
+      </li>-->
     </ul>
   </div><!-- div id="title" ここまで -->
   </div><!-- div id="bar" ここまで -->
