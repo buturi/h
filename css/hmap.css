@@ -1,0 +1,178 @@
+﻿html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul > .cen {	/* カンマは複数の記述を表すので、内包される意味で'>'を用いる */
+	position: relative;
+	display: inline-block;
+	list-style-type: none;
+	/* 次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html */
+	background: #555;
+	border: #0000ff 1px solid;
+	color: white;
+}
+
+.cen {
+	width: 100px;
+}
+
+ul ul {
+	position: relative;
+	display: none;
+}
+
+ul .cen:hover > ul {
+	display: inline-block;
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	z-index: 9999; /* 最前面に表示 */
+}
+
+/* バーの見出し */
+ul a{
+	display: block;
+	font-size: 16px;
+	color: white; /* 通常時の文字の色 */
+	text-decoration: none; /* 下線なし */
+	cursor: pointer; /* マウスの形をポインター */
+	outline: none;
+}
+
+ul a:hover > .cen {
+	color: red; /* オンマウス時の文字の色 */
+	background-color: #272727;
+}
+
+.cen {
+	width: 150px;
+	height: 30px; /* バーの高さ */
+	line-height: 30px; /* 行間の高さ */
+}
+
+#mapCanvas {
+	position: absolute; /* "debug button"の直下 */
+	width: 100%;
+	height: 100%;
+}
+
+#bar {
+	background-color: #000000;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 100%;
+	z-index: 9999; /* 最前面に表示 */
+}
+
+#title {
+	line-height: 20px;
+	text-align: center;
+	color: #ffffff;
+	background-color: #000000;
+}
+
+#listArea {
+	background-color: white; /* 背景色:白 */
+	border-radius: 5px; /* 角丸 */
+	opacity: 0.8; /* 透過度:80% */
+	height: calc(100% - 120px); /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 120px); /* webkit対策 */
+	width: 300px; /* 横：300px */
+	position: absolute; /* 絶対位置 */
+	bottom: 10px; /* 下から10pxの位置 */
+	right: 50px; /* 右から10pxの位置 */
+	overflow: auto; /* はみ出したらスクロールバーを表示 */
+	padding-top: 20px;
+}
+
+#buttonArea button {
+	
+}
+
+.wrapBox {
+	height: 50px;
+	width: 270px;
+}
+
+.dateBox {
+	font-weight: bold; /* 文字を太字 */
+	height: 50px;
+	width: 50px;
+	margin: 0 0 10px 5px;
+	padding: 5px;
+	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
+	color: rgb(50,50,50); /* 文字色：灰色 */
+	border-radius: 3px; /* 角丸 */
+	cursor: default; /* マウスカーソルを常にデフォルト */
+	float: left;
+}
+
+.eventBox {
+	font-weight: bold; /* 文字を太字 */
+	height: 50px;
+	width: 190px;
+	margin: 0 0 10px 5px;
+	padding: 5px;
+	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
+	color: rgb(50,50,50); /* 文字色：灰色 */
+	border-radius: 3px; /* 角丸 */
+	cursor: default; /* マウスカーソルを常にデフォルト */
+	float: right;
+}
+
+.eventBox:hover {
+	background-color: rgba(0,0,255,0.3);
+	color: rgb(0,0,0); /* 文字色：黒色 */
+}
+
+#tabArea {
+	top: 200px;
+	right: 0;
+	position: absolute; /* 絶対位置 */
+}
+
+.tabmenu {
+	margin: 0 0 1px 0;
+	padding: 0;
+	list-style:none; /* リストの先頭のマークを非表示に */
+}
+
+.tabmenu a {
+	display: inline-block; /* インライン-ブロック要素に変換 */
+	color: black; /* 文字色：黒 */
+	background-color: #CCCCCC; /* 背景：lightGray */
+	text-decoration: none; /* リンクの下線：非表示 */
+	width: 30px;
+	height: 200px;
+	text-align: center; /* 中央寄せ */
+	line-height: 30px; /* 縦方向の中央寄せ */ /* heightと同じ値を指定すると縦方向の中央寄せになる */
+	border-top-left-radius: 5px; /* 左上の角丸：5px */
+	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
+
+}
+
+.active a {
+	background-color: #000000; /* 背景：黒 */
+	color: white; /* 文字色：白 */
+	font-weight: bold; /* 太文字 */
+	border-top-left-radius: 5px; /* 左上の角丸：5px */
+	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
+}
+
+html , body , header {
+	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", Osaka-mono, monospace ; /* 文字のフォントを指定 */
+	color: #000000; /* 文字の色を指定 */
+}
