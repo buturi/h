@@ -371,3 +371,4 @@ function getLatLng(word,func){
       } );
 }
 
+function 

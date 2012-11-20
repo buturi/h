@@ -10,7 +10,7 @@ body {
 	overflow-x: hidden;
 }
 
-ul {
+ul,li {
 	margin: 0;
 	padding: 0;
 }
@@ -98,10 +98,13 @@ ul a:hover > .cen {
 	padding-top: 20px;
 }
 
-#buttonArea button {
-	
+/* 後で実装
+#buttonArea li {
+	width: 80px;
+	height: 40;
+	background-color: lightGray;
 }
-
+*/
 .wrapBox {
 	height: 50px;
 	width: 270px;
@@ -147,6 +150,8 @@ ul a:hover > .cen {
 .tabmenu {
 	margin: 0 0 1px 0;
 	padding: 0;
+	width: 30px;
+	height: 20%;
 	list-style:none; /* リストの先頭のマークを非表示に */
 }
 
@@ -155,8 +160,6 @@ ul a:hover > .cen {
 	color: black; /* 文字色：黒 */
 	background-color: #CCCCCC; /* 背景：lightGray */
 	text-decoration: none; /* リンクの下線：非表示 */
-	width: 30px;
-	height: 200px;
 	text-align: center; /* 中央寄せ */
 	line-height: 30px; /* 縦方向の中央寄せ */ /* heightと同じ値を指定すると縦方向の中央寄せになる */
 	border-top-left-radius: 5px; /* 左上の角丸：5px */
