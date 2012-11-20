@@ -10,7 +10,7 @@ body {
 	overflow-x: hidden;
 }
 
-ul,li {
+ul {
 	margin: 0;
 	padding: 0;
 }
@@ -59,8 +59,10 @@ ul a:hover > .cen {
 
 .cen {
 	width: 150px;
-	height: 30px; /* バーの高さ */
-	line-height: 30px; /* 行間の高さ */
+	/* height < line-height のとき、文字が各メニューの下に寄る */
+	/* height > line-height のとき、文字が各メニューの上に寄る */
+	height: 45px; /* バーの高さ */
+	line-height: 45px; /* 行間の高さ */
 }
 
 #mapCanvas {
@@ -70,7 +72,7 @@ ul a:hover > .cen {
 }
 
 #bar {
-	background-color: #000000;
+	background-color: #006633;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	width: 100%;
@@ -81,7 +83,7 @@ ul a:hover > .cen {
 	line-height: 20px;
 	text-align: center;
 	color: #ffffff;
-	background-color: #000000;
+	background-color: #006633;
 }
 
 #listArea {
@@ -98,13 +100,6 @@ ul a:hover > .cen {
 	padding-top: 20px;
 }
 
-/* 後で実装
-#buttonArea li {
-	width: 80px;
-	height: 40;
-	background-color: lightGray;
-}
-*/
 .wrapBox {
 	height: 50px;
 	width: 270px;
