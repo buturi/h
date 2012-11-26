@@ -1,4 +1,3 @@
-// JavaScript Document
 
 /*
 
@@ -18,7 +17,7 @@
 
 var eventData={"event":new Array()};//グローバル変数､eventDataを定義､最初にイベント群を保持するArrayを定義する
 var j=0;
-var execution=0;
+var str;
 
 /*デバッグ用サイト1*/
 //var domain="http://www7b.biglobe.ne.jp/~pso/tmp/";
@@ -307,7 +306,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				
 				/*eventDataに一時的に作っていたObjectを入れる*/
 				eventData.event.push(tmpEventData);
-				var b = eventData.event.length-1;
+                var b = eventData.event.length-1;
 
 				L: for (a=b;0<=a;a--) {
 					if (0<a) {
@@ -331,8 +330,22 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 						}
 					}
 				}
-				
+
 				j++;
+                var myLatlng = new google.maps.LatLng(35.685867,139.760578);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: mapCanvas,
+                    title:"Hello 大手門!"
+                 }); 
+
+
+
+
+
+
+
+
 			});
 			
   		});	
@@ -370,4 +383,3 @@ function getLatLng(word,func){
           }
       } );
 }
-
