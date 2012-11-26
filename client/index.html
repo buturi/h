@@ -14,15 +14,21 @@ var currentInfoWindow = null;
 window.onload = function() {
     mapCanvas = new google.maps.Map(document.getElementById("mapCanvas"));
     mapCanvas.setCenter(new google.maps.LatLng(34.426709,132.743629));
+    
+
+
+
     mapCanvas.setZoom(11);
     mapCanvas.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-var marker = new GMarker(new GLatLng(35.676148,139.74479));
-map.addOverlay(marker);
 }
 
 
 
-
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title:"Hello 大手門!"
+    }); 
 
 
 </script>

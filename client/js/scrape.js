@@ -1,4 +1,3 @@
-// JavaScript Document
 
 /*
 
@@ -307,7 +306,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				
 				/*eventDataに一時的に作っていたObjectを入れる*/
 				eventData.event.push(tmpEventData);
-				var b = eventData.event.length-1;
+                var b = eventData.event.length-1;
 
 				L: for (a=b;0<=a;a--) {
 					if (0<a) {
@@ -331,8 +330,22 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 						}
 					}
 				}
-				
+
 				j++;
+                var myLatlng = new google.maps.LatLng(35.685867,139.760578);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: mapCanvas,
+                    title:"Hello 大手門!"
+                 }); 
+
+
+
+
+
+
+
+
 			});
 			
   		});	
@@ -370,5 +383,3 @@ function getLatLng(word,func){
           }
       } );
 }
-
-function 
