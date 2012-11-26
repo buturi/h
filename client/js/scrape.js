@@ -17,7 +17,7 @@
 
 var eventData={"event":new Array()};//グローバル変数､eventDataを定義､最初にイベント群を保持するArrayを定義する
 var j=0;
-var execution=0;
+var str;
 
 /*デバッグ用サイト1*/
 //var domain="http://www7b.biglobe.ne.jp/~pso/tmp/";

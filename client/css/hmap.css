@@ -106,6 +106,7 @@ ul a:hover > .cen {
 }
 
 .dateBox {
+	position: relative;
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
 	width: 50px;
@@ -129,11 +130,31 @@ ul a:hover > .cen {
 	border-radius: 3px; /* 角丸 */
 	cursor: default; /* マウスカーソルを常にデフォルト */
 	float: right;
+	-o-text-overflow: ellipsis;
 }
 
 .eventBox:hover {
 	background-color: rgba(0,0,255,0.3);
 	color: rgb(0,0,0); /* 文字色：黒色 */
+}
+
+.month {
+	top 5px;
+	left: 5px;
+	position: absolute;
+}
+
+.split {
+	font-size: 3em;
+	line-height: 50px;
+	text-align: center;
+	position: static;
+}
+
+.date {
+	bottom: 5px;
+	right: 5px;
+	position: absolute;
 }
 
 #tabArea {
