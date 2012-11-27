@@ -9,7 +9,7 @@ GoogleMapやjQuery等のWeb技術を駆使したWebサイトを構築します�
 + 小林: 全体HTML/CSSの定義･デザイン設計他
 + 池部: GoogleMapsAPI他
 + 納城: スクレイピング/全体設計
-+ 渋桑: PHPクローラ/検証データ作成/全体Javascript
++ 渋桑: PHPクローラ/検証データ作成/リスト設計/デザイン/全体Javascript
 
 ライセンス･その他
 -------------
