@@ -320,6 +320,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 							} else {
 								$(".eventBox:eq("+(a-1)+")").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
 							}
+							
 							break L;
 						}
 					} else{
@@ -328,10 +329,11 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 						} else {
 							$("#box").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
 						}
+						
 					}
 				}
-
 				j++;
+
                 var myLatlng = new google.maps.LatLng(35.685867,139.760578);
                 var marker = new google.maps.Marker({
                     position: myLatlng,
@@ -382,4 +384,10 @@ function getLatLng(word,func){
 			  func(null);
           }
       } );
+}
+
+function decorate(a) {
+	if (  eventData.event[a]['date'][0]['from'].getDay() != undefined && eventData.event[a]['date'][0]['from'].getDay()==0 ) {
+		$(".dateBox").addClass("sun");
+	}
 }

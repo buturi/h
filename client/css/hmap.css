@@ -108,8 +108,9 @@ ul a:hover > .cen {
 }
 
 .wrapBox {
-	height: 50px;
+	height: 60px;
 	width: 270px;
+	margin-bottom: 10px;
 }
 
 .dateBox {
@@ -162,6 +163,10 @@ ul a:hover > .cen {
 	bottom: 5px;
 	right: 5px;
 	position: absolute;
+}
+
+.sun {
+	background-color: red;
 }
 
 /*-------------------------------------------------------------------------
