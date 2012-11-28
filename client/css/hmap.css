@@ -86,6 +86,9 @@ ul a:hover > .cen {
 	background-color: #006633;
 }
 
+/*-------------------------------------------------------------------------
+		listArea部分
+-------------------------------------------------------------------------*/
 #listArea {
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
@@ -98,6 +101,10 @@ ul a:hover > .cen {
 	right: 50px; /* 右から10pxの位置 */
 	overflow: auto; /* はみ出したらスクロールバーを表示 */
 	padding-top: 20px;
+}
+
+#buttonArea li {
+	display: inline;
 }
 
 .wrapBox {
@@ -155,6 +162,40 @@ ul a:hover > .cen {
 	bottom: 5px;
 	right: 5px;
 	position: absolute;
+}
+
+/*-------------------------------------------------------------------------
+		information部分
+-------------------------------------------------------------------------*/
+#information {
+	background-color: white; /* 背景色:白 */
+	border-radius: 5px; /* 角丸 */
+	opacity: 0.8; /* 透過度:80% */
+	height: calc(100% - 120px); /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 120px); /* webkit対策 */
+	width: 300px; /* 横：300px */
+	position: absolute; /* 絶対位置 */
+	bottom: 10px; /* 下から10pxの位置 */
+	right: 50px; /* 右から10pxの位置 */
+	overflow: auto; /* はみ出したらスクロールバーを表示 */
+	padding-top: 20px;
+}
+
+/*-------------------------------------------------------------------------
+		twit部分
+-------------------------------------------------------------------------*/
+#twit {
+	background-color: white; /* 背景色:白 */
+	border-radius: 5px; /* 角丸 */
+	opacity: 0.8; /* 透過度:80% */
+	height: calc(100% - 120px); /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 120px); /* webkit対策 */
+	width: 300px; /* 横：300px */
+	position: absolute; /* 絶対位置 */
+	bottom: 10px; /* 下から10pxの位置 */
+	right: 50px; /* 右から10pxの位置 */
+	overflow: auto; /* はみ出したらスクロールバーを表示 */
+	padding-top: 20px;
 }
 
 #tabArea {

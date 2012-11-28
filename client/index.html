@@ -39,8 +39,8 @@ $(function(){
 	$('#tabs div:first div').show();
 	$('#tabs ul .tabmenu:first').addClass('active');
 	 
-	$('#tabs ul .tabmenu a').click(function(){
-		$('#tabs ul .tabmenu').removeClass('active');
+	$('.tabmenu a').click(function(){
+		$('.tabmenu').removeClass('active');
 		$(this).parent().addClass('active');
 		var currentTab = $(this).attr('href');
 		$('#tabs div').hide();
@@ -97,15 +97,15 @@ $(function(){
 
 <div id="tabs">
 <ul id=tabArea>
-	<li class="tabmenu"><a href="listArea">リスト</a></li>
-	<li class="tabmenu"><a href="information">お知らせ</a></li>
-	<li class="tabmenu"><a href="twit">ツイッター<img src="http://buturi.heteml.jp/student/2012/higashihiroshima/twitthis_ico.gif"></a></li>
+	<li class="tabmenu"><a href="#listArea">リスト</a></li>
+	<li class="tabmenu"><a href="#information">お知らせ</a></li>
+	<li class="tabmenu"><a href="#twit">ツイッター<img src="http://buturi.heteml.jp/student/2012/higashihiroshima/twitthis_ico.gif"></a></li>
 </ul>
 <div id="listArea">
 <ul id="buttonArea">
-	<li id="idSort"></button>
-	<li id="dateSort"></button>
-	<li id="weekSort"></button>
+	<li id="dateSort">日付順</li>
+	<li id="areaSort">地区別</li>
+	<li id="weekSort">テスト</li>
 </ul> <!-- #buttonArea -->
 <div id="box"></div>
 </div> <!-- #listArea -->
