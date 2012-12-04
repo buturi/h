@@ -100,11 +100,24 @@ ul a:hover > .cen {
 	bottom: 10px; /* 下から10pxの位置 */
 	right: 50px; /* 右から10pxの位置 */
 	overflow: auto; /* はみ出したらスクロールバーを表示 */
-	padding-top: 20px;
+}
+
+#buttonArea {
+	width: 215px;
+	margin: 10px 0 10px 30px;
+	cursor: default; /* マウスカーソルを常にデフォルト */
 }
 
 #buttonArea li {
-	display: inline;
+	width: 60px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 5px;
+	display: inline-block;
+	background-color: #26E8F2;
+	border-radius: 5px; /* 角丸 */
+	font-weight: bold; /* 文字を太字 */
 }
 
 .wrapBox {
