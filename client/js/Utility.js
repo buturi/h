@@ -1,7 +1,11 @@
-var Utility=function(){
+var Utility=(function(){
 	
+	function Utility(){
+
+	}
+
 	//文字列からDate型に変換する関数
-	this.convertToDate=function(value){
+	Utility.convertToDate=function(value){
 		if(value.indexOf("年")==-1){//年の文字が存在しないときは今の年を適用する
 			value=beforeYear+"/"+value;
 		}else{
@@ -10,12 +14,12 @@ var Utility=function(){
 		}
 		value=value.replace("月", "/"); //月の文字があった場合に/に変換する
 		value=value.split('日')[0];//こうして日より後ろをとっておかないと､Dateに変換できない｡nbspが入っているため
-		value=new Date(numberFullToHalf(value));//validな形式に変換したものを､さらに数値が全角だった場合に半角にし､Dateオブジェクトに変換する
+		value=new Date(Utility.numberFullToHalf(value));//validな形式に変換したものを､さらに数値が全角だった場合に半角にし､Dateオブジェクトに変換する
 		return value;
 	}
 
 	//全角の数字を半角に変換する関数
-	this.numberFullToHalf=function(value){
+	Utility.numberFullToHalf=function(value){
 		var char1 = new Array("１","２","３","４","５","６","７","８","９","０");
 		//半角数字配列
 		var char2 = new Array(1,2,3,4,5,6,7,8,9,0);
@@ -27,7 +31,9 @@ var Utility=function(){
 		}
 		return value;
 	}
-}
+
+return Utility;
+})();
 
 
 

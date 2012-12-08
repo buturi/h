@@ -1,5 +1,8 @@
-var Data = function() {
+var Data = (function() {
 
+	function Data(){
+
+	}
 	//コンストラクタ
 
 	//イベントリストが掲載されている場所のリスト
@@ -182,22 +185,22 @@ var Data = function() {
 		G0000180: { lat: 34.4277969, lng: 132.7400153 }
 	};
 
-	this.getDomainList=function(){
+	Data.getDomainList=function(){
 		return domainList;
-	}
+	};
 
 	//公式サイトに記載されているイベント詳細の記載リストと順番を返す｡公式サイトの順番が変わると不具合発生
-	this.getEventDataArray=function(){
+	Data.getEventDataArray=function(){
 		return ["title","sponsor","image","date","time","limit","place","dammy","capa","target","app","cost","detail","inquiry","url"];
 	};
 
 	//公式サイトに記載されているお知らせ詳細の記載リストと順番を返す
-	this.getInfomationDataArray=function(){
+	Data.getInfomationDataArray=function(){
 		return [];
 	};
 
 	//GIDから座標が入ったオブジェクトを返す
-	this.getLatLngObjectFromGID=function(GID){
+	Data.getLatLngObjectFromGID=function(GID){
 		if(latLngObject[GID]){
 			//存在すれば団体の座標を返す
 			return latLngObject[GID];
@@ -206,8 +209,7 @@ var Data = function() {
 			return { lat: 34.4267526, lng: 132.7437512 };
 		}
 	};
-}
 
-
-//var array=Data.getEventDataArray();
+	return Data;
+})();
 
