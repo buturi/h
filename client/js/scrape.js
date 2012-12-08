@@ -310,6 +310,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 
 eventData.event.push(tmpEventData);
 var b = eventData.event.length-1;
+
 str_title = eventData.event[b]['title'];
 str_title = str_title.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
 str_title = str_title.substring(0, 20);
@@ -338,8 +339,7 @@ L: for (a=b;0<=a;a--) {
 		$("#box").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 	}
 	}
-}
-				j++;
+}			j++;
 
                 var myLatlng = new google.maps.LatLng(35.685867,139.760578);
                 var marker = new google.maps.Marker({
@@ -398,3 +398,4 @@ function decorate(a) {
 		$(".dateBox").addClass("sun");
 	}
 }
+

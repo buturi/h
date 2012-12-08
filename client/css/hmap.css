@@ -103,6 +103,7 @@ ul a:hover > .cen {
 }
 
 #buttonArea {
+	position: fixed;
 	width: 215px;
 	margin: 10px 0 10px 30px;
 	cursor: pointer; /* マウスカーソルを常にデフォルト */
@@ -118,6 +119,10 @@ ul a:hover > .cen {
 	background-color: #26E8F2;
 	border-radius: 5px; /* 角丸 */
 	font-weight: bold; /* 文字を太字 */
+}
+
+#box {
+	margin-top: 50px;
 }
 
 .wrapBox {
