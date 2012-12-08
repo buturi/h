@@ -105,7 +105,7 @@ ul a:hover > .cen {
 #buttonArea {
 	width: 215px;
 	margin: 10px 0 10px 30px;
-	cursor: default; /* マウスカーソルを常にデフォルト */
+	cursor: pointer; /* マウスカーソルを常にデフォルト */
 }
 
 #buttonArea li {
