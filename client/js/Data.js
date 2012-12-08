@@ -188,7 +188,7 @@ var Data = function() {
 	this.getLatLngObjectFromGID=function(GID){
 		if(latLngObject[GID]){
 			//存在すれば団体の座標を返す
-			return latLngObject[GID];		
+			return latLngObject[GID];
 		}else{
 			//存在しない場合は東広島市市役所の座標を返す
 			return { lat: 34.4267526, lng: 132.7437512 };
@@ -196,5 +196,5 @@ var Data = function() {
 	};
 }
 
-var array=Data.getEventDataArray();
+//var array=Data.getEventDataArray();
 
