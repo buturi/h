@@ -10,7 +10,7 @@ var Utility=function(){
 		}
 		value=value.replace("月", "/"); //月の文字があった場合に/に変換する
 		value=value.split('日')[0];//こうして日より後ろをとっておかないと､Dateに変換できない｡nbspが入っているため
-		value=new Date(this.numberFullToHalf(value));//validな形式に変換したものを､さらに数値が全角だった場合に半角にし､Dateオブジェクトに変換する
+		value=new Date(numberFullToHalf(value));//validな形式に変換したものを､さらに数値が全角だった場合に半角にし､Dateオブジェクトに変換する
 		return value;
 	}
 
