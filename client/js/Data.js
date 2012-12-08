@@ -1,10 +1,11 @@
 var Data = (function() {
 
+	//コンストラクタ
 	function Data(){
 
 	}
-	//コンストラクタ
 
+	//static
 	//イベントリストが掲載されている場所のリスト
 	var domainList=[
 	"http://buturi.heteml.jp/student/higashihiroshima/",
