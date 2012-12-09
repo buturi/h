@@ -161,6 +161,7 @@ ul a:hover > .cen {
 }
 
 .eventBox {
+	position: relative;
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
 	width: 190px;
@@ -208,7 +209,7 @@ ul a:hover > .cen {
 }
 
 .sat {
-	background-color: blue;
+	background-color: rgb(0,68,204);
 }
 
 .ordinary {
