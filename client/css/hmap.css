@@ -138,7 +138,6 @@ ul a:hover > .cen {
 	width: 50px;
 	margin: 0 0 10px 5px;
 	padding: 5px;
-	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
 	color: rgb(50,50,50); /* 文字色：灰色 */
 	border-radius: 3px; /* 角丸 */
 	cursor: default; /* マウスカーソルを常にデフォルト */
@@ -191,6 +190,15 @@ ul a:hover > .cen {
 .sun {
 	background-color: red;
 }
+
+.sat {
+	background-color: blue;
+}
+
+.ordinary {
+	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
+}
+
 
 /*-------------------------------------------------------------------------
 		information部分

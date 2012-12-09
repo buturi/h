@@ -404,11 +404,23 @@ function appearBox() {
 		var sph = "#box";
 	}
 
-	if ( eventData.event[a]['date'][0] == undefined || eventData.event[a]['date'][0]['from'] == "Invalid Date") {
+	if ( eventData.event[a]['date'][0] == undefined || eventData.event[a]['date'][0]['from'] == "Invalid Date") { //日付が入ってない場合
 		var test = "</div>";
+		week = "ordinary";
 	} else {
 		var test = "<div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div>";
+
+		switch ( eventData.event[a]['date'][0]['from'].getDay() ){
+			case 0:
+				week = "sun";
+				break;
+			case 1:
+				week = "sat";
+				break;
+			default:
+				week = "ordinary";
+		}
 	}
 
-	$(sph).after("<div class='wrapBox'><div class='dateBox'>"+test+"<div class='eventBox' onClick='moveMap("+j+")'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
+	$(sph).after("<div class='wrapBox'><div class='dateBox "+week+"'>"+test+"<div class='eventBox' onClick='moveMap("+j+")'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 }
