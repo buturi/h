@@ -36,6 +36,7 @@ var HigashiEventData=(function(){
 		//リスト詳細を受信完了時毎に実行されるメソッド
 		//TODO _sortFunctionを用いて適切な場所に入れる｡入れば_callbackFunctionに返す
 		var _onReceive=function(eventObject){
+			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
 			alert("tes"+eventObject.id);
 			try{
