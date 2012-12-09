@@ -6,7 +6,15 @@ $(function() {
 	function onReceive(){
 		alert("ok!!")
 	}
-	function SortByID(){
 
+	//TODO sort実装
+	function SortByID(a,b){
+		if(a.id>b.id){
+			return 1;
+		}else if(a.id<b.id){
+			return -1;
+		}else{
+			return 0;
+		}
 	}
 });
