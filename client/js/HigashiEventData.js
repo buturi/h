@@ -10,6 +10,8 @@ var HigashiEventData=(function(){
 		var _domain;
 		//イベントリストの種類を保持する｡これは公式サイトの引数と同じ
 		var _listID;
+		//ページに存在する項目のリストを格納する
+		var _pageDataArray;
 		//イベントリストを保持する
 		var _eventData;
 		//ソート用の関数を保持する｡sort()の引数と同じ仕様とする
@@ -28,6 +30,7 @@ var HigashiEventData=(function(){
 		_eventData={"event":new Array()};
 		_sortFunction=sortFunction;
 		_callbackFunction=callbackFunction;
+		
 
 		/*------------------------------
 			Private Instance Method
@@ -36,14 +39,20 @@ var HigashiEventData=(function(){
 		//リスト詳細を受信完了時毎に実行されるメソッド
 		//TODO _sortFunctionを用いて適切な場所に入れる｡入れば_callbackFunctionに返す
 		var _onReceive=function(eventObject){
+
+			//以下暫定設定
+			_eventData.event.push(eventObject);
+			var position=0;
+			//以上暫定設定
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
 			alert("tesst"+eventObject.id);
 			try{
 				if(_callbackFunction){
-					_callbackFunction(/*挿入位置,Number型*/);
+					_callbackFunction(eventObject,position);
 				}
 			}catch(e){
+				console.log(e);
 			}
 			
 		}
@@ -70,7 +79,7 @@ var HigashiEventData=(function(){
 			if(callbackFunction){
 				_callbackFunction=callbackFunction;
 			}
-
+			_pageDataArray=Data.getPageDataArray(_listID);
 			/*スクレイピング処理*/
 
 			$.get(_domain+"content_search.php?type="+_listID+"&sort=5&select_class=1&select_code1=1",function(data){
@@ -93,10 +102,10 @@ var HigashiEventData=(function(){
 						/*それぞれの部分に対して繰り返し処理を行い､相当するObjectの属性へ配置*/
 						
 						detailContent.each(function(i){
-							//alert(eventDataArray[i]);
+							//alert(_pageDataArray[i]);
 							/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
-		                    var eventDataArray=Data.getPageDataArray(_listID);
-							tmpEventData[eventDataArray[i]]=$(this).text();
+		                    
+							tmpEventData[_pageDataArray[i]]=$(this).text();
 							
 						});
 						
@@ -104,8 +113,8 @@ var HigashiEventData=(function(){
 						/*複数日程記述時に､分離･記憶する必要がある*/
 
 						if(tmpEventData["date"]){
-							tmpEventData["date"]=Date.getDateArrayFromString(tmpEventData["date"])
-							if (tmpDateArray[0] && new Date().getTime() - tmpDateArray[tmpDateArray.length - 1]["to"].getTime() > 1000 * 60 * 60 * 24 * 7) {
+							tmpEventData["date"]=Utility.getDateArrayFromString(tmpEventData["date"])
+							if (tmpEventData["date"][0] && new Date().getTime() - tmpEventData["date"][tmpEventData["date"].length - 1]["to"].getTime() > 1000 * 60 * 60 * 24 * 7) {
 								return;
 							}
 						}
@@ -118,8 +127,9 @@ var HigashiEventData=(function(){
 								tmpEventData["latLng"]={"lat":34.426744,"lng":132.743763};
 							}
 						});
+						_onReceive(tmpEventData);
 					});
-					_onReceive(tmpEventData);
+					
 				});
 			});
 

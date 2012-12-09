@@ -56,5 +56,31 @@ var Utility=(function(){
              	}
              });
 	}
+
+	Utility.getDateArrayFromString=function(dateString){
+		var beforeYear=new Date().getYear();//年が記述されていない場合は今の年を使う
+		var tmpDate=dateString.split('、');
+		var tmpDateArray=new Array();
+		
+		for(var dateData in tmpDate) {
+			var dateDataSplit=tmpDate[dateData].split('から');
+			var dateObject=new Object();
+				dateObject["from"]=Utility.convertToDate(dateDataSplit[0]);
+			if(dateDataSplit[1]){
+				dateObject["to"]=Utility.convertToDate(dateDataSplit[1]);
+			}else{
+				dateObject["to"]=dateObject["from"];
+			}
+			
+			if(dateObject["from"] == "Invalid Date"){
+				continue;	//きちんとした日時が設定できなければ､この日時はなかったことにする｡時々ある｡｢時刻､時刻､｣とか
+			}
+			tmpDateArray.push(dateObject);
+			//$('#output').append('<div>'+dateObject["from"]+'-'+dateObject["to"]+'</div>');
+				
+		}
+		return tmpDateArray;
+	}
+
 	return Utility;
 })();
