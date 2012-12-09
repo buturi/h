@@ -38,7 +38,7 @@ var HigashiEventData=(function(){
 		var _onReceive=function(eventObject){
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
-			alert("tes"+eventObject.id);
+			alert("tesst"+eventObject.id);
 			try{
 				if(_callbackFunction){
 					_callbackFunction(/*挿入位置,Number型*/);
@@ -102,37 +102,13 @@ var HigashiEventData=(function(){
 						
 						/*String型の年月日をDate型に変換する*/
 						/*複数日程記述時に､分離･記憶する必要がある*/
-						
-						var beforeYear=new Date().getYear();//年が記述されていない場合は今の年を使う
-						
-						var tmpDate=tmpEventData["date"].split('、');
-						var tmpDateArray=new Array();
-						
-						for(var dateData in tmpDate) {
-		
 
-							var dateDataSplit=tmpDate[dateData].split('から');
-							var dateObject=new Object();
-								dateObject["from"]=Utility.convertToDate(dateDataSplit[0]);
-							if(dateDataSplit[1]){
-								dateObject["to"]=Utility.convertToDate(dateDataSplit[1]);
-							}else{
-								dateObject["to"]=dateObject["from"];
+						if(tmpEventData["date"]){
+							tmpEventData["date"]=Date.getDateArrayFromString(tmpEventData["date"])
+							if (tmpDateArray[0] && new Date().getTime() - tmpDateArray[tmpDateArray.length - 1]["to"].getTime() > 1000 * 60 * 60 * 24 * 7) {
+								return;
 							}
-							
-							if(dateObject["from"] == "Invalid Date"){
-								continue;	//きちんとした日時が設定できなければ､この日時はなかったことにする｡時々ある｡｢時刻､時刻､｣とか
-							}
-							tmpDateArray.push(dateObject);
-							//$('#output').append('<div>'+dateObject["from"]+'-'+dateObject["to"]+'</div>');
-								
 						}
-						if (tmpDateArray[0] && new Date().getTime() - tmpDateArray[tmpDateArray.length - 1]["to"].getTime() > 1000 * 60 * 60 * 24 * 7) {
-							return;
-						}
-						
-						tmpEventData["date"]=tmpDateArray;
-						
 						
 						//他の絞り込みが必要
 						Utility.getLatLng("東広島 "+tmpEventData["place"],function(latLng){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む

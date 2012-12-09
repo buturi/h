@@ -12,9 +12,11 @@ var Data = (function() {
 		"http://buturi.heteml.jp/student/2012/nohki/higashi/"
 	];
 
+	//リストページがもつリストデータオブジェクト
 	var pageDataArrayList={
 		Event:["title","sponsor","image","date","time","limit","place","dammy","capa","target","app","cost","detail","inquiry","url"],
-		Information:[]
+		Recruitment:["title","recruitment","image","date","deadline","place","map","persons","orientation","cot","app","detail","url","inquiry"],
+		Information:["title","content","image","map","attach","url","inquiry"]
 	}
 
 	//地域センターの座標を持つオブジェクト。119だけなぜか重複｡注意｡
@@ -201,10 +203,13 @@ var Data = (function() {
 		switch(listID){
 			case 11:
 				return pageDataArrayList["Event"];
-			break;
+				break;
+			case 31:
+				return pageDataArrayList["Recruitment"];
+				break;
 			case 51:
 				return pageDataArrayList["Information"];
-			break;
+				break;
 			default:
 				return [];
 		}

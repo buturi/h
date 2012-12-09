@@ -1,6 +1,6 @@
 $(function() {
 	var eventData=new HigashiEventData();
-	eventData.load(SortByID,onReceive,11);
+	eventData.load(SortByID,onReceive,51);
 
 
 	function onReceive(eventObject,position){
@@ -34,6 +34,10 @@ $(function() {
 	//TODO sort実装
 	function SortByID(a,b){
 		return a.id - b.id;
-		}
 	}
 });
+
+//リストオブジェクト化案
+//挿入(eventObject,position)
+//ソート(sort)
+//交換(eventObjectArray)
