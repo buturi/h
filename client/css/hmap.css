@@ -1,4 +1,9 @@
-﻿html {
+﻿html , body , header {
+	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", Osaka-mono, monospace ; /* 文字のフォントを指定 */
+	color: #000000; /* 文字の色を指定 */
+}
+
+html {
 	width: 100%;
 	height: 100%;
 }
@@ -16,22 +21,20 @@ ul {
 }
 
 ul > .cen {	/* カンマは複数の記述を表すので、内包される意味で'>'を用いる */
+	width: 150px;
 	position: relative;
 	display: inline-block;
 	list-style-type: none;
-	/* 次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html */
+	/* 次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html(スタイル："background: #555;") */
 	background: #555;
-	border: #0000ff 1px solid;
+	padding-bottom: 5px;
 	color: white;
-}
-
-.cen {
-	width: 100px;
 }
 
 ul ul {
 	position: relative;
 	display: none;
+	background-color: #999;
 }
 
 ul .cen:hover > ul {
@@ -73,8 +76,6 @@ ul a:hover > .cen {
 
 #bar {
 	background-color: #ffffff;
-	padding-top: 5px;
-	padding-bottom: 5px;
 	width: 100%;
 	z-index: 9999; /* 最前面に表示 */
 }
@@ -83,7 +84,22 @@ ul a:hover > .cen {
 	line-height: 20px;
 	text-align: center;
 	color: #ffffff;
-	background-color: #006633;
+	background-color: #6F9;
+}
+
+/* 上端のバーの色 */
+#topbar {
+	width: 100%;
+	height: 50px;
+	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
+	/* Firefox用(左から順に、方向・開始色・終了色) */
+	background: -moz-linear-gradient(left top, rgb(229,255,221), rgb(180,209,192));
+	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(229,255,221)), to(rgb(180,209,192)));
+	padding-bottom: 5px;
+	padding-top: 5px;
+	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
+	box-shadow: 1px 1px 5px #aaa; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 }
 
 /*-------------------------------------------------------------------------
@@ -264,9 +280,4 @@ ul a:hover > .cen {
 	font-weight: bold; /* 太文字 */
 	border-top-left-radius: 5px; /* 左上の角丸：5px */
 	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
-}
-
-html , body , header {
-	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", Osaka-mono, monospace ; /* 文字のフォントを指定 */
-	color: #000000; /* 文字の色を指定 */
 }
