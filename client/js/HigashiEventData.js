@@ -160,6 +160,10 @@ var HigashiEventData=(function(){
 			/*ソート処理*/
 
 		}
+
+		this.size=function(){
+			return _eventData.event.length
+		}
 	};
 
 	return HigashiEventData;

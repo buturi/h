@@ -3,7 +3,8 @@ $(function() {
 	eventData.load(SortByID,onReceive,11);
 
 
-	function onReceive(){
+	function onReceive(position){
+		//項目を挿入する
 		alert("ok!!")
 	}
 
