@@ -35,7 +35,7 @@ var Utility=(function(){
 
 	//文字から座標を取得する関数 by nohki
 	//取得できなければnullが返る
-	function getLatLng(word,func){
+	Utility.getLatLng=function(word,func){
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode({
 			address: word,

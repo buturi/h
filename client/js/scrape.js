@@ -232,6 +232,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				detailContent.each(function(i){
 					//alert(eventDataArray[i]);
 					/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
+                    var eventDataArray=Data.getPageDataArray();
 					tmpEventData[eventDataArray[i]]=$(this).text();
 					
 				});

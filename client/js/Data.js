@@ -8,9 +8,14 @@ var Data = (function() {
 	//static
 	//イベントリストが掲載されている場所のリスト
 	var domainList=[
-	"http://buturi.heteml.jp/student/higashihiroshima/",
-	"http://buturi.heteml.jp/student/2012/nohki/higashi/"
+		"http://buturi.heteml.jp/student/higashihiroshima/",
+		"http://buturi.heteml.jp/student/2012/nohki/higashi/"
 	];
+
+	var pageDataArrayList={
+		Event:["title","sponsor","image","date","time","limit","place","dammy","capa","target","app","cost","detail","inquiry","url"],
+		Information:[]
+	}
 
 	//地域センターの座標を持つオブジェクト。119だけなぜか重複｡注意｡
 	var latLngObject={
@@ -186,18 +191,23 @@ var Data = (function() {
 		G0000180: { lat: 34.4277969, lng: 132.7400153 }
 	};
 
+	//リストを取得するドメインを取得する｡配列を返す
 	Data.getDomainList=function(){
 		return domainList;
 	};
 
-	//公式サイトに記載されているイベント詳細の記載リストと順番を返す｡公式サイトの順番が変わると不具合発生
-	Data.getEventDataArray=function(){
-		return ["title","sponsor","image","date","time","limit","place","dammy","capa","target","app","cost","detail","inquiry","url"];
-	};
-
-	//公式サイトに記載されているお知らせ詳細の記載リストと順番を返す
-	Data.getInfomationDataArray=function(){
-		return [];
+	//公式サイトに記載されているイベント詳細の記載リストと順番を返す｡公式サイトの順番が変わると不具合発生｡配列を返す
+	Data.getPageDataArray=function(listID){
+		switch(listID){
+			case 11:
+				return pageDataArrayList["Event"];
+			break;
+			case 51:
+				return pageDataArrayList["Information"];
+			break;
+			default:
+				return [];
+		}
 	};
 
 	//GIDから座標が入ったオブジェクトを返す
