@@ -9,12 +9,7 @@ $(function() {
 
 	//TODO sort実装
 	function SortByID(a,b){
-		if(a.id>b.id){
-			return 1;
-		}else if(a.id<b.id){
-			return -1;
-		}else{
-			return 0;
+		return a.id - b.id;
 		}
 	}
 });
