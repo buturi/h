@@ -8,6 +8,7 @@ var Utility=(function(){
 	//static
 	//文字列からDate型に変換する関数
 	Utility.convertToDate=function(value){
+
 		if(value.indexOf("年")==-1){//年の文字が存在しないときは今の年を適用する
 			value=beforeYear+"/"+value;
 		}else{
@@ -27,6 +28,7 @@ var Utility=(function(){
 		while(value.match(/[０-９]/)){     	//入力データに全角数字がある場合
 			for(var count = 0; count < char1.length; count++){
 				//入力データを全角数字から半角数字に置換する
+
 				value = value.replace(char1[count], char2[count]);
 			}
 		}

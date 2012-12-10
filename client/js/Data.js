@@ -225,7 +225,7 @@ var Data = (function() {
 			return { lat: 34.4267526, lng: 132.7437512 };
 		}
 	};
-
 	return Data;
 })();
+
 
