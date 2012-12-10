@@ -46,7 +46,6 @@ var HigashiEventData=(function(){
 			//以上暫定設定
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
-			alert("tesst"+eventObject.id);
 			try{
 				if(_callbackFunction){
 					_callbackFunction(eventObject,position);

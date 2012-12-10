@@ -13,12 +13,6 @@ var EventData=(function(){
 		//リスト詳細データ読み込み完了毎に呼び出される関数を保持する
 		var _callbackFunction;
 
-		/*------------------------------
-			Constructor
-		------------------------------*/
-		_eventData={"event":new Array()};
-		_sortFunction=sortFunction;
-		_callbackFunction=callbackFunction;
 
 		/*------------------------------
 			Private Instance Method
@@ -63,6 +57,15 @@ var EventData=(function(){
 			/*ソート処理*/
 
 		}
+
+		/*------------------------------
+			Constructor
+		------------------------------*/
+		_eventData={"event":new Array()};
+		_sortFunction=sortFunction;
+		_callbackFunction=callbackFunction;
+
+
 	};
 
 	return EventData;

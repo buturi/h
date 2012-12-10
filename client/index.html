@@ -2,15 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>東広島EventMap(あ)</title>
+<title>東広島EventMap</title>
 <link rel="stylesheet" href="css/hmap.css">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="js/jquery.xdomainajax.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript" src="https://raw.github.com/padolsey/jQuery-Plugins/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
 
 
 <script type="text/javascript" src="js/Data.js"></script>
 <script type="text/javascript" src="js/Utility.js"></script>
+<script type="text/javascript" src="js/GMap.js"></script>
+<script type="text/javascript" src="js/SideList.js"></script>
 <!-- <script type="text/javascript" src="js/EventData.js"></script> -->
 <script type="text/javascript" src="js/HigashiEventData.js"></script>
 <script type="text/javascript" src="js/Main.js"></script>
@@ -19,14 +21,7 @@
 var mapCanvas;
 var currentInfoWindow = null;
 window.onload = function() {
-    mapCanvas = new google.maps.Map(document.getElementById("mapCanvas"));
-    mapCanvas.setCenter(new google.maps.LatLng(34.426709,132.743629));
-    
 
-
-
-    mapCanvas.setZoom(11);
-    mapCanvas.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 }
 
 
@@ -67,15 +62,15 @@ $(function(){
         <a><!-- <div class="cen"> -->地域センター▼<!-- </div> --></a>
         <ul>
           <!-- mapCanvas に対して指定した座標で panTo に移動させる, '#'：同じファイル内の特定位置にジャンプ(http://www.tohoho-web.com/html/a.htm より) -->
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.4267515, 132.7437521));"><a href="#">西条地区</a></li>
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.4479755, 132.7878226));"><a href="#">高屋地区</a></li>
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.4992208, 132.6602356));"><a href="#">志和地区</a></li>
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.4407862, 132.6921863));"><a href="#">八本松地区</a></li>
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.47223, 132.8883641));"><a href="#">河内地区</a></li>
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.5361797, 132.7781991));"><a href="#">福富地区</a></li>
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.5633558, 132.8248603));"><a href="#">豊栄地区</a></li>
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.3247474, 132.6762842));"><a href="#">黒瀬地区</a></li>
-          <li class="cen" onClick="javascript:mapCanvas.panTo(new google.maps.LatLng(34.3196117, 132.8136826));"><a href="#">安芸津地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4267515, 132.7437521));"><a href="#">西条地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4479755, 132.7878226));"><a href="#">高屋地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4992208, 132.6602356));"><a href="#">志和地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4407862, 132.6921863));"><a href="#">八本松地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.47223, 132.8883641));"><a href="#">河内地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5361797, 132.7781991));"><a href="#">福富地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5633558, 132.8248603));"><a href="#">豊栄地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3247474, 132.6762842));"><a href="#">黒瀬地区</a></li>
+          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3196117, 132.8136826));"><a href="#">安芸津地区</a></li>
         </ul><!-- "地域センター" の ul タグここまで -->
       </li><!-- "地域センター" の li タグここまで -->
       <!-- 次の li タグを作ると、横に表示される -->
@@ -114,7 +109,7 @@ $(function(){
 <div id="information"></div> <!-- #information -->
 <div id="twit">
 <a class="twitter-timeline"  href="https://twitter.com/search?q=%E6%9D%B1%E5%BA%83%E5%B3%B6" data-widget-id="277432419341189121">東広島 に関するツイート</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
 </div> <!-- #twit -->
 </div> <!-- #tabs -->
 </body>
