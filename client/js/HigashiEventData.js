@@ -19,17 +19,6 @@ var HigashiEventData=(function(){
 		//リスト詳細データ読み込み完了毎に呼び出される関数を保持する
 		var _callbackFunction;
 
-		/*------------------------------
-			Constructor
-		------------------------------*/
-		//スーパクラスのコンストラクタ実行 現在は継承関係にないので必要なし
-		//EventData.apply(this, arguments);
-		//初期化処理
-		_domain=Data.getDomainList()[0];
-		_listID=listID;
-		_eventData={"event":new Array()};
-		_sortFunction=sortFunction;
-		_callbackFunction=callbackFunction;
 		
 
 		/*------------------------------
@@ -102,7 +91,6 @@ var HigashiEventData=(function(){
 						/*それぞれの部分に対して繰り返し処理を行い､相当するObjectの属性へ配置*/
 						
 						detailContent.each(function(i){
-							//alert(_pageDataArray[i]);
 							/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
 		                    
 							tmpEventData[_pageDataArray[i]]=$(this).text();
@@ -153,6 +141,19 @@ var HigashiEventData=(function(){
 		this.size=function(){
 			return _eventData.event.length
 		}
+
+		/*------------------------------
+			Constructor
+		------------------------------*/
+		//スーパクラスのコンストラクタ実行 現在は継承関係にないので必要なし
+		//EventData.apply(this, arguments);
+		//初期化処理
+		_domain=Data.getDomainList()[0];
+		_listID=listID;
+		_eventData={"event":new Array()};
+		_sortFunction=sortFunction;
+		_callbackFunction=callbackFunction;
+
 	};
 
 	return HigashiEventData;
