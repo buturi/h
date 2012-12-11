@@ -36,10 +36,7 @@ var GMap=(function(){
 			_mapCanvas.panTo(latLng);
 		}
 
-		//指定のリストが示す座標へ移動する
-		this.moveMap=function(x){
-				mapCanvas.panTo(new google.maps.LatLng(eventData.event[x]['latLng']['lat'],eventData.event[x]['latLng']['lng']));
-		}
+
 
 		/*------------------------------
 			Constructor
