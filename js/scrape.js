@@ -232,6 +232,7 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				detailContent.each(function(i){
 					//alert(eventDataArray[i]);
 					/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
+                    var eventDataArray=Data.getPageDataArray();
 					tmpEventData[eventDataArray[i]]=$(this).text();
 					
 				});
@@ -305,47 +306,53 @@ var domain="http://buturi.heteml.jp/student/higashihiroshima/";
 				});
 				
 				/*eventDataに一時的に作っていたObjectを入れる*/
-				eventData.event.push(tmpEventData);
-                var b = eventData.event.length-1;
-
-				L: for (a=b;0<=a;a--) {
-					if (0<a) {
-						if (eventData.event[a-1]["id"] < eventData.event[a]["id"]) { // id順に並び替え
-							var tmp = eventData.event[a];
-							eventData.event[a] = eventData.event[a-1];
-							eventData.event[a-1] = tmp;
-						} else{
-							if ( eventData.event[a]['date'][0] == undefined  || eventData.event[a]['date'][0]['from'] == "Invalid Date") {
-								$(".eventBox:eq("+(a-1)+")").after("<div class='wrapBox'><div class='dateBox'></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
-							} else {
-								$(".eventBox:eq("+(a-1)+")").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
-							}
-							break L;
-						}
-					} else{
-						if ( eventData.event[a]['date'][0] == undefined  || eventData.event[a]['date'][0]['from'] == "Invalid Date") {
-							$("#box").after("<div class='wrapBox'><div class='dateBox'></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
-						} else {
-							$("#box").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+eventData.event[a]['title']+"</div></div>");
-						}
-					}
-				}
-
-				j++;
-                var myLatlng = new google.maps.LatLng(35.685867,139.760578);
-                var marker = new google.maps.Marker({
-                    position: myLatlng,
-                    map: mapCanvas,
-                    title:"Hello 大手門!"
-                 }); 
 
 
 
+eventData.event.push(tmpEventData);
+var b = eventData.event.length-1;
 
+str_title = eventData.event[b]['title'];
+str_title = str_title.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
+str_title = str_title.substring(0, 20);
 
+str_sponsor = eventData.event[b]['sponsor'];
+str_sponsor = str_sponsor.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
+str_sponsor = str_sponsor.substring(0, 10);
+L: for (a=b;0<=a;a--) {
+	if (0<a) {
+		if (eventData.event[a-1]["id"] < eventData.event[a]["id"]) { // id順に並び替え
+			tmp = eventData.event[a];
+			eventData.event[a] = eventData.event[a-1];
+			eventData.event[a-1] = tmp;
+		} else{
+			appearBox();
+			break L;
+		}
+	} else{
+		appearBox();
+	}
+}
 
+/*------------------------------------お知らせ Boxを出力---------------------------------------------------------------------
+L: for (a=b;0<=a;a--) {
+	if (0<a) {
+		if (eventData.event[a-1]["id"] < eventData.event[a]["id"]) { // id順に並び替え
+			var tmp = eventData.event[a];
+			eventData.event[a] = eventData.event[a-1];
+			eventData.event[a-1] = tmp;
+		} else{
+			$(".eventBox:eq("+(a-1)+")").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
+			}
+		break L;
+		}
+	} else{
+		$("#box").after("<div class='wrapBox'><div class='dateBox'><div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div><div class='eventBox' onClick='moveMap("+j+")'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------*/
 
-
+j++;
 			});
 			
   		});	
@@ -382,4 +389,39 @@ function getLatLng(word,func){
 			  func(null);
           }
       } );
+}
+
+function decorate(a) {
+	if (  eventData.event[a]['date'][0]['from'].getDay() != undefined && eventData.event[a]['date'][0]['from'].getDay()==0 ) {
+		$(".dateBox").addClass("sun");
+	}
+}
+
+
+function appearBox() {
+	if ( 0<a ) {
+		var sph = ".eventBox:eq("+(a-1)+")";
+	} else {
+		var sph = "#box";
+	}
+
+	if ( eventData.event[a]['date'][0] == undefined || eventData.event[a]['date'][0]['from'] == "Invalid Date") { //日付が入ってない場合
+		var test = "</div>";
+		week = "ordinary";
+	} else {
+		var test = "<div class='month'>"+(eventData.event[a]['date'][0]['from'].getMonth()+1)+"</div><div class='split'>/</div><div class='date'>"+eventData.event[a]['date'][0]['from'].getDate()+"</div></div>";
+
+		switch ( eventData.event[a]['date'][0]['from'].getDay() ){
+			case 0:
+				week = "sun";
+				break;
+			case 1:
+				week = "sat";
+				break;
+			default:
+				week = "ordinary";
+		}
+	}
+
+	$(sph).after("<div class='wrapBox'><div class='dateBox "+week+"'>"+test+"<div class='eventBox' onClick='moveMap("+j+")'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 }

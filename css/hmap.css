@@ -1,4 +1,9 @@
-﻿html {
+﻿html , body , header {
+	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", Osaka-mono, monospace ; /* 文字のフォントを指定 */
+	color: #000000; /* 文字の色を指定 */
+}
+
+html {
 	width: 100%;
 	height: 100%;
 }
@@ -16,22 +21,20 @@ ul {
 }
 
 ul > .cen {	/* カンマは複数の記述を表すので、内包される意味で'>'を用いる */
+	width: 150px;
 	position: relative;
 	display: inline-block;
 	list-style-type: none;
-	/* 次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html */
+	/* 次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html(スタイル："background: #555;") */
 	background: #555;
-	border: #0000ff 1px solid;
+	padding-bottom: 5px;
 	color: white;
-}
-
-.cen {
-	width: 100px;
 }
 
 ul ul {
 	position: relative;
 	display: none;
+	background-color: #999;
 }
 
 ul .cen:hover > ul {
@@ -73,8 +76,6 @@ ul a:hover > .cen {
 
 #bar {
 	background-color: #ffffff;
-	padding-top: 5px;
-	padding-bottom: 5px;
 	width: 100%;
 	z-index: 9999; /* 最前面に表示 */
 }
@@ -83,9 +84,27 @@ ul a:hover > .cen {
 	line-height: 20px;
 	text-align: center;
 	color: #ffffff;
-	background-color: #006633;
+	background-color: #6F9;
 }
 
+/* 上端のバーの色 */
+#topbar {
+	width: 100%;
+	height: 50px;
+	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
+	/* Firefox用(左から順に、方向・開始色・終了色) */
+	background: -moz-linear-gradient(left top, rgb(229,255,221), rgb(180,209,192));
+	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(229,255,221)), to(rgb(180,209,192)));
+	padding-bottom: 5px;
+	padding-top: 5px;
+	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
+	box-shadow: 1px 1px 5px #aaa; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
+}
+
+/*-------------------------------------------------------------------------
+		listArea部分
+-------------------------------------------------------------------------*/
 #listArea {
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
@@ -97,12 +116,35 @@ ul a:hover > .cen {
 	bottom: 10px; /* 下から10pxの位置 */
 	right: 50px; /* 右から10pxの位置 */
 	overflow: auto; /* はみ出したらスクロールバーを表示 */
-	padding-top: 20px;
+}
+
+#buttonArea {
+	position: fixed;
+	width: 215px;
+	margin: 10px 0 10px 30px;
+	cursor: pointer; /* マウスカーソルを常にデフォルト */
+}
+
+#buttonArea li {
+	width: 60px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 5px;
+	display: inline-block;
+	background-color: #26E8F2;
+	border-radius: 5px; /* 角丸 */
+	font-weight: bold; /* 文字を太字 */
+}
+
+#box {
+	margin-top: 50px;
 }
 
 .wrapBox {
-	height: 50px;
+	height: 60px;
 	width: 270px;
+	margin-bottom: 10px;
 }
 
 .dateBox {
@@ -112,7 +154,6 @@ ul a:hover > .cen {
 	width: 50px;
 	margin: 0 0 10px 5px;
 	padding: 5px;
-	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
 	color: rgb(50,50,50); /* 文字色：灰色 */
 	border-radius: 3px; /* 角丸 */
 	cursor: default; /* マウスカーソルを常にデフォルト */
@@ -120,6 +161,7 @@ ul a:hover > .cen {
 }
 
 .eventBox {
+	position: relative;
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
 	width: 190px;
@@ -136,6 +178,11 @@ ul a:hover > .cen {
 .eventBox:hover {
 	background-color: rgba(0,0,255,0.3);
 	color: rgb(0,0,0); /* 文字色：黒色 */
+}
+
+.sponsorBox {
+	text-align: right;
+	color: rgb(100,100,100); /* 文字色：灰色 */
 }
 
 .month {
@@ -155,6 +202,51 @@ ul a:hover > .cen {
 	bottom: 5px;
 	right: 5px;
 	position: absolute;
+}
+
+.sun {
+	background-color: red;
+}
+
+.sat {
+	background-color: rgb(0,68,204);
+}
+
+.ordinary {
+	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
+}
+
+
+/*-------------------------------------------------------------------------
+		information部分
+-------------------------------------------------------------------------*/
+#information {
+	background-color: white; /* 背景色:白 */
+	border-radius: 5px; /* 角丸 */
+	opacity: 0.8; /* 透過度:80% */
+	height: calc(100% - 120px); /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 120px); /* webkit対策 */
+	width: 300px; /* 横：300px */
+	position: absolute; /* 絶対位置 */
+	bottom: 10px; /* 下から10pxの位置 */
+	right: 50px; /* 右から10pxの位置 */
+	overflow: auto; /* はみ出したらスクロールバーを表示 */
+}
+
+/*-------------------------------------------------------------------------
+		twit部分
+-------------------------------------------------------------------------*/
+#twit {
+	background-color: white; /* 背景色:白 */
+	border-radius: 5px; /* 角丸 */
+	opacity: 0.8; /* 透過度:80% */
+	height: calc(100% - 120px); /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 120px); /* webkit対策 */
+	width: 300px; /* 横：300px */
+	position: absolute; /* 絶対位置 */
+	bottom: 10px; /* 下から10pxの位置 */
+	right: 50px; /* 右から10pxの位置 */
+	overflow: auto; /* はみ出したらスクロールバーを表示 */
 }
 
 #tabArea {
@@ -189,9 +281,4 @@ ul a:hover > .cen {
 	font-weight: bold; /* 太文字 */
 	border-top-left-radius: 5px; /* 左上の角丸：5px */
 	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
-}
-
-html , body , header {
-	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", Osaka-mono, monospace ; /* 文字のフォントを指定 */
-	color: #000000; /* 文字の色を指定 */
 }
