@@ -94,7 +94,8 @@ var HigashiEventData=(function(){
 					/*それぞれに対して詳細データを取得する*/
 					$.get(_domain+"sheet.php?id="+$(this).attr('href').split('id=')[1], function(detailData){
 						
-						//$('#output').append(data.responseText);
+						//団体のマイページへつながるリンクを探し､リンクからグループIDを抽出する
+						tmpEventData["gid"] = $(detailData.responseText).find('a[href*="/mypage/index.php?"]').attr("href").split("gid=")[1];
 						
 						/*thに続いてtdタグがつづいている部分を探し､抽出する*/
 						var detailContent=$(detailData.responseText).find('th ~ td');
@@ -123,7 +124,9 @@ var HigashiEventData=(function(){
 							if(latLng){
 								tmpEventData["latLng"]={"lat":latLng.lat,"lng":latLng.lng};//住所に対応する座標があったときはそれをいれる
 							}else{//見つからない､精度が極端に低い際は上のgroupID->座標変換リストを使う｡
-								tmpEventData["latLng"]={"lat":34.426744,"lng":132.743763};
+								tmpEventData["latLng"]=Data.getLatLngObjectFromGID(tmpEventData["gid"])
+								//{"lat":34.426744,"lng":132.743763};
+								
 							}
 						});
 						_onReceive(tmpEventData);
