@@ -195,6 +195,7 @@ p.tategaki2 {
 }
 
 .eventBox {
+	line-height: 1.1;
 	position: relative;
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
