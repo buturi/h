@@ -3,7 +3,6 @@
 	height: 100% ;
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif ; /* 文字のフォントを指定 */
 	color: #000000; /* 文字の色を指定 */
-	font-size: 18px ;
 }
 
 body {
@@ -49,6 +48,7 @@ ul > .cen {	/* カンマは複数の記述を表すので、内包される意�
 	padding-bottom: 5px ;
 	padding-top: 5px ;
 	box-shadow: 1px 1px 5px rgb(170, 170, 170) ;
+	z-index: 9999; /* 最前面に表示 */
 }
 
 ul ul {
@@ -66,10 +66,15 @@ ul .cen:hover > ul {
 }
 
 /* バーの見出し（ボタン部分）*/
-#topbar a {
+ul a{
 	display: block ;
+	font-size: 20px ;
 	width: 250px;
+<<<<<<< HEAD
 	color: #2F4F4F; /* 通常時の文字の色 */
+=======
+	color: #2F4F4F ; /* 通常時の文字の色 */
+>>>>>>> snk
 	text-decoration: none ; /* 下線なし */
 	cursor: pointer ; /* マウスの形をポインター */
 	outline: none ;
@@ -114,7 +119,7 @@ ul a:hover > .cen {
 }
 
 /* 上端のバーの色 */
-ul .topbar {
+#topbar {
 	width: 100% ;
 	height: 50px ;
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
@@ -188,7 +193,7 @@ ul .topbar {
 }
 
 .eventBox {
-	line-height: 1.1;
+	line-height: 1.0;
 	position: relative;
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
@@ -220,7 +225,7 @@ ul .topbar {
 }
 
 .split {
-	font-size: 1.5em;
+	font-size: 3em;
 	line-height: 50px;
 	text-align: center;
 	position: static;
@@ -286,11 +291,11 @@ ul .topbar {
 	position: absolute ; /* 絶対位置 */
 }
 
-ul .tabmenu {
+ul > .tabmenu {
 	margin: 0 0 10px 0;
 	padding: 0;
 	width: 30px;
-	height: 150px;
+	height: 20%;
 	list-style: none; /* リストの先頭のマークを非表示に */
 }
 
