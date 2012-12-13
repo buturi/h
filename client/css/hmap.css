@@ -115,6 +115,10 @@ ul a:hover > .cen {
 	overflow: auto; /* はみ出したらスクロールバーを表示 */
 }
 
+p.tategaki {
+	writing-mode: tb-rl; /* 縦書き */
+}
+
 #buttonArea {
 	position: fixed;
 	width: 215px;
@@ -253,7 +257,7 @@ ul a:hover > .cen {
 }
 
 .tabmenu {
-	margin: 0 0 1px 0;
+	margin: 0 0 10px 0;
 	padding: 0;
 	width: 30px;
 	height: 20%;
@@ -263,7 +267,7 @@ ul a:hover > .cen {
 .tabmenu a {
 	display: inline-block; /* インライン-ブロック要素に変換 */
 	color: black; /* 文字色：黒 */
-	background-color: #CCCCCC; /* 背景：lightGray */
+	background-color: #C9F; /* 背景：lightGray */
 	text-decoration: none; /* リンクの下線：非表示 */
 	text-align: center; /* 中央寄せ */
 	line-height: 30px; /* 縦方向の中央寄せ */ /* heightと同じ値を指定すると縦方向の中央寄せになる */
