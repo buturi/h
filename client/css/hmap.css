@@ -18,7 +18,7 @@ ul {
 }
 
 ul > .cen {	/* カンマは複数の記述を表すので、内包される意味で'>'を用いる */
-	width: 150px ;
+	width: 250px ;
 	position: relative ;
 	display: inline-block ;
 	list-style-type: none ;
@@ -31,9 +31,9 @@ ul > .cen {	/* カンマは複数の記述を表すので、内包される意�
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
 	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
-	border-color: 3px solid #000 ;
+	border-color: 5px solid #000 ;
 	padding-bottom: 5px ;
-	color: #000 ;
+	color: #2F4F4F ;
 	z-index: 9999; /* 最前面に表示 */
 }
 
@@ -53,12 +53,13 @@ ul .cen:hover > ul {
 
 /* バーの見出し（ボタン部分）*/
 ul a{
-	display: block;
-	font-size: 16px;
-	color: #000; /* 通常時の文字の色 */
-	text-decoration: none; /* 下線なし */
-	cursor: pointer; /* マウスの形をポインター */
-	outline: none;
+	display: block ;
+	font-size: 20px ;
+	width: 250px;
+	color: #2F4F4F ; /* 通常時の文字の色 */
+	text-decoration: none ; /* 下線なし */
+	cursor: pointer ; /* マウスの形をポインター */
+	outline: none ;
 }
 
 ul a:hover > .cen {
@@ -71,7 +72,7 @@ ul a:hover > .cen {
 }
 
 .cen {
-	width: 150px;
+	/*width: 150px;*/
 	padding-left: 10px ;
 	padding-right: 10px ;
 	/* height < line-height のとき、文字が各メニューの下に寄る */
@@ -271,16 +272,17 @@ p.tategaki2 {
 
 #tabArea {
 	top: 200px;
+	height: 150px;
 	right: 0;
 	position: absolute; /* 絶対位置 */
 }
 
-.tabmenu {
+ul > .tabmenu {
 	margin: 0 0 10px 0;
 	padding: 0;
 	width: 30px;
 	height: 20%;
-	list-style:none; /* リストの先頭のマークを非表示に */
+	list-style: none; /* リストの先頭のマークを非表示に */
 }
 
 .tabmenu a {
