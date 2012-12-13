@@ -2,15 +2,18 @@
 /* $targetURLのファイルを取得し，保存する. */
 
 $localURL = "http://buturi.heteml.jp/student/higashihiroshima/";
-$targetURL = "http://higashihiroshima.genki365.net/gnkh12/pub/content_search.php?sort=5&select_class=1&select_code1=1&type=".$_GET['type'];
+if ( $_GET['type'] ) {
+	$targetURL = "http://higashihiroshima.genki365.net/gnkh12/pub/content_search.php?sort=5&select_class=1&select_code1=1&type=".$_GET['type'];
+} else {
+	$targetURL = "http://higashihiroshima.genki365.net/gnkh12/pub/content_search.php?sort=5&select_class=1&select_code1=1&type=11";
+}
 
 if( $_GET['type'] == 51 ) {
-	$localFile = "eventlist.html";
+	$localFile = "infoList.html";
+} else if( $_GET['type'] == 31 ) {
+	$localFile = "recList.html";
 } else {
 	$localFile = "list.html";
-	if(!$_GET['type']){
-		$targetURL = "http://higashihiroshima.genki365.net/gnkh12/pub/content_search.php?sort=5&select_class=1&select_code1=1&type=11";
-	}
 }
 
 //ファイルが存在しているかどうか
