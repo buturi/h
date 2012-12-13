@@ -27,9 +27,9 @@ ul > .cen {	/* カンマは複数の記述を表すので、内包される意�
 	/*background: #555;*/
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
 	/* Firefox用(左から順に、方向・開始色・終了色) */
-	background: -moz-linear-gradient(left center 90deg, rgb(180,209,192), rgb(229,255,221)) ;
+	background: -moz-linear-gradient(left 90deg, rgb(229,255,221), rgb(180,209,192)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
-	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
 	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 	border-color: 5px solid #000 ;
@@ -43,9 +43,9 @@ ul > .cen {	/* カンマは複数の記述を表すので、内包される意�
 	height: 50px ;
 	/* 繧ｰ繝ｩ繝・・繧ｷ繝ｧ繝ｳ http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") 繧医ｊ蠑慕畑 */
 	/* Firefox逕ｨ(蟾ｦ縺九ｉ鬆・↓縲∵婿蜷代・髢句ｧ玖牡繝ｻ邨ゆｺ・牡) */
-	background: -moz-linear-gradient(left center 90deg, rgb(229,255,221), rgb(180,209,192) repeat scroll 0% 0% transparent) ;
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
 	/* Safari,Google Chrome逕ｨ(蟾ｦ縺九ｉ鬆・↓縲∫ｷ壼ｽ｢縺ｧ髢句ｧ倶ｽ咲ｽｮ繝ｻ邨ゆｺ・ｽ咲ｽｮ繝ｻ髢句ｧ玖牡繝ｻ邨ゆｺ・牡) */
-	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
 	padding-bottom: 5px ;
 	padding-top: 5px ;
 	box-shadow: 1px 1px 5px rgb(170, 170, 170) ;
@@ -69,7 +69,7 @@ ul .cen:hover > ul {
 #topbar a {
 	display: block ;
 	width: 250px;
-	color: red; /* 通常時の文字の色 */
+	color: #2F4F4F; /* 通常時の文字の色 */
 	text-decoration: none ; /* 下線なし */
 	cursor: pointer ; /* マウスの形をポインター */
 	outline: none ;
@@ -119,9 +119,9 @@ ul .topbar {
 	height: 50px ;
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
 	/* Firefox用(左から順に、方向・開始色・終了色) */
-	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
+	background: -moz-linear-gradient(left 90deg, rgb(229,255,221), rgb(180,209,192)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
-	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
 	padding-bottom: 5px ;
 	padding-top: 5px ;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
@@ -142,14 +142,7 @@ ul .topbar {
 	bottom: 10px; /* 下から10pxの位置 */
 	right: 50px; /* 右から10pxの位置 */
 	overflow: auto; /* はみ出したらスクロールバーを表示 */
-}
-
-p.tategaki {
 	writing-mode: tb-rl; /* 縦書き */
-}
-
-p.tategaki2 {
-	transform: rotate(90deg) ;
 }
 
 #buttonArea {
@@ -266,6 +259,7 @@ p.tategaki2 {
 	bottom: 10px; /* 下から10pxの位置 */
 	right: 50px; /* 右から10pxの位置 */
 	overflow: auto; /* はみ出したらスクロールバーを表示 */
+	writing-mode: tb-rl; /* 縦書き */
 }
 
 /*-------------------------------------------------------------------------
@@ -282,13 +276,14 @@ p.tategaki2 {
 	bottom: 10px; /* 下から10pxの位置 */
 	right: 50px; /* 右から10pxの位置 */
 	overflow: auto; /* はみ出したらスクロールバーを表示 */
+	writing-mode: tb-rl; /* 縦書き */
 }
 
 #tabArea {
-	top: 200px;
-	height: 150px;
-	right: 0;
-	position: absolute; /* 絶対位置 */
+	top: 200px ;
+	height: 150px ;
+	right: 0 ;
+	position: absolute ; /* 絶対位置 */
 }
 
 ul .tabmenu {
