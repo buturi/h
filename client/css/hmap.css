@@ -59,6 +59,8 @@ ul a:hover > .cen {
 
 .cen {
 	width: 150px;
+	padding-left: 10px ;
+	padding-right: 10px ;
 	/* height < line-height のとき、文字が各メニューの下に寄る */
 	/* height > line-height のとき、文字が各メニューの上に寄る */
 	height: 45px; /* バーの高さ */
@@ -117,6 +119,10 @@ ul a:hover > .cen {
 
 p.tategaki {
 	writing-mode: tb-rl; /* 縦書き */
+}
+
+p.tategaki2 {
+	transform: rotate(90deg) ;
 }
 
 #buttonArea {
