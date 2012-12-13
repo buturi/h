@@ -1,93 +1,80 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="keywords" content="HTML5,meta,要素,タグ,description,説明">
-<title>東広島EventMap</title>
-<link rel="stylesheet" href="css/hmap.css">
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript" src="https://raw.github.com/padolsey/jQuery-Plugins/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5,meta,要素,タグ,description,説明">
+	<title>東広島EventMap</title>
+	<link rel="stylesheet" href="css/hmap.css">
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script type="text/javascript" src="https://raw.github.com/padolsey/jQuery-Plugins/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
 
 
-<script type="text/javascript" src="js/Data.js"></script>
-<script type="text/javascript" src="js/Utility.js"></script>
-<script type="text/javascript" src="js/GMap.js"></script>
-<script type="text/javascript" src="js/SideList.js"></script>
-<!-- <script type="text/javascript" src="js/EventData.js"></script> -->
-<script type="text/javascript" src="js/HigashiEventData.js"></script>
-<script type="text/javascript" src="js/Main.js"></script>
-<!-- <script type="text/javascript" src="js/scrape.js"></script> -->
-<script type="text/javascript">
-var mapCanvas;
-var currentInfoWindow = null;
-window.onload = function() {
+	<script type="text/javascript" src="js/Data.js"></script>
+	<script type="text/javascript" src="js/Utility.js"></script>
+	<script type="text/javascript" src="js/GMap.js"></script>
+	<script type="text/javascript" src="js/SideList.js"></script>
+	<script type="text/javascript" src="js/HigashiEventData.js"></script>
+	<script type="text/javascript" src="js/Main.js"></script>
 
-}
-
-
-
-
-
-</script>
-<script type="text/javascript"><!-- あとで分離 -->
-$(function(){
-	$('#tabs div').hide();
-	$('#tabs div:first').show();
-	$('#tabs div:first div').show();
-	$('#tabs ul .tabmenu:first').addClass('active');
-	 
-	$('.tabmenu a').click(function(){
-		$('.tabmenu').removeClass('active');
-		$(this).parent().addClass('active');
-		var currentTab = $(this).attr('href');
+	<script type="text/javascript">//あとで分離
+	$(function(){
 		$('#tabs div').hide();
-		$(currentTab).show();
-		$(currentTab).find("div").show();
-		return false;
+		$('#tabs div:first').show();
+		$('#tabs div:first div').show();
+		$('#tabs ul .tabmenu:first').addClass('active');
+
+		$('.tabmenu a').click(function(){
+			$('.tabmenu').removeClass('active');
+			$(this).parent().addClass('active');
+			var currentTab = $(this).attr('href');
+			$('#tabs div').hide();
+			$(currentTab).show();
+			$(currentTab).find("div").show();
+			return false;
+		});
 	});
-});
-</script>
-<script type="text/javascript" src="js/move.js"></script>
+	</script>
+	<script type="text/javascript" src="js/move.js"></script>
 </head>
 <body>
-<header>
-  <div id="bar"><!-- 上端の見出し -->
-  <div id="title">
-    <ul id="topbar">
+	<header>
+		<div id="bar"><!-- 上端の見出し -->
+			<div id="title">
+				<ul id="topbar">
 <!--  <li>
-        <button id="debug">debug button</button>
-      </li>
---><!-- コメントアウトすると消えてしまう -->
-      <li class="cen">
-        <a><!-- <div class="cen"> -->地域センター▼<!-- </div> --></a>
-        <ul>
-          <!-- mapCanvas に対して指定した座標で panTo に移動させる, '#'：同じファイル内の特定位置にジャンプ(http://www.tohoho-web.com/html/a.htm より) -->
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4267515, 132.7437521));"><a href="#">西条地区</a></li>
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4479755, 132.7878226));"><a href="#">高屋地区</a></li>
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4992208, 132.6602356));"><a href="#">志和地区</a></li>
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4407862, 132.6921863));"><a href="#">八本松地区</a></li>
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.47223, 132.8883641));"><a href="#">河内地区</a></li>
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5361797, 132.7781991));"><a href="#">福富地区</a></li>
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5633558, 132.8248603));"><a href="#">豊栄地区</a></li>
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3247474, 132.6762842));"><a href="#">黒瀬地区</a></li>
-          <li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3196117, 132.8136826));"><a href="#">安芸津地区</a></li>
-        </ul><!-- "地域センター" の ul タグここまで -->
-      </li><!-- "地域センター" の li タグここまで -->
-      <!-- 次の li タグを作ると、横に表示される -->
-      <li class="cen"><a href="http://higashihiroshima.genki365.net/">市民活動情報サイト</a></li>
-      <li class="cen"><a href="http://www.city.higashihiroshima.hiroshima.jp/">東広島市役所</a>      </li>
-      <li class="cen">
-        <a>ICT加盟大学一覧▼</a>
-          <ul>
-            <li class="cen"><a href="http://www.hiro.kindai.ac.jp/index.html">近畿大学工学部</a></li>
-            <li class="cen"><a href="http://www.hiroshima-u.ac.jp/index-j.html">広島大学</a></li>
-            <li class="cen"><a href="http://www.hirokoku-u.ac.jp/">広島国際大学</a></li>
-          </ul><!-- "ICT加盟大学一覧▼" の ul タグここまで -->
-      </li><!-- "ICT加盟大学一覧▼" の li タグここまで -->
-    </ul><!-- ul id="topbar" ここまで -->
-  </div><!-- div id="title" ここまで -->
-  </div><!-- div id="bar" ここまで -->
+				<button id="debug">debug button</button>
+			</li>
+		--><!-- コメントアウトすると消えてしまう -->
+		<li class="cen">
+			<a><!-- <div class="cen"> -->地域センター▼<!-- </div> --></a>
+			<ul>
+				<!-- mapCanvas に対して指定した座標で panTo に移動させる, '#'：同じファイル内の特定位置にジャンプ(http://www.tohoho-web.com/html/a.htm より) -->
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4267515, 132.7437521));"><a href="#">西条地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4479755, 132.7878226));"><a href="#">高屋地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4992208, 132.6602356));"><a href="#">志和地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4407862, 132.6921863));"><a href="#">八本松地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.47223, 132.8883641));"><a href="#">河内地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5361797, 132.7781991));"><a href="#">福富地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5633558, 132.8248603));"><a href="#">豊栄地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3247474, 132.6762842));"><a href="#">黒瀬地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3196117, 132.8136826));"><a href="#">安芸津地区</a></li>
+			</ul><!-- "地域センター" の ul タグここまで -->
+		</li><!-- "地域センター" の li タグここまで -->
+		<!-- 次の li タグを作ると、横に表示される -->
+		<li class="cen"><a href="http://higashihiroshima.genki365.net/">市民活動情報サイト</a></li>
+		<li class="cen"><a href="http://www.city.higashihiroshima.hiroshima.jp/">東広島市役所</a>      </li>
+		<li class="cen">
+			<a>ICT加盟大学一覧▼</a>
+			<ul>
+				<li class="cen"><a href="http://www.hiro.kindai.ac.jp/index.html">近畿大学工学部</a></li>
+				<li class="cen"><a href="http://www.hiroshima-u.ac.jp/index-j.html">広島大学</a></li>
+				<li class="cen"><a href="http://www.hirokoku-u.ac.jp/">広島国際大学</a></li>
+			</ul><!-- "ICT加盟大学一覧▼" の ul タグここまで -->
+		</li><!-- "ICT加盟大学一覧▼" の li タグここまで -->
+	</ul><!-- ul id="topbar" ここまで -->
+</div><!-- div id="title" ここまで -->
+</div><!-- div id="bar" ここまで -->
 </header>
 <div id="output"></div>
 <div id="mapCanvas"><!-- aiu(表示される本文) --></div>
@@ -99,19 +86,19 @@ $(function(){
 		<p class="tategaki"><li class="tabmenu"><a href="#information">お知らせ</a></li></p>
 		<p class="tategaki"><li class="tabmenu"><a href="#twit">ツイッター<img src="http://buturi.heteml.jp/student/2012/higashihiroshima/twitthis_ico.gif"></a></li></p>
 	</ul><!-- tabArea ここまで -->
-<div id="listArea">
-<ul id="buttonArea">
-	<li id="dateSort">日付順</li>
-	<li id="areaSort">地区別</li>
-	<li id="weekSort">テスト</li>
-</ul> <!-- #buttonArea -->
-<div id="box"></div>
-</div> <!-- #listArea -->
-<div id="information"></div> <!-- #information -->
-<div id="twit">
-<a class="twitter-timeline"  href="https://twitter.com/search?q=%E6%9D%B1%E5%BA%83%E5%B3%B6" data-widget-id="277432419341189121">東広島 に関するツイート</a>
-<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
-</div> <!-- #twit -->
+	<div id="listArea">
+		<ul id="buttonArea">
+			<li id="dateSort">日付順</li>
+			<li id="areaSort">地区別</li>
+			<li id="weekSort">テスト</li>
+		</ul> <!-- #buttonArea -->
+		<div id="box"></div>
+	</div> <!-- #listArea -->
+	<div id="information"></div> <!-- #information -->
+	<div id="twit">
+		<a class="twitter-timeline"  href="https://twitter.com/search?q=%E6%9D%B1%E5%BA%83%E5%B3%B6" data-widget-id="277432419341189121">東広島 に関するツイート</a>
+		<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+	</div> <!-- #twit -->
 </div> <!-- #tabs -->
 </body>
 </html>
