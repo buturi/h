@@ -1,0 +1,21 @@
+## 変数一覧
+クライアント
+ + `eventData:Object` : イベントデータオブジェクト
+  + `id:Number` : 団体の固有ID
+  + `title:String` : イベント名
+  + `sponser:String` : 主催者・主催団体
+  + `image:String` : イメージ画像 **(※String型はURL)**
+  + `date:Array[配列番号]` : 開催日 **(※dateクラスは複数持つため、Array型とする)**
+  + `time:String` : 開催時刻
+  + `limit:String` : 締切日
+  + `place:String` : 会場
+  + `latLng:Object` : 会場の緯度・経度 **(※Google Mapより)**
+  + `capa:String` : 定員
+  + `target:String` : 対象者
+  + `app:String` : 申込方法
+  + `cost:String` : 費用
+  + `detail:String` : 詳細
+  + `inquiry:String` : 問い合わせ先
+  + `url:String` : 関連URL
+
++  
