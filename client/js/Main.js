@@ -18,6 +18,7 @@ $(function() {
 			//コールバック関数内部処理
 			//リストへデータを挿入する
 			sideList.insert(eventObject,position);
+			
 		},
 		11);
 
@@ -27,7 +28,11 @@ $(function() {
 	}
 
 	function SortByDate(a,b) {
-		if ( a.date[0] && b.date[0] ) { //aとbの日付が存在する場合
+		if ( !a || !a.date[0] ) { //aとbの日付が存在しない場合
+			return 1;
+		} else if(!b.date[0]) {
+			return -1;
+		} else {
 			if ( a.date[0]['from'].getTime()>b.date[0]['from'].getTime() ) {
 				return 1;
 			} else if ( a.date[0]['from'].getTime()<b.date[0]['from'].getTime() ) {
@@ -35,10 +40,6 @@ $(function() {
 			} else {
 				return 0;
 			}
-		} else if ( a.date[0] )
-			return -1;
-		else {
-			return -1;
 		}
 	}
 });

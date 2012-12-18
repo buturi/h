@@ -28,12 +28,11 @@ var HigashiEventData=(function(){
 		//リスト詳細を受信完了時毎に実行されるメソッド
 		//TODO _sortFunctionを用いて適切な場所に入れる｡入れば_callbackFunctionに返す
 		var _onReceive=function(eventObject){
+
 			var len = _eventData.event.length;
 			for ( compare=len;0<compare;compare-- ) {
 				if( _sortFunction( _eventData.event[compare],eventObject )<=0 ) { //入れ替え
       					break;
-				} else {
-					
 				}
 			}
 			_eventData.event.splice(compare,0,eventObject);

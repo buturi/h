@@ -70,11 +70,7 @@ ul a{
 	display: block ;
 	font-size: 20px ;
 	width: 250px;
-<<<<<<< HEAD
 	color: #2F4F4F; /* 通常時の文字の色 */
-=======
-	color: #2F4F4F ; /* 通常時の文字の色 */
->>>>>>> snk
 	text-decoration: none ; /* 下線なし */
 	cursor: pointer ; /* マウスの形をポインター */
 	outline: none ;
