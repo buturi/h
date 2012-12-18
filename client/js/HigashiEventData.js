@@ -36,13 +36,13 @@ var HigashiEventData=(function(){
 				}
 			}
 			_eventData.event.splice(compare,0,eventObject);
-			var position=0;
+			//var position=0;
 			//以上暫定設定
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
 			try{
 				if(_callbackFunction){
-					_callbackFunction(eventObject,position);
+					_callbackFunction(eventObject,compare);
 				}
 			}catch(e){
 				console.log(e);
