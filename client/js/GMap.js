@@ -29,6 +29,9 @@ var GMap=(function(){
 			_mapCanvas.setCenter(new google.maps.LatLng(34.426709,132.743629));
 			_mapCanvas.setZoom(11);
 			_mapCanvas.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+
+
+
 		}
 
 		//指定の座標へ移動する
@@ -37,11 +40,20 @@ var GMap=(function(){
 		}
 
 
-
+		this.createPin=function(eventObject){
+			var markerPostion1 = new google.maps.LatLng(34.460428, 132.779771);
+			var markerPostion2 = new google.maps.LatLng(34.445158, 132.789001);
+			createMarker(mapCanvas, markerPostion1, "<b>近畿大学工学部</b>");
+			createMarker(mapCanvas, markerPostion2, "<b>県立広島高校</b>");	
+		}
 		/*------------------------------
 			Constructor
 		------------------------------*/
 		this.load();
+
+
+
+
 	};
 
 	return GMap;
