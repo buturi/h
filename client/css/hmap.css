@@ -147,7 +147,7 @@ ul a:hover > .cen {
 	position: absolute; /* 絶対位置 */
 	bottom: 10px; /* 下から10pxの位置 */
 	right: 50px; /* 右から10pxの位置 */
-	overflow: auto; /* はみ出したらスクロールバーを表示 */
+	overflow-y: auto;  /*はみ出したらスクロールバーを表示 */
 	writing-mode: tb-rl; /* 縦書き */
 }
 
@@ -185,9 +185,10 @@ ul a:hover > .cen {
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
 	width: 50px;
-	margin: 0 0 10px 5px;
+	margin: 0 0 10px 10px;
 	padding: 5px;
-	color: rgb(50,50,50); /* 文字色：灰色 */
+	/*color: rgb(50,50,50);  文字色：灰色 */
+	color: rgb(240,240,240);
 	border-radius: 3px; /* 角丸 */
 	cursor: default; /* マウスカーソルを常にデフォルト */
 	float: left;
@@ -203,9 +204,10 @@ ul a:hover > .cen {
 	padding: 5px;
 	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
 	color: rgb(50,50,50); /* 文字色：灰色 */
-	border-radius: 3px; /* 角丸 */
+	border-radius: 0 3px 3px 0; /* 角丸 */
 	cursor: default; /* マウスカーソルを常にデフォルト */
 	float: left;
+	border-left: 5px solid #ff6b6b;
 	-o-text-overflow: ellipsis;
 }
 
@@ -217,8 +219,10 @@ ul a:hover > .cen {
 .sponsorBox { /*スポンサー名*/
 	position: absolute;
 	top: 40px;
-	right:5px;
+	right: 5px;
 	color: rgb(100,100,100); /* 文字色：灰色 */
+	border-bottom: 3px double blue;
+	text-shadow: 1px 0 0 #999;
 }
 
 .month { /*月*/
@@ -252,6 +256,7 @@ ul a:hover > .cen {
 
 .ordinary { /* 平日 */
 	background-color: rgba(0,0,255,0.1); 
+	color: rgb(50,50,50); /* 文字色：灰色 */
 }
 
 
