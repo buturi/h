@@ -49,11 +49,18 @@ var SideList=(function(){
 			}
 			str_title = eventObject['title'];
 			str_title = str_title.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
-			str_title = str_title.substring(0, 20);
-			
+			if ( str_title.length>20 ) {
+				str_title = str_title.substring(0, 20)+"…";
+			} else {
+				str_title = str_title.substring(0, 20);
+			}
 			str_sponsor = eventObject['sponsor'];
 			str_sponsor = str_sponsor.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
-			str_sponsor = str_sponsor.substring(0, 10);
+			if ( str_sponsor.length>10 ) {
+				str_sponsor = str_sponsor.substring(0, 10)+"…";
+			} else {
+				str_sponsor = str_sponsor.substring(0, 10);
+			}
 			$(sph).after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 			//クリックイベントリスナーを追加しておく
 			$("#list"+_size).click(function(){
