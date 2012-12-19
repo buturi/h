@@ -5,6 +5,10 @@ $(function() {
 
 	//GoogleMap管理オブジェクト､GMapを代入
 	gMap=new GMap();
+	console.log(
+	Data.getLatLngObjectFromGID("G0000150")
+
+		)
 
 	//東広島のイベントを管理するオブジェクトを宣言
 	var eventData=new HigashiEventData();
@@ -18,7 +22,8 @@ $(function() {
 			//コールバック関数内部処理
 			//リストへデータを挿入する
 			sideList.insert(eventObject,position);
-			
+			//console.log(eventObject.latLng);
+			gMap.createMarker(eventObject);
 		},
 		11);
 

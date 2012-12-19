@@ -89,7 +89,9 @@ var HigashiEventData=(function(){
 					$.get(_domain+"sheet.php?id="+$(this).attr('href').split('id=')[1], function(detailData){
 						
 						//団体のマイページへつながるリンクを探し､リンクからグループIDを抽出する
-						tmpEventData["gid"] = $(detailData.responseText).find('a[href*="/mypage/index.php?"]').attr("href").split("gid=")[1];
+						var gid=$(detailData.responseText).find('a[href*="/mypage/index.php?"]').attr("href").split("gid=")[1];
+						tmpEventData["gid"] = gid;
+						console.log(gid);
 						
 						/*thに続いてtdタグがつづいている部分を探し､抽出する*/
 						var detailContent=$(detailData.responseText).find('th ~ td');
@@ -113,16 +115,23 @@ var HigashiEventData=(function(){
 						}
 						
 						//他の絞り込みが必要
-						Utility.getLatLng("東広島 "+tmpEventData["place"],function(latLng){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む
+						Utility.getLatLng(tmpEventData["place"],function(latLng,rgid){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む
 							if(latLng){
 								tmpEventData["latLng"]={"lat":latLng.lat,"lng":latLng.lng};//住所に対応する座標があったときはそれをいれる
+							console.log(tmpEventData["latLng"]);
+
+
 							}else{//見つからない､精度が極端に低い際は上のgroupID->座標変換リストを使う｡
-								tmpEventData["latLng"]=Data.getLatLngObjectFromGID(tmpEventData["gid"])
-								//{"lat":34.426744,"lng":132.743763};
+							console.log("aa2");
 								
+								tmpEventData["latLng"]=Data.getLatLngObjectFromGID(rgid);
+							console.log(tmpEventData["latLng"]);
+
+
+								//{"lat":34.426744,"lng":132.743763};
 							}
-						});
-						_onReceive(tmpEventData);
+							_onReceive(tmpEventData);
+						},gid);
 					});
 					
 				});
