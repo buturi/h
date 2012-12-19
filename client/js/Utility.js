@@ -37,8 +37,10 @@ var Utility=(function(){
 
 	//文字から座標を取得する関数 by nohki
 	//取得できなければnullが返る
-	Utility.getLatLng=function(word,func){
+	Utility.getLatLng=function(word,func,gid){
 		var geocoder = new google.maps.Geocoder();
+
+		var _gid=gid;
 		geocoder.geocode({
 			address: word,
 			region: 'jp',
@@ -50,11 +52,11 @@ var Utility=(function(){
 				latLng.lat = results[0].geometry.location.lat();
 				latLng.lng = results[0].geometry.location.lng();
 			  		//引数で受け取っていた関数を呼ぶことにより､呼び出し元のコールバック関数を呼び出せる
-			  		func(latLng);			  
+			  		func(latLng,_gid);			  
 
 			  	}else{
              		//alert( 'Faild：' + status );
-             		func(null);
+             		func(null,_gid);
              	}
              });
 	}
