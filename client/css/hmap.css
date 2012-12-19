@@ -1,4 +1,7 @@
-﻿html {
+﻿/*-------------------------------------------------------------------------
+		基本設定
+-------------------------------------------------------------------------*/
+html {
 	width: 100%;
 	height: 100% ;
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif ; /* 文字のフォントを指定 */
@@ -17,6 +20,9 @@ ul {
 	padding: 0;
 }
 
+/*-------------------------------------------------------------------------
+		トップバー
+-------------------------------------------------------------------------*/
 ul > .cen {	/* カンマは複数の記述を表すので、内包される意味で'>'を用いる */
 	width: 250px ;
 	position: relative ;
@@ -114,7 +120,6 @@ ul a:hover > .cen {
 	background-color: #6F9;
 }
 
-/* 上端のバーの色 */
 #topbar {
 	width: 100% ;
 	height: 50px ;
@@ -132,7 +137,7 @@ ul a:hover > .cen {
 /*-------------------------------------------------------------------------
 		listArea部分
 -------------------------------------------------------------------------*/
-#listArea {
+#listArea { /*listArea全体*/
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
@@ -169,13 +174,13 @@ ul a:hover > .cen {
 	margin-top: 50px;
 }
 
-.wrapBox {
+.wrapBox { /*イベントbox*/
 	height: 60px;
 	width: 270px;
 	margin-bottom: 10px;
 }
 
-.dateBox {
+.dateBox { /*日付box*/
 	position: relative;
 	font-weight: bold; /* 文字を太字 */
 	height: 50px;
@@ -188,7 +193,7 @@ ul a:hover > .cen {
 	float: left;
 }
 
-.eventBox {
+.eventBox { /*タイトルbox*/
 	line-height: 1.0;
 	position: relative;
 	font-weight: bold; /* 文字を太字 */
@@ -204,52 +209,56 @@ ul a:hover > .cen {
 	-o-text-overflow: ellipsis;
 }
 
-.eventBox:hover {
+.eventBox:hover { /*上記アクティブ時*/
 	background-color: rgba(0,0,255,0.3);
 	color: rgb(0,0,0); /* 文字色：黒色 */
 }
 
-.sponsorBox {
-	text-align: right;
+.sponsorBox { /*スポンサー名*/
+	position: absolute;
+	top: 40px;
+	right:5px;
 	color: rgb(100,100,100); /* 文字色：灰色 */
 }
 
-.month {
-	top 5px;
-	left: 5px;
+.month { /*月*/
+	font-size: 1.2em;
+	top 3px;
+	left: 3px;
 	position: absolute;
 }
 
-.split {
-	font-size: 3em;
+.split { /*斜線*/
+	font-size: 2.5em;
 	line-height: 50px;
 	text-align: center;
 	position: static;
 }
 
-.date {
-	bottom: 5px;
-	right: 5px;
+.date { /*日にち*/
+	font-size: 1.2em;
+	bottom: 3px;
+	right: 3px;
 	position: absolute;
 }
 
-.sun {
+.sun { /*日曜日*/
 	background-color: red;
 }
 
-.sat {
+.sat { /*土曜日*/
 	background-color: rgb(0,68,204);
 }
 
-.ordinary {
-	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
+.ordinary { /* 平日 */
+	background-color: rgba(0,0,255,0.1); 
 }
 
 
 /*-------------------------------------------------------------------------
 		information部分
 -------------------------------------------------------------------------*/
-#information {
+#information { /*information全体*/
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
@@ -266,7 +275,7 @@ ul a:hover > .cen {
 /*-------------------------------------------------------------------------
 		twit部分
 -------------------------------------------------------------------------*/
-#twit {
+#twit { /*twit全体*/
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
@@ -280,14 +289,14 @@ ul a:hover > .cen {
 	writing-mode: tb-rl; /* 縦書き */
 }
 
-#tabArea {
+#tabArea { /*右側タブ部分全体*/
 	top: 200px ;
 	height: 150px ;
 	right: 0 ;
 	position: absolute ; /* 絶対位置 */
 }
 
-ul > .tabmenu {
+ul > .tabmenu { /*各タブメニュー*/
 	margin: 0 0 10px 0;
 	padding: 0;
 	width: 30px;
@@ -295,7 +304,7 @@ ul > .tabmenu {
 	list-style: none; /* リストの先頭のマークを非表示に */
 }
 
-.tabmenu a {
+.tabmenu a { /*タブメニュー内リンク*/
 	display: inline-block; /* インライン-ブロック要素に変換 */
 	color: black; /* 文字色：黒 */
 	background-color: #C9F; /* 背景：lightGray */
@@ -307,7 +316,7 @@ ul > .tabmenu {
 
 }
 
-.active a {
+.active a { /*上記アクティブ時*/
 	background-color: #000000; /* 背景：黒 */
 	color: white; /* 文字色：白 */
 	font-weight: bold; /* 太文字 */
