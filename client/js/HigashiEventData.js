@@ -31,7 +31,7 @@ var HigashiEventData=(function(){
 
 			var len = _eventData.event.length;
 			for ( compare=len;0<compare;compare-- ) {
-				if( _sortFunction( _eventData.event[compare],eventObject )<=0 ) { //入れ替え
+				if( _sortFunction( _eventData.event[compare-1],eventObject )<=0 ) { //入れ替え
       					break;
 				}
 			}

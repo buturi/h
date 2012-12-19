@@ -61,7 +61,6 @@ var SideList=(function(){
 			})
 			_size++;
 
-
 		//項目を挿入する
 
 		}
