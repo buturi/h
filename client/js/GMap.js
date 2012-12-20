@@ -44,7 +44,7 @@ var GMap=(function(){
 			var marker = new google.maps.Marker({
 			    position: gLatlng, 
 			    map: _mapCanvas, 
-			    title:"Hello World!"
+			    title:eventObject.title
 			});
 
 			/*var markerPostion1 = new google.maps.LatLng(34.460428, 132.779771);
