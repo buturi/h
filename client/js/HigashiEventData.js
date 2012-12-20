@@ -91,7 +91,6 @@ var HigashiEventData=(function(){
 						//団体のマイページへつながるリンクを探し､リンクからグループIDを抽出する
 						var gid=$(detailData.responseText).find('a[href*="/mypage/index.php?"]').attr("href").split("gid=")[1];
 						tmpEventData["gid"] = gid;
-						console.log(gid);
 						
 						/*thに続いてtdタグがつづいている部分を探し､抽出する*/
 						var detailContent=$(detailData.responseText).find('th ~ td');
@@ -115,23 +114,15 @@ var HigashiEventData=(function(){
 						}
 						
 						//他の絞り込みが必要
-						Utility.getLatLng(tmpEventData["place"],function(latLng,rgid){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む
+						Utility.getLatLng(tmpEventData["place"],function(latLng){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む
+						console.log(gid);
 							if(latLng){
 								tmpEventData["latLng"]={"lat":latLng.lat,"lng":latLng.lng};//住所に対応する座標があったときはそれをいれる
-							console.log(tmpEventData["latLng"]);
-
-
 							}else{//見つからない､精度が極端に低い際は上のgroupID->座標変換リストを使う｡
-							console.log("aa2");
-								
-								tmpEventData["latLng"]=Data.getLatLngObjectFromGID(rgid);
-							console.log(tmpEventData["latLng"]);
-
-
-								//{"lat":34.426744,"lng":132.743763};
+								tmpEventData["latLng"]=Data.getLatLngObjectFromGID(gid);
 							}
 							_onReceive(tmpEventData);
-						},gid);
+						});
 					});
 					
 				});
