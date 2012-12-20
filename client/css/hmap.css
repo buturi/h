@@ -207,7 +207,7 @@ ul a:hover > .cen {
 	border-radius: 0 3px 3px 0; /* 角丸 */
 	cursor: default; /* マウスカーソルを常にデフォルト */
 	float: left;
-	border-left: 5px solid #ff6b6b;
+	border-left: 5px solid #ff4141;
 	-o-text-overflow: ellipsis;
 }
 
@@ -221,7 +221,7 @@ ul a:hover > .cen {
 	top: 40px;
 	right: 5px;
 	color: rgb(100,100,100); /* 文字色：灰色 */
-	border-bottom: 3px double blue;
+	border-bottom: 3px solid #1DE09F;
 	text-shadow: 1px 0 0 #999;
 }
 
