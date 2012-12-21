@@ -50,10 +50,10 @@ test('同じdateを渡すと0が返ってくる', function(){
 
 module( "地区ソート" );
 test('{gid:小さいグループID},{gid:大きいグループID}を渡すと-1が返ってくる', function(){
-	equal(Sort.sortByGID({gid:"G002"},{gid:"G002"}),-1);
+	equal(Sort.sortByGID({gid:"G001"},{gid:"G002"}),-1);
 });
 test('{gid:大きいグループID},{gid:小さいグループID}を渡すと1が返ってくる', function(){
-	equal(Sort.sortByGID({gid:"G002"},{gid:"G002"}),1);
+	equal(Sort.sortByGID({gid:"G002"},{gid:"G001"}),1);
 });
 test('同じグループIDを渡すと0が返ってくる', function(){
 	equal(Sort.sortByGID({gid:"G002"},{gid:"G002"}),0);
