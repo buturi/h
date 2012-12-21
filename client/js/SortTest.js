@@ -38,26 +38,26 @@ test('同じIDを渡すと0が返ってくる', function(){
 });
 
 module( "日付ソート" );
-test('{date:小さいDate型},{date:大きいDate型}を渡すと1が返ってくる', function(){
-	equal(Sort.sortByDate({date:new Date("2012/12/21")},{date:new Date("2012/12/22")}),1);
+test('{date:小さいDate型},{date:大きいDate型}を渡すと-1が返ってくる', function(){
+	equal(Sort.sortByDate({date:[{from:new Date("2012/12/21")}]},{date:[{from:new Date("2012/12/22")}]}),-1);
 });
-test('{date:大きいDate型},{date:小さいDate型}を渡すと-1が返ってくる', function(){
-	equal(Sort.sortByDate({date:new Date("2012/12/22")},{date:new Date("2012/12/21")}),-1);
+test('{date:大きいDate型},{date:小さいDate型}を渡すと1が返ってくる', function(){
+	equal(Sort.sortByDate({date:[{from:new Date("2012/12/22")}]},{date:[{from:new Date("2012/12/21")}]}),1);
 });
 test('同じdateを渡すと0が返ってくる', function(){
-	equal(Sort.sortByDate({date:new Date("2012/12/21")},{date:new Date("2012/12/21")}),0);
+	equal(Sort.sortByDate({date:[{from:new Date("2012/12/21")}]},{date:[{from:new Date("2012/12/21")}]}),0);
 });
 
-// module( "地区ソート" );
-// test('{date:小さいDate型},{date:大きいDate型}を渡すと1が返ってくる', function(){
-// 	equal(Sort.sortByDate({date:new Date("2012/12/21")},{date:new Date("2012/12/22")}),1);
-// });
-// test('{date:大きいDate型},{date:小さいDate型}を渡すと-1が返ってくる', function(){
-// 	equal(Sort.sortByDate({date:new Date("2012/12/20")},{date:new Date("2012/12/19")}),-1);
-// });
-// test('同じdateを渡すと0が返ってくる', function(){
-// 	equal(Sort.sortByDate({date:new Date("2012/12/21")},{date:new Date("2012/12/21")}),0);
-// });
+module( "地区ソート" );
+test('{gid:小さいグループID},{gid:大きいグループID}を渡すと-1が返ってくる', function(){
+	equal(Sort.sortByGID({gid:"G002"},{gid:"G002"}),-1);
+});
+test('{gid:大きいグループID},{gid:小さいグループID}を渡すと1が返ってくる', function(){
+	equal(Sort.sortByGID({gid:"G002"},{gid:"G002"}),1);
+});
+test('同じグループIDを渡すと0が返ってくる', function(){
+	equal(Sort.sortByGID({gid:"G002"},{gid:"G002"}),0);
+});
 
 
 

@@ -72,17 +72,25 @@ var SideList=(function(){
 
 		}
 
-		//全体ソートするメソッド。引数はソート関数
-		this.sort=function(sortFunction){
+		// //全体ソートするメソッド。引数はソート関数
+		// this.sort=function(sortFunction){
 
-			/*ソート処理*/
+		// 	/*ソート処理*/
+
+		// }
+
+		//リフレッシュ処理 内部的な配列のソートを終えたあとに実行することを想定
+		this.refresh=function(){
+
+			/* eventDataArrayにしたがって並べ直す */
 
 		}
 
-		//リストを別のリストに交換するメソッド
-		this.sort=function(eventObjectArray){
+		//TODO filter
+		//typeにString型で属性名を渡し､valueでフィルタリングをかける
+		this.filter=function(type,value){
 
-			/*交換処理*/
+			/* typeによってフィルタリングする属性名を指定し､valueでフィルタリングをかける */
 
 		}
 

@@ -13,7 +13,7 @@ $(function() {
 	var sideList=new SideList();
 
 	//イベント管理オブジェクトへソート関数､コールバック関数､公式リストIDを渡してロード｡
-	eventData.load(Sort.sortByID,
+	eventData.load(Sort.sortByDate,
 		function(eventObject,position){
 			//コールバック関数内部処理
 			//リストへデータを挿入する
