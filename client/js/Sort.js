@@ -11,6 +11,19 @@ var Sort=(function(){
 		return b.id - a.id;
 	}
 
+	Sort.sortByGID=function(a,b){
+		a.gid = a.gid.slice(1);
+		b.gid = b.gid.slice(1);
+		if( a.gid > b.gid ) {
+			return 1;
+		} else if( a.gid == b.gid ) {
+			return 0;
+		} else {
+			return -1;
+		}
+	}
+
+
 	//Dateでソートを行う関数
 	Sort.sortByDate=function(a,b) {
 		if ( !a || !a.date[0] ) { //aあるいはaの日付が存在しない場合
