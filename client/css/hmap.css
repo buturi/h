@@ -147,14 +147,16 @@ ul a:hover > .cen {
 	position: absolute; /* 絶対位置 */
 	bottom: 10px; /* 下から10pxの位置 */
 	right: 50px; /* 右から10pxの位置 */
-	overflow-y: auto;  /*はみ出したらスクロールバーを表示 */
 	writing-mode: tb-rl; /* 縦書き */
 }
 
-#buttonArea {
-	position: fixed;
-	width: 215px;
+#btnArea {
+	width: 270px;
+	height: 30px;
 	margin: 10px 0 10px 30px;
+}
+
+#buttonArea {
 	cursor: pointer; /* マウスカーソルを常にデフォルト */
 }
 
@@ -170,8 +172,9 @@ ul a:hover > .cen {
 	font-weight: bold; /* 文字を太字 */
 }
 
-#box {
-	margin-top: 50px;
+#tes {
+	height: calc(100% - 60px); 
+	overflow-y: scroll;  /*はみ出したらスクロールバーを表示 */
 }
 
 .wrapBox { /*イベントbox*/
