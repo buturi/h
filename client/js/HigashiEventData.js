@@ -13,7 +13,7 @@ var HigashiEventData=(function(){
 		//ページに存在する項目のリストを格納する
 		var _pageDataArray;
 		//イベントリストを保持する
-		var _eventData;
+		var _eventDataArray;
 		//ソート用の関数を保持する｡sort()の引数と同じ仕様とする
 		var _sortFunction;
 		//リスト詳細データ読み込み完了毎に呼び出される関数を保持する
@@ -26,18 +26,15 @@ var HigashiEventData=(function(){
 		------------------------------*/
 
 		//リスト詳細を受信完了時毎に実行されるメソッド
-		//TODO _sortFunctionを用いて適切な場所に入れる｡入れば_callbackFunctionに返す
 		var _onReceive=function(eventObject){
 
-			var len = _eventData.event.length;
+			var len = _eventDataArray.length;
 			for ( compare=len;0<compare;compare-- ) {
-				if( _sortFunction( _eventData.event[compare-1],eventObject )<=0 ) { //入れ替え
+				if( _sortFunction( _eventDataArray[compare-1],eventObject )<=0 ) { //入れ替え
       					break;
 				}
 			}
-			_eventData.event.splice(compare,0,eventObject);
-			//var position=0;
-			//以上暫定設定
+			_eventDataArray.splice(compare,0,eventObject);
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
 			try{
@@ -133,7 +130,7 @@ var HigashiEventData=(function(){
 
 		//全体のデータを取得するインスタンスメソッド。配列がかえる
 		this.getData=function(){
-			return _eventData;
+			return _eventDataArray;
 		}
 
 		//全体ソートするメソッド。引数はソート関数
@@ -144,7 +141,7 @@ var HigashiEventData=(function(){
 		}
 
 		this.size=function(){
-			return _eventData.event.length
+			return _eventDataArray.length
 		}
 
 		/*------------------------------
@@ -155,7 +152,7 @@ var HigashiEventData=(function(){
 		//初期化処理
 		_domain=Data.getDomainList()[0];
 		_listID=listID;
-		_eventData={"event":new Array()};
+		_eventDataArray=new Array();
 		_sortFunction=sortFunction;
 		_callbackFunction=callbackFunction;
 
