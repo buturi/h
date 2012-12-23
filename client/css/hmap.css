@@ -254,7 +254,7 @@ ul a:hover > .cen {
 }
 
 .sat { /*土曜日*/
-	background-color: rgb(0,68,204);
+	background-color: rgba(0,68,204,0.8);
 }
 
 .ordinary { /* 平日 */
