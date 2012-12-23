@@ -85,5 +85,53 @@ var Utility=(function(){
 		return tmpDateArray;
 	}
 
+	/*デバッグ用の関数 http://www.kuma-de.com/blog/2009-10-01/1274 */
+	Utility.trace=function(s){
+	  mylog = [];
+	  function getIndent(num){
+	    var ind = [];
+	    while(num){
+	      ind.push(' ');
+	      num--;
+	    }
+	    return ind.join('');
+	  }
+	  function addLog(txt, defaultIndent){
+	    var cnt = defaultIndent;
+	    //array
+	    if((typeof txt == 'object') && (txt instanceof Array)){
+	      cnt++;
+	      mylog.push('[');
+	      for(var i = 0; i < txt.length; i++){
+	        mylog.push('\r\n' + getIndent(cnt));
+	        addLog(txt[i], cnt);
+	        if(i != txt.length - 1){
+	          mylog.push(',');
+	        }
+	      }
+	      mylog.push('\r\n' + getIndent(cnt - 1) + ']');
+	    //object
+	    }else if((typeof txt == 'object')){
+	      cnt++;
+	      mylog.push('{');
+	      for(var i in txt){
+	        mylog.push('\r\n' + getIndent(cnt) + i + ':');
+	        addLog(txt[i], cnt);
+	        mylog.push(',');
+	      }
+	      mylog.pop();
+	      mylog.push('\r\n' + getIndent(cnt - 1) + '}');
+	    }else{
+	      mylog.push(txt);
+	    }
+	  }
+	  addLog(s, 0);
+	  console.log(mylog.join(''));
+
+	  //Firebugが入っていなかったらこっち
+	  //alert(mylog.join(''));
+	  //$("#output").text(mylog.join(''));
+	};
+
 	return Utility;
 })();

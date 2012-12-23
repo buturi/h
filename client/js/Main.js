@@ -22,4 +22,10 @@ $(function() {
 			gMap.createMarker(eventObject);
 		},
 		11);
+
+	var debug=(function(){
+		$("#debugEventObjectArrayTrace").click(function(){
+			Utility.trace(eventData.getEventDataArray());
+		});
+	})();
 });
