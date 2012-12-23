@@ -112,7 +112,6 @@ var HigashiEventData=(function(){
 						
 						//他の絞り込みが必要
 						Utility.getLatLng(tmpEventData["place"],function(latLng){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む
-						console.log(gid);
 							if(latLng){
 								tmpEventData["latLng"]={"lat":latLng.lat,"lng":latLng.lng};//住所に対応する座標があったときはそれをいれる
 							}else{//見つからない､精度が極端に低い際は上のgroupID->座標変換リストを使う｡
@@ -129,20 +128,22 @@ var HigashiEventData=(function(){
 		}
 
 		//全体のデータを取得するインスタンスメソッド。配列がかえる
-		this.getData=function(){
+		this.getEventDataArray=function(){
 			return _eventDataArray;
 		}
 
 		//全体ソートするメソッド。引数はソート関数
-		this.sort=function(){
+		this.sort=function(sortFunction){
 
 			/*ソート処理*/
-
+			_eventDataArray.sort(sortFunction);
 		}
 
 		this.size=function(){
 			return _eventDataArray.length
 		}
+
+
 
 		/*------------------------------
 			Constructor
