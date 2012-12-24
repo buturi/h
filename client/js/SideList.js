@@ -99,6 +99,18 @@ var SideList=(function(){
 		------------------------------*/
 		_size=0;
 
+		$("#dateSort").click(function() {
+			alert("おっす");
+		})
+
+		$("#areaSort").click(function() {
+			alert("おっすおっす");
+		})
+
+		$("#weekSort").click(function() {
+			alert("おっすおっすおっす");
+		})
+
 	};
 
 	return SideList;

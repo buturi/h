@@ -48,10 +48,10 @@ ul > .cen {	/* カンマは複数の記述を表すので、内包される意�
 	left: 0;
 	width: 100% ;
 	height: 50px ;
-	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
-	/* Firefox用(左から順に、方向・開始色・終了色) */
+	/* 繧ｰ繝ｩ繝・・繧ｷ繝ｧ繝ｳ http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") 繧医ｊ蠑慕畑 */
+	/* Firefox逕ｨ(蟾ｦ縺九ｉ鬆・↓縲∵婿蜷代・髢句ｧ玖牡繝ｻ邨ゆｺ・牡) */
 	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
-	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	/* Safari,Google Chrome逕ｨ(蟾ｦ縺九ｉ鬆・↓縲∫ｷ壼ｽ｢縺ｧ髢句ｧ倶ｽ咲ｽｮ繝ｻ邨ゆｺ・ｽ咲ｽｮ繝ｻ髢句ｧ玖牡繝ｻ邨ゆｺ・牡) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
 	padding-bottom: 5px ;
 	padding-top: 5px ;
@@ -91,12 +91,6 @@ ul a:hover > .cen {
 	background: -moz-linear-gradient(left 90deg, rgb(229,255,221), rgb(180,209,192)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
-	/* Internet Explorer向けのグラデーション(http://05step.com/2012/08/27/css3-linear-gradient/ より引用, "ごすてっぷ") */
-	/* IE独自のフィルタを用いる(Version5.5以上) */
-	/* 引数 GradientType で0なら縦方向、1なら横方向になる */
-	/* 2つの引数 startColorstr,endColorstr は、それぞれ開始時の色と終了時の色を表す */
-	/* 8桁のうち、上2桁は色の透明度を表す(00に近いほど透明、FFに近いほど不透明) */
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FFE5FFDD', endColorstr='#FFB4D1C0') ;
 }
 
 .cen {
@@ -136,12 +130,6 @@ ul a:hover > .cen {
 	background: -moz-linear-gradient(left 90deg, rgb(229,255,221), rgb(180,209,192)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
-	/* Internet Explorer向けのグラデーション(http://05step.com/2012/08/27/css3-linear-gradient/ より引用, "ごすてっぷ") */
-	/* IE独自のフィルタを用いる(Version5.5以上) */
-	/* 引数 GradientType で0なら縦方向、1なら横方向になる */
-	/* 2つの引数 startColorstr,endColorstr は、それぞれ開始時の色と終了時の色を表す */
-	/* 8桁のうち、上2桁は色の透明度を表す(00に近いほど透明、FFに近いほど不透明) */
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FFE5FFDD', endColorstr='#FFB4D1C0') ;
 	padding-bottom: 5px ;
 	padding-top: 5px ;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
@@ -161,8 +149,7 @@ ul a:hover > .cen {
 	position: absolute; /* 絶対位置 */
 	bottom: 10px; /* 下から10pxの位置 */
 	right: 50px; /* 右から10pxの位置 */
-	overflow: auto; /* はみ出したらスクロールバーを表示 */
-	/* writing-mode: tb-rl; 縦書き（Internet Explorerでは縦書き、GoogleとFireFoxでは横書き） */
+	writing-mode: tb-rl; /* 縦書き */
 }
 
 #btnArea {
