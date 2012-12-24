@@ -81,7 +81,7 @@ var SideList=(function(){
 
 		//リフレッシュ処理 内部的な配列のソートを終えたあとに実行することを想定
 		this.refresh=function(){
-
+				$('#boxArea > .wrap').remove();
 			/* eventDataArrayにしたがって並べ直す */
 
 		}

@@ -175,8 +175,8 @@ ul a:hover > .cen {
 	font-weight: bold; /* 文字を太字 */
 }
 
-#tes {
-	width: 300px;
+
+#boxArea {
 	height: calc(100% - 60px); 
 	height: -webkit-calc(100% - 60px); /* webkit対策 */
 	overflow-y: scroll;  /* はみ出したらスクロールバーを表示 */

@@ -27,7 +27,7 @@ var HigashiEventData=(function(){
 
 		//リスト詳細を受信完了時毎に実行されるメソッド
 		var _onReceive=function(eventObject){
-
+			
 			var len = _eventDataArray.length;
 			for ( compare=len;0<compare;compare-- ) {
 				if( _sortFunction( _eventDataArray[compare-1],eventObject )<=0 ) { //入れ替え
