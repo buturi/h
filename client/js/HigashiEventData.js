@@ -96,7 +96,7 @@ var HigashiEventData=(function(){
 						detailContent.each(function(i){
 							/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
 		                    
-							tmpEventData[_pageDataArray[i]]=$(this).text();
+							tmpEventData[_pageDataArray[i]]=$(this).text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');;
 							
 						});
 						
