@@ -82,7 +82,7 @@ var SideList=(function(){
 		//リフレッシュ処理 内部的な配列のソートを終えたあとに実行することを想定
 		this.refresh=function(){
 				$('#boxArea > .wrap').empty();
-
+				$(sph).parentafter("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 		}
 
 		//TODO filter

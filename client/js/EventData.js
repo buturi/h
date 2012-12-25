@@ -53,7 +53,7 @@ var EventData=(function(){
 
 		//全体ソートするメソッド。引数はソート関数
 		this.sort=function(){
-
+			
 			/*ソート処理*/
 
 		}

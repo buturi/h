@@ -24,15 +24,17 @@ $(function() {
 		11);
 
 		$("#dateSort").click(function() {
-			$('#boxArea > .wrap').empty();
+
+			sideList.refresh();
+			
 		})
 
 		$("#areaSort").click(function() {
-			$('#boxArea > .wrap').empty();
+			sideList.refresh();
 		})
 
 		$("#weekSort").click(function() {
-			$('#boxArea > .wrap').empty();
+			sideList.refresh();
 		})
 
 
