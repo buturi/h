@@ -41,44 +41,38 @@ var GMap=(function(){
 			var latLng=eventObject.latLng
 
 			var gLatlng = new google.maps.LatLng(latLng.lat,latLng.lng);
+
+
+			var infoWnd = new google.maps.InfoWindow({content:"<h1>"+eventObject.title+"</h1><p>"+eventObject.time+"</p>"});
+
 			var marker = new google.maps.Marker({
 			    position: gLatlng, 
 			    map: _mapCanvas, 
 			    title:eventObject.title
 			});
 
-			/*var markerPostion1 = new google.maps.LatLng(34.460428, 132.779771);
+			google.maps.event.addListener(marker, "click", function(){
+				//情報ウィンドウを閉じる
+				// if (currentInfoWindow) {
+				// 	currentInfoWindow.close();
+				// }
+				//情報ウィンドウを開く
+				infoWnd.open(_mapCanvas, marker);
+				
+				// currentInfoWindow = infoWnd;
+			});	
+
+	/*var markerPostion1 = new google.maps.LatLng(34.460428, 132.779771);
 			var markerPostion2 = new google.maps.LatLng(34.445158, 132.789001);
 			_createMarker(_mapCanvas, markerPostion1, "<b>近畿大学工学部</b>");
 			_createMarker(_mapCanvas, markerPostion2, "<b>県立広島高校</b>");	*/
 
 		}
 
+		
+
 		//var _createMaker=function(map, latlng, text){
-		function _createMarker(map, latlng, text) {
-			var _infoWndOpts = {
-				content : text,
-			};
-			var _infoWnd = new google.maps.InfoWindow(_infoWndOpts);
 
-			var _markerOpts = {
-				position : latlng,
-				map : map
-			};
-			var _marker = new google.maps.Marker(_markerOpts);
-			google.maps.event.addListener(_marker, "click", function(){
-				//情報ウィンドウを閉じる
-				if (_currentInfoWindow) {
-					_currentInfoWindow.close();
-				}
-				//情報ウィンドウを開く
-				_infoWnd.open(map, _marker);
-				
-				_currentInfoWindow = _infoWnd;
-			});
-			return _marker;
-
-		}
 
 		//指定の座標へ移動する
 		this.panTo=function(latLng){

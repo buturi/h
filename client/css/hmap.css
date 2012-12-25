@@ -109,6 +109,14 @@ ul a:hover > .cen {
 	height: 100%;
 }
 
+#mapCanvas h1{
+	font-size: 14px;
+}
+
+#mapCanvas p{
+	font-size: 12px;
+}
+
 #bar {
 	background-color: #ffffff;
 	width: 100%;
