@@ -43,6 +43,7 @@ var Utility=(function(){
 		geocoder.geocode({
 			address: word,
 			region: 'jp',
+			bounds:  new google.maps.LatLngBounds(new google.maps.LatLng(34.633208,132.966042),new google.maps.LatLng(34.244162,132.566414))
 			//bounds: '34.244162,132.566414|34.633208,132.966042'//たぶん表記の仕方が違う
 		},
 		function( results, status )	{
