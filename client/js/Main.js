@@ -23,6 +23,19 @@ $(function() {
 		},
 		11);
 
+		$("#dateSort").click(function() {
+			$('#boxArea > .wrap').empty();
+		})
+
+		$("#areaSort").click(function() {
+			$('#boxArea > .wrap').empty();
+		})
+
+		$("#weekSort").click(function() {
+			$('#boxArea > .wrap').empty();
+		})
+
+
 	var debug=(function(){
 		$("#debugEventObjectArrayTrace").click(function(){
 			Utility.trace(eventData.getEventDataArray());

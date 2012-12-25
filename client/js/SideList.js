@@ -81,8 +81,7 @@ var SideList=(function(){
 
 		//リフレッシュ処理 内部的な配列のソートを終えたあとに実行することを想定
 		this.refresh=function(){
-				$('#boxArea > .wrap').remove();
-			/* eventDataArrayにしたがって並べ直す */
+				$('#boxArea > .wrap').empty();
 
 		}
 
@@ -98,18 +97,6 @@ var SideList=(function(){
 			Constructor
 		------------------------------*/
 		_size=0;
-
-		$("#dateSort").click(function() {
-			alert("おっす");
-		})
-
-		$("#areaSort").click(function() {
-			alert("おっすおっす");
-		})
-
-		$("#weekSort").click(function() {
-			alert("おっすおっすおっす");
-		})
 
 	};
 
