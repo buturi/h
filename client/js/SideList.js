@@ -84,7 +84,7 @@ var SideList=(function(){
 		this.refresh=function(){
 				$('#boxArea > .wrap').empty();
 				Utility.trace(_eventData.getEventDataArray());
-				// $(sph).after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
+				$("#box").after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 		}
 
 		//TODO filter
