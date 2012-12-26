@@ -1,13 +1,14 @@
 var SideList=(function(){
 
 	//コンストラクタ。引数はリストIDとソート関数、コールバック関数
-	function SideList(){
+	function SideList(eventData){
 		
 		/*------------------------------
 			Private Instance Member
 		------------------------------*/
 		//リストの大きさを管理する変数
 		var _size;
+		var _eventData;
 
 		/*------------------------------
 			Private Instance Method
@@ -83,7 +84,8 @@ var SideList=(function(){
 		//リフレッシュ処理 内部的な配列のソートを終えたあとに実行することを想定
 		this.refresh=function(){
 				$('#boxArea > .wrap').empty();
-				$(sph).after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
+				Utility.trace(_eventData.getEventDataArray());
+				// $(sph).after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 		}
 
 		//TODO filter
@@ -98,6 +100,7 @@ var SideList=(function(){
 			Constructor
 		------------------------------*/
 		_size=0;
+		_eventData=eventData
 
 	};
 

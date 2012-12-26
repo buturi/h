@@ -10,7 +10,7 @@ $(function() {
 	var eventData=new HigashiEventData();
 
 	//視覚的なサイドに設置されたリストを管理するオブジェクトを宣言
-	var sideList=new SideList();
+	var sideList=new SideList(eventData);
 
 	//イベント管理オブジェクトへソート関数､コールバック関数､公式リストIDを渡してロード｡
 	eventData.load(Sort.sortByDate,
