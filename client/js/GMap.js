@@ -9,6 +9,7 @@ var GMap=(function(){
 
 		//Mapオブジェクト
 		var _mapCanvas;
+		var currentInfoWindow = null;
 
 		/*------------------------------
 			Private Instance Method
@@ -46,7 +47,7 @@ var GMap=(function(){
 			resultgid=parseFloat(resultgid.replace(/G/, "")); //Gを消去してNumber型に変換
 
 
-			var infoWnd = new google.maps.InfoWindow({content:"<h1><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.time+"</p><p>"+resultgid*5%0xFFFFFF+"</p>"});
+			var infoWnd = new google.maps.InfoWindow({content:"<h1><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.time+"</p>"});
 			//consol.log(resultgid*8%0xFFFFFF);
 
 			var tmpArray=resultgid.toString(8).split("")
@@ -74,13 +75,13 @@ var GMap=(function(){
 
 			google.maps.event.addListener(marker, "click", function(){
 				//情報ウィンドウを閉じる
-				// if (currentInfoWindow) {
-				// 	currentInfoWindow.close();
-				// }
+				if (currentInfoWindow) {
+					currentInfoWindow.close();
+				}
 				//情報ウィンドウを開く
 				infoWnd.open(_mapCanvas, marker);
 				
-				// currentInfoWindow = infoWnd;
+				currentInfoWindow = infoWnd;
 			});	
 
 	/*var markerPostion1 = new google.maps.LatLng(34.460428, 132.779771);
