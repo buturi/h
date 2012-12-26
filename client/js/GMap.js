@@ -42,13 +42,25 @@ var GMap=(function(){
 
 			var gLatlng = new google.maps.LatLng(latLng.lat,latLng.lng);
 
+			var resultgid=eventObject.gid;
+			resultgid=parseFloat(resultgid.replace(/G/, "")); //Gを消去してNumber型に変換
 
-			var infoWnd = new google.maps.InfoWindow({content:"<h1><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.time+"</p>"});
+
+			var infoWnd = new google.maps.InfoWindow({content:"<h1><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.time+"</p><p>"+resultgid*5%0xFFFFFF+"</p>"});
+			//consol.log(resultgid*8%0xFFFFFF);
+
+			var tmpArray=resultgid.toString(8).split("")
+			var tmpString=""
+
+			tmpArray.forEach(function(value){
+				value=(8+Number(value)).toString(16)
+				tmpString+=value
+			})
 
 			var marker = new google.maps.Marker({
 			    position: gLatlng, 
 			    map: _mapCanvas, 
-			    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=O|AAFFAA|000000',
+			    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=O|'+tmpString+'|000000',
 			    title:eventObject.title
 			});
 

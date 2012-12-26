@@ -116,6 +116,8 @@ var HigashiEventData=(function(){
 								tmpEventData["latLng"]={"lat":latLng.lat,"lng":latLng.lng};//住所に対応する座標があったときはそれをいれる
 							}else{//見つからない､精度が極端に低い際は上のgroupID->座標変換リストを使う｡
 								tmpEventData["latLng"]=Data.getLatLngObjectFromGID(gid);
+								tmpEventData["latLng"].lat+=Math.random()/10000-0.00005;
+								tmpEventData["latLng"].lng+=Math.random()/10000-0.00005;
 							}
 							_onReceive(tmpEventData);
 						});
