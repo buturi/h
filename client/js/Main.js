@@ -24,7 +24,7 @@ $(function() {
 		11);
 
 		$("#dateSort").click(function() {
-			
+			eventData.sort(Sort.sortByDate);
 			sideList.refresh();
 			
 		})

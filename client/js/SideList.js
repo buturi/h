@@ -66,7 +66,6 @@ var SideList=(function(){
 			//クリックイベントリスナーを追加しておく
 			$("#list"+_size).click(function(){
 				gMap.panTo(new google.maps.LatLng(eventObject['latLng']['lat'], eventObject['latLng']['lng']));
-				eventObject.infoWin.open();
 			})
 			_size++;
 
