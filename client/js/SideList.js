@@ -26,7 +26,7 @@ var SideList=(function(){
 		//行を挿入する
 		this.insert=function(eventObject,position){
 			if ( 0<position ) {
-				var sph = ".eventBox:eq("+(position-1)+")";
+				var sph = ".wrap:eq("+(position-1)+")";
 			} else { //一番最後に出力
 				var sph = "#box";
 			}
@@ -61,7 +61,7 @@ var SideList=(function(){
 			} else {
 				str_sponsor = str_sponsor.substring(0, 10);
 			}
-			$(sph).after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
+			$(sph).after("<div class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div id='list"+_size+"' class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 			//クリックイベントリスナーを追加しておく
 			$("#list"+_size).click(function(){
 				gMap.panTo(new google.maps.LatLng(eventObject['latLng']['lat'], eventObject['latLng']['lng']));
@@ -82,7 +82,7 @@ var SideList=(function(){
 		//リフレッシュ処理 内部的な配列のソートを終えたあとに実行することを想定
 		this.refresh=function(){
 				$('#boxArea > .wrap').empty();
-				$(sph).parentafter("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
+				$(sph).after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 		}
 
 		//TODO filter
