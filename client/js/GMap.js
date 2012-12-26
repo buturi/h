@@ -64,6 +64,14 @@ var GMap=(function(){
 			    title:eventObject.title
 			});
 
+			eventObject.infoWin={
+				open:
+				function(){
+					// alert(eventObject.title);
+					infoWnd.open(_mapCanvas, marker);
+				}
+			}
+
 			google.maps.event.addListener(marker, "click", function(){
 				//情報ウィンドウを閉じる
 				// if (currentInfoWindow) {

@@ -38,6 +38,10 @@ var Utility=(function(){
 	//文字から座標を取得する関数 by nohki
 	//取得できなければnullが返る
 	Utility.getLatLng=function(word,func){
+		if(word==""){
+			func(null)
+			return;
+		}
 		var geocoder = new google.maps.Geocoder();
 
 		geocoder.geocode({

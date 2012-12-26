@@ -217,7 +217,6 @@ var Data = (function() {
 
 	//GIDから座標が入ったオブジェクトを返す
 	Data.getLatLngObjectFromGID=function(GID){
-		console.log(GID)
 		if(latLngObject[GID]){
 			//存在すれば団体の座標を返す
 			return latLngObject[GID];
