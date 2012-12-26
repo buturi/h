@@ -50,11 +50,11 @@ var GMap=(function(){
 			var infoWnd = new google.maps.InfoWindow({content:"<h1><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.time+"</p>"});
 			//consol.log(resultgid*8%0xFFFFFF);
 
-			var tmpArray=resultgid.toString(8).split("")
+			var tmpArray=resultgid.toString(7).split("")
 			var tmpString=""
 
 			tmpArray.forEach(function(value){
-				value=(8+Number(value)).toString(16)
+				value=(9+Number(value)).toString(16)
 				tmpString+=value
 			})
 
@@ -69,7 +69,11 @@ var GMap=(function(){
 				open:
 				function(){
 					// alert(eventObject.title);
+					if (currentInfoWindow) {
+						currentInfoWindow.close();
+					}		
 					infoWnd.open(_mapCanvas, marker);
+					currentInfoWindow = infoWnd;
 				}
 			}
 
