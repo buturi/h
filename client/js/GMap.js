@@ -47,14 +47,19 @@ var GMap=(function(){
 			resultgid=parseFloat(resultgid.replace(/G/, "")); //Gを消去してNumber型に変換
 
 
-			var infoWnd = new google.maps.InfoWindow({content:"<h1><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.time+"</p>"});
+			var infoWnd = new google.maps.InfoWindow({content:"<h1><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.time+"</p><p>"+eventObject.gid+"</p>"});
 			//consol.log(resultgid*8%0xFFFFFF);
 
-			var tmpArray=resultgid.toString(7).split("")
+			var tmpArray=resultgid.toString(8).split("")
+			for(var i=0;i<3;i++){
+				if(!tmpArray[i]){
+					tmpArray[i]=0;
+				}
+			}
 			var tmpString=""
 
 			tmpArray.forEach(function(value){
-				value=(9+Number(value)).toString(16)
+				value=(8+Number(value)).toString(16)
 				tmpString+=value
 			})
 
