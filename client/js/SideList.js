@@ -13,19 +13,7 @@ var SideList=(function(){
 		/*------------------------------
 			Private Instance Method
 		------------------------------*/
-
-
-		/*------------------------------
-			Public Instance Member
-		------------------------------*/
-
-
-		/*------------------------------
-			Public Instance Method
-		------------------------------*/
-
-		//行を挿入する
-		this.insert=function(eventObject,position){
+		var _insertColumn=function(eventObject,position){
 			if ( 0<position ) {
 				var sph = ".wrap:eq("+(position-1)+")";
 			} else { //一番最後に出力
@@ -70,7 +58,20 @@ var SideList=(function(){
 			_size++;
 
 		//項目を挿入する
+		}
 
+		/*------------------------------
+			Public Instance Member
+		------------------------------*/
+
+
+		/*------------------------------
+			Public Instance Method
+		------------------------------*/
+
+		//行を挿入する
+		this.insert=function(eventObject,position){
+			_insertColumn(eventObject,position);
 		}
 
 		// //全体ソートするメソッド。引数はソート関数
@@ -84,7 +85,11 @@ var SideList=(function(){
 		this.refresh=function(){
 				$('#boxArea > .wrap').empty();
 				Utility.trace(_eventData.getEventDataArray());
-				$("#box").after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
+				var eventDataArray=_eventData.getEventDataArray();
+				for (var i = 0; i < eventDataArray.length; i++) {
+					_insertColumn(eventDataArray[i],i)
+				};
+				//$("#box").after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 		}
 
 		//TODO filter

@@ -30,6 +30,7 @@ $(function() {
 		})
 
 		$("#areaSort").click(function() {
+			eventData.sort(Sort.sortByGID);
 			sideList.refresh();
 		})
 
