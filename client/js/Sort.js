@@ -12,11 +12,11 @@ var Sort=(function(){
 	}
 
 	Sort.sortByGID=function(a,b){
-		a.gid = a.gid.slice(1);
-		b.gid = b.gid.slice(1);
-		if( a.gid > b.gid ) {
+		var x = Number(a.gid.slice(1));
+		var y = Number(b.gid.slice(1));
+		if( x > y ) {
 			return 1;
-		} else if( a.gid == b.gid ) {
+		} else if( x == y ) {
 			return 0;
 		} else {
 			return -1;
