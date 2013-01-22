@@ -162,7 +162,7 @@ ul a:hover > .cen {
 
 #btnArea {
 	width: 270px;
-	height: 30px;
+	height: 50px;
 	margin: 10px 0 10px 30px;
 	writing-mode: lr-tb ; /* 横書き */
 }
