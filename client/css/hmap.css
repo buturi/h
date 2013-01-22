@@ -32,9 +32,9 @@ ul > .cen {	/* カンマは複数の記述を表すので、内包される意�
 	/*background: #555;*/
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
 	/* Firefox用(左から順に、方向・開始色・終了色) */
-	background: -moz-linear-gradient(left 90deg, rgb(229,255,221), rgb(180,209,192)) ;
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
-	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
 	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 	border-color: 5px solid #000 ;
@@ -88,9 +88,9 @@ ul a:hover > .cen {
 	color: red ; /* オンマウス時の文字の色 */
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
 	/* Firefox用(左から順に、方向・開始色・終了色) */
-	background: -moz-linear-gradient(left 90deg, rgb(229,255,221), rgb(180,209,192)) ;
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
-	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
 }
 
 .cen {
@@ -139,9 +139,9 @@ ul a:hover > .cen {
 	height: 50px ;
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
 	/* Firefox用(左から順に、方向・開始色・終了色) */
-	background: -moz-linear-gradient(left 90deg, rgb(229,255,221), rgb(180,209,192)) ;
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
-	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
 	padding-bottom: 5px ;
 	padding-top: 5px ;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
@@ -187,12 +187,20 @@ ul a:hover > .cen {
 	background-color: #26E8F2 ;
 	border-radius: 5px ; /* 角丸 */
 	font-weight: bold ; /* 文字を太字 */
+	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
+	/* Firefox用(左から順に、方向・開始色・終了色) */
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
+	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
+	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
+	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
+	border-color: 5px solid #000 ;
 }
 
 #boxArea {
 	width: 300px ;
-	height: calc(100% - 60px) ; 
-	height: -webkit-calc(100% - 60px) ; /* webkit対策 */
+	height: calc(100% - 160px) ; 
+	height: -webkit-calc(100% - 160px) ; /* webkit対策 */
 	overflow-y: scroll ;  /* はみ出したらスクロールバーを表示 */
 	writing-mode: lr-tb ; /* 横書き */
 }
@@ -354,9 +362,9 @@ ul > .tabmenu { /* 各タブメニュー */
 	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
 	/* Firefox用(左から順に、方向・開始色・終了色) */
-	background: -moz-linear-gradient(left 90deg, rgb(229,255,221), rgb(180,209,192)) ;
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
-	background: -webkit-gradient(linear, left bottom, left top, from(rgb(229,255,221)), to(rgb(180,209,192))) ;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
 	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 	border-color: 5px solid #000 ;
