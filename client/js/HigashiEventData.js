@@ -1,7 +1,8 @@
 var HigashiEventData=(function(){
 
 	//コンストラクタ。引数はリストIDとソート関数、コールバック関数
-	function HigashiEventData(sortFunction,callbackFunction,listID){
+	//必ずloadかコンストラクタの段階でこの3つの属性をもたせること｡
+	function HigashiEventData(sortFunction,callbackFunction,options){
 		
 		/*------------------------------
 			Private Instance Member
@@ -9,7 +10,7 @@ var HigashiEventData=(function(){
 		//読み込み先ドメインを保持する
 		var _domain;
 		//イベントリストの種類を保持する｡これは公式サイトの引数と同じ
-		var _listID;
+		var _options;
 		//ページに存在する項目のリストを格納する
 		var _pageDataArray;
 		//イベントリストを保持する
@@ -57,11 +58,14 @@ var HigashiEventData=(function(){
 		------------------------------*/
 
 
-		//データをロードするメソッド｡オーバライドする
-		//受け取ったListIDに対応するイベントリストを取得､それをスクレイピングしていく
-		this.load=function(sortFunction,callbackFunction,listID){
-			if(listID){
-				_listID=listID;
+		//受け取ったoptionsに対応するイベントリストを取得､それをスクレイピングしていく
+		this.load=function(sortFunction,callbackFunction,options){
+			if(options){
+				_options=options;
+			}
+			//type属性がない場合は取得できないので､11を付与する
+			if(!_options.type){
+				_options.type=11;
 			}
 			if(sortFunction){
 				_sortFunction=sortFunction;
@@ -69,11 +73,33 @@ var HigashiEventData=(function(){
 			if(callbackFunction){
 				_callbackFunction=callbackFunction;
 			}
-			_pageDataArray=Data.getPageDataArray(_listID);
+
+			//Dataクラスからtype別のページ構成情報を取得する
+			_pageDataArray=Data.getPageDataArray(_options.type);
 			/*スクレイピング処理*/
 
-			$.get(_domain+"content_search.php?type="+_listID+"&sort=5&select_class=1&select_code1=1",function(data){
+			//オプションをクエリストリングにする
+			var qString="?";
+			for (var key in _options) {
+			    qString += key + "=" + _options[key] + "&";
+			}
+
+			//サーバ死亡時に切り替えるテスト実装
+			//var siteSurvivalFlg=false;
+
+			//サイトが死んでて､ドメインリストにまだ試していないドメインがあれば｡forを回す｡
+			//for(var count=0;(!siteSurvivalFlg)&&count<Data.getDomainList().length;count++){
+			$.get(_domain+"content_search.php"+qString,function(data){
 				var content=$(data.responseText).find('a[href*="sheet.php?"]');
+
+				//サーバ死亡時に切り替えるテスト実装
+				/*if(content.length=0){
+					_domain=Data.getDomainList()[count+1];
+					return;
+				}
+				siteSurvivalFlg=true
+
+				alert("domain="+_domain)*/
 
 				content.each(function(){
 		
@@ -124,7 +150,12 @@ var HigashiEventData=(function(){
 					});
 					
 				});
-			});
+			}) 
+			.error(function() { 
+				_domain=Data.getDomainList()[count+1];
+				});
+			//サーバ死亡時に切り替えるテスト実装
+			//}
 
 			/*  */
 		}
@@ -145,6 +176,10 @@ var HigashiEventData=(function(){
 			return _eventDataArray.length
 		}
 
+		this.deleteAll=function(){
+			_eventDataArray.length=0;
+		}
+
 
 
 		/*------------------------------
@@ -154,7 +189,7 @@ var HigashiEventData=(function(){
 		//EventData.apply(this, arguments);
 		//初期化処理
 		_domain=Data.getDomainList()[0];
-		_listID=listID;
+		_options=options;
 		_eventDataArray=new Array();
 		_sortFunction=sortFunction;
 		_callbackFunction=callbackFunction;
