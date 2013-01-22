@@ -21,22 +21,41 @@ $(function() {
 			//console.log(eventObject.latLng);
 			gMap.createMarker(eventObject);
 		},
-		11);
+		{type:11});
 
-		$("#dateSort").click(function() {
-			eventData.sort(Sort.sortByDate);
-			sideList.refresh();
-			
-		})
+	$("#dateSort").click(function() {
+		eventData.sort(Sort.sortByDate);
+		sideList.refresh();
+	})
 
-		$("#areaSort").click(function() {
-			eventData.sort(Sort.sortByGID);
-			sideList.refresh();
-		})
+	$("#areaSort").click(function() {
+		eventData.sort(Sort.sortByGID);
+		sideList.refresh();
+	})
 
-		$("#weekSort").click(function() {
-			sideList.refresh();
-		})
+	$("#weekSort").click(function() {
+		sideList.refresh();
+	})
+
+	//各検索用のセレクタのイベントハンドラ
+	$('.searchSelect').bind('change', function() {
+		//googlemapクリア､リストクリア､再読み込みを行う
+		gMap.deleteAllMarker();
+		eventData.deleteAll();
+		sideList.refresh();
+		eventData.load(Sort.sortByDate,
+		function(eventObject,position){
+			sideList.insert(eventObject,position);
+			gMap.createMarker(eventObject);
+		},
+		{
+			type : 11,
+			class : $('#placeSelect option:selected').val(),
+			select_class : 1,
+			code1 : $('#sectorSelect option:selected').val(),
+			select_code1 : 1,
+		});
+	});
 
 
 	var debug=(function(){
