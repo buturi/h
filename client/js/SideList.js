@@ -93,6 +93,11 @@ var SideList=(function(){
 				//$("#box").after("<div id='list"+_size+"' class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div class='eventBox'>"+str_title+"<div class='sponsorBox'>"+str_sponsor+"</div></div></div>");
 		}
 
+		//全削除
+		this.deleteAll=function(){
+			$('#boxArea > .wrap').empty();
+		}
+
 		//TODO filter
 		//typeにString型で属性名を渡し､valueでフィルタリングをかける
 		this.filter=function(type,value){

@@ -11,6 +11,9 @@ var GMap=(function(){
 		var _mapCanvas;
 		var currentInfoWindow = null;
 
+		//複数のマーカーを管理するクラス
+		var markerList = new google.maps.MVCArray();
+
 		/*------------------------------
 			Private Instance Method
 		------------------------------*/
@@ -69,6 +72,7 @@ var GMap=(function(){
 			    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=O|'+tmpString+'|000000',
 			    title:eventObject.title
 			});
+			markerList.push(marker);
 
 			eventObject.infoWin={
 				open:
@@ -100,7 +104,12 @@ var GMap=(function(){
 
 		}
 
-		
+		this.deleteAllMarker=function(){
+			markerList.forEach(function(marker) {
+				marker.setMap(null);
+			});
+			markerList.length=0;
+		}
 
 		//var _createMaker=function(map, latlng, text){
 
