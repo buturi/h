@@ -29,7 +29,7 @@ var SideList=(function(){
 					case 0: //日曜日
 						weeks = "sun";
 						break;
-					case 1: //土曜日
+					case 6: //土曜日
 						weeks = "sat";
 						break;
 					default: //平日
