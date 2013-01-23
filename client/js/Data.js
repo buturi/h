@@ -8,6 +8,7 @@ var Data = (function() {
 	//static
 	//イベントリストが掲載されている場所のリスト
 	var domainList=[
+		"http://higashihiroshima.genki365.net/gnkh12/pub/",
 		"http://buturi.heteml.jp/student/higashihiroshima/",
 		"http://buturi.heteml.jp/student/2012/nohki/higashi/"
 	];
