@@ -96,6 +96,27 @@ var Utility=(function(){
 		return tmpDateArray;
 	}
 
+	//GID(String)から16進数のカラー値に変換する｡カラー値は#無し
+	Utility.convertGIDToHexColorString=function(gid){
+
+		gid=parseFloat(gid.replace(/G/, "")); //Gを消去してNumber型に変換
+
+		var tmpArray=gid.toString(8).split("")
+		for(var i=0;i<3;i++){
+			if(!tmpArray[i]){
+				tmpArray[i]=0;
+			}
+		}
+		var tmpString=""
+
+		tmpArray.forEach(function(value){
+			value=(8+Number(value)).toString(16)
+			tmpString+=value+""+value
+		})
+		console.log("ts: "+tmpString)
+		return tmpString;
+	}
+
 	/*デバッグ用の関数 http://www.kuma-de.com/blog/2009-10-01/1274 */
 	Utility.trace=function(s){
 	  mylog = [];

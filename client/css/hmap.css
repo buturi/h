@@ -1,4 +1,4 @@
-﻿/*-------------------------------------------------------------------------
+/*-------------------------------------------------------------------------
 		基本設定
 -------------------------------------------------------------------------*/
 html {
@@ -164,6 +164,7 @@ ul a:hover > .cen {
 	writing-mode: tb-rl ; /* 横書き */
 	border-top-left-radius: 5px ; /* 左上の角丸：5px */
 	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 #btnArea {
@@ -209,6 +210,7 @@ ul a:hover > .cen {
 	height: 60px ;
 	width: 270px ;
 	margin-bottom: 10px ;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .dateBox { /* 日付box */
@@ -223,6 +225,7 @@ ul a:hover > .cen {
 	border-radius: 3px ; /* 角丸 */
 	cursor: default ; /* マウスカーソルを常にデフォルト */
 	float: left ;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .eventBox { /* タイトルbox */
@@ -238,8 +241,9 @@ ul a:hover > .cen {
 	border-radius: 0 3px 3px 0 ; /* 角丸 */
 	cursor: default ; /* マウスカーソルを常にデフォルト */
 	float: left ;
-	border-left: 5px solid #ff4141 ;
+	border-left: 5px solid rgba(0,51,204,0.4) ;
 	-o-text-overflow: ellipsis ;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .eventBox:hover { /* 上記アクティブ時 */
@@ -252,7 +256,7 @@ ul a:hover > .cen {
 	top: 40px ;
 	right: 5px ;
 	color: rgb(100,100,100) ; /* 文字色：灰色 */
-	border-bottom: 3px solid #1DE09F ;
+	border-bottom: 3px solid rgba(0,51,204,0.4) ;
 	text-shadow: 1px 0 0 #999 ;
 }
 
@@ -379,3 +383,39 @@ ul > .tabmenu { /* 各タブメニュー */
 	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 	border-color: 5px solid #000 ;
 }
+
+/* インフォメーションページのCSS設定 */
+/* 外枠の設定 */
+#informationContainer{
+	/* 最初は核しておく */
+	display:none;
+	position: absolute;
+	margin: 0 auto 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	padding: 20px;
+}
+/* メインエリアの設定 */
+#informationContainer #informationArea {
+	padding: 10px;
+	background-color: rgba(0,0,0,0.5);
+	color: #FFF;
+}
+
+/* aタグの設定 */
+#informationContainer #informationArea a {
+	color: #99CCFF;
+}
+
+/* ボタンの色設定 */
+.simpleButton {
+	background-color: rgba(255,255,255,0);
+	color: #FFF;
+}
+/* バーの設定 */
+.windowBar{
+	background-color: rgba(0,0,0,0.5);
+	text-align: right;
+}
+/* インフォメーションページの設定ここまで */

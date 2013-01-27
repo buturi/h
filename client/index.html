@@ -38,6 +38,13 @@
 			$(currentTab).find("div").show();
 			return false;
 		});
+		$('#informationContainer .close').click(function(event){
+			$('#informationContainer').hide("fast");
+			})
+		$('#showInformationButton').click(function(event) {
+			$('#informationContainer').show("fast");
+			})
+		
 	});
 	</script>
 	<script type="text/javascript" src="js/move.js"></script>
@@ -46,10 +53,11 @@
 	<header>
 		<!-- デバッグボタン -->
 		<!--<button id="debugEventObjectArrayTrace">EventObjectArrayを出力</button>-->
-        <div id="bachelor"><h1>卒業研究</h1></div>
+        <div id="bachelor"><h1>卒業研究                    <button type="button" class="simpleButton" id="showInformationButton">？</button></h1></div>
 		<!-- デバッグボタンここまで -->
 		<div id="bar"><!-- 上端の見出し -->
 			<div id="title">
+
 				<ul id="topbar">
 <!--  <li>
 				<button id="debug">debug button</button>
@@ -144,5 +152,24 @@
 	<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
 </div><!-- #twit -->
 </div><!-- #tabs -->
+<div id="informationContainer">
+	<div class="windowBar">
+		<button type="button" class="close simpleButton">×</button>
+	</div>
+	<div id="informationArea">
+		    <h1>東広島イベントマップ</h1>
+		<p>このサイトは､
+		<a href="http://higashihiroshima.genki365.net/" title="東広島市民活動情報サイト">東広島市民活動情報サイト</a>
+		の情報をもとに､地図上に
+	    </p>
+	    <h2>ライセンス･その他</h2>
+	    <p>近畿大学 工学部 情報システム工学科
+	    <a href="http://buturi.heteml.jp/student/2012/" title="情報物理研究室">情報物理研究室</a></p>
+	    <p>© 2012- Higashi-Hiroshima City 
+	    <a href="http://higashihiroshima.genki365.net/" title="東広島市民活動情報サイト">東広島市民活動情報サイト</a></p>
+	    
+	    <button type="button" class="close simpleButton">閉じる</button></div>
+
+</div>
 </body>
 </html>
