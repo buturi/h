@@ -77,7 +77,7 @@ ul .cen:hover > ul {
 ul a{
 	display: block ;
 	font-size: 20px ;
-	width: 250px ;
+	/*width: 250px ;*/
 	color: #2F4F4F ; /* 通常時の文字の色 */
 	text-decoration: none ; /* 下線なし */
 	cursor: pointer ; /* マウスの形をポインター */
@@ -349,7 +349,7 @@ ul > .tabmenu { /* 各タブメニュー */
 	background-color: #C9F ; /* 背景：lightGray */
 	padding: 0 ;
 	width: 30px ;
-	height: 150px ;
+	/*height: 150px ;*/
 	list-style: none ; /* リストの先頭のマークを非表示に */
 	border-top-left-radius: 5px ; /* 左上の角丸：5px */
 	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
@@ -361,7 +361,7 @@ ul > .tabmenu { /* 各タブメニュー */
 	color: black ; /* 文字色：黒 */
 	text-decoration: none ; /* リンクの下線：非表示 */
 	text-align: center ; /* 中央寄せ */
-	line-height: 150px ; /* 縦方向の中央寄せ */ /* heightと同じ値を指定すると縦方向の中央寄せになる */
+	/*line-height: 150px ;  縦方向の中央寄せ   heightと同じ値を指定すると縦方向の中央寄せになる */
 	border-top-left-radius: 5px ; /* 左上の角丸：5px */
 	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
