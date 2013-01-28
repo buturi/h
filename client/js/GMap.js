@@ -47,12 +47,30 @@ var GMap=(function(){
 			var gLatlng = new google.maps.LatLng(latLng.lat,latLng.lng);
 
 
+			var tmpString=Utility.convertGIDToHexColorString(eventObject.gid);
+			
+			var splitString=["。","｡","．","."];
+			var maxChar = -1;
+			splitString.forEach(function(element){
+				var index=eventObject.detail.lastIndexOf(element, 100);
+				if(maxChar<index){
+					maxChar=index;
+				}
+				
+			});
+			if(maxChar<0){
+				maxChar=100;
+			}
 
-			var infoWnd = new google.maps.InfoWindow({content:"<h1><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.time+"</p><p>"+eventObject.gid+"</p>"});
+
+			eventObject.detail.substr(0,200)
+			var infoWnd = new google.maps.InfoWindow({
+				content:"<h1><img class='icon' src='http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=O|"+tmpString+"|000000'><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.detail.substr(0,maxChar+1)+"</p><div class='center'><img class='thumbnail' src='"+eventObject.image+"'></div>",
+				maxWidth: 300
+			});
 			//consol.log(resultgid*8%0xFFFFFF);
 
-			var tmpString=Utility.convertGIDToHexColorString(eventObject.gid);
-			console.log(tmpString);
+
 
 			var marker = new google.maps.Marker({
 			    position: gLatlng, 

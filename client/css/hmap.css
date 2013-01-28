@@ -24,7 +24,7 @@ ul {
 		トップバー
 -------------------------------------------------------------------------*/
 ul > .cen {	/* カンマは複数の記述を表すので、内包される意味で'>'を用いる */
-	width: 250px ;
+	width: 190px ;
 	position: relative ;
 	display: inline-block ;
 	list-style-type: none ;
@@ -109,16 +109,38 @@ ul a:hover > .cen {
 	height: 100% ;
 }
 
+	#mapCanvas h1{
+		font-size: 14px;
+	}
+	
+	#mapCanvas p{
+		font-size: 12px;
+	}
+	
+	#mapCanvas a{
+	    color: #336699;
+	    text-decoration: none;
+	    border-bottom: 1px dashed #2a9c3b;   
+	}
+	
+	#mapCanvas .icon{
+	    width:12px;
+	    float:left;  
+	}
+
+	#mapCanvas .thumbnail{
+		max-height: 250px;
+		max-width: 250px;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+	}
+
+	#mapCanvas .center{
+		text-align: center;
+	}
+
+
 #bachelor {
 	text-align: center ;
-}
-
-#mapCanvas h1{
-	font-size: 14px;
-}
-
-#mapCanvas p{
-	font-size: 12px;
 }
 
 #bar {
@@ -155,8 +177,8 @@ ul a:hover > .cen {
 	background-color: white ; /* 背景色:白 */
 	border-radius: 5px ; /* 角丸 */
 	opacity: 0.8 ; /* 透過度:80% */
-	height: calc(100% - 200px) ; /* 縦:100% - 120px */
-	height: -webkit-calc(100% - 200px) ; /* webkit対策 */
+	height: calc(100% - 120px) ; /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 120px) ; /* webkit対策 */
 	width: 300px ; /* 横：300px */
 	position: absolute ; /* 絶対位置 */
 	bottom: 10px ; /* 下から10pxの位置 */
@@ -200,8 +222,8 @@ ul a:hover > .cen {
 
 #boxArea {
 	width: 300px ;
-	height: calc(100% - 160px) ; 
-	height: -webkit-calc(100% - 160px) ; /* webkit対策 */
+	height: calc(100% - 80px) ; 
+	height: -webkit-calc(100% - 80px) ; /* webkit対策 */
 	overflow-y: scroll ;  /* はみ出したらスクロールバーを表示 */
 	writing-mode: lr-tb ; /* 横書き */
 }

@@ -41,7 +41,7 @@
 		$('#informationContainer .close').click(function(event){
 			$('#informationContainer').hide("fast");
 			})
-		$('#showInformationButton').click(function(event) {
+		$('.showInformationButton').click(function(event) {
 			$('#informationContainer').show("fast");
 			})
 		
@@ -53,7 +53,7 @@
 	<header>
 		<!-- デバッグボタン -->
 		<!--<button id="debugEventObjectArrayTrace">EventObjectArrayを出力</button>-->
-        <div id="bachelor"><h1>卒業研究                    <button type="button" class="simpleButton" id="showInformationButton">？</button></h1></div>
+        <!-- <div id="bachelor"><h1>卒業研究</h1></div> -->
 		<!-- デバッグボタンここまで -->
 		<div id="bar"><!-- 上端の見出し -->
 			<div id="title">
@@ -89,6 +89,9 @@
 				<li class="cen"><a href="http://www.hirokoku-u.ac.jp/">広島国際大学</a></li>
 			</ul><!-- "ICT加盟大学一覧▼" の ul タグここまで -->
 		</li><!-- "ICT加盟大学一覧▼" の li タグここまで -->
+		
+		<li class="cen"><a class="showInformationButton" href="#">このサイトについて</a></li>
+
 	</ul><!-- ul id="topbar" ここまで -->
 </div><!-- div id="title" ここまで -->
 </div><!-- div id="bar" ここまで -->

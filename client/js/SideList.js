@@ -56,7 +56,7 @@ var SideList=(function(){
 			for (var i = 0; i < 6; i+=2) {
 				colorString+=parseInt(tmpString.substr(i,2),16)+","
 			};
-			colorString+="0.8);"
+			colorString+="0.9);"
 			console.log(colorString);
 
 			$(sph).after("<div class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div id='list"+_size+"' class='eventBox'>"+str_title+"<div class='sponsorBox' style='border-bottom: 3px solid "+colorString+"'>"+str_sponsor+"</div></div></div>");

@@ -125,6 +125,17 @@ var HigashiEventData=(function(){
 							tmpEventData[_pageDataArray[i]]=$(this).text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');;
 							
 						});
+
+						/* 画像のみimgのsrcを取り出すため､特別処理を行う｡ */
+						/* thに続くtdを探し､その子としてのimgが存在する要素を探す｡そのあとsrc要素を取り出し､/で区切る */
+						var tmpjQueryObject=$(detailData.responseText).find('th ~ td img')//$('th ~ td img')
+
+						if(tmpjQueryObject[0]){
+							var tmpArray=tmpjQueryObject.attr("src").split("/");
+							/* /で区切った最後の値､つまりファイル名のみをとりだす｡ */
+							tmpEventData["image"]="http://higashihiroshima.genki365.net/gnkh12/pub/"+tmpArray[tmpArray.length-1];
+						}
+
 						
 						/*String型の年月日をDate型に変換する*/
 						/*複数日程記述時に､分離･記憶する必要がある*/
