@@ -441,3 +441,8 @@ ul > .tabmenu { /* 各タブメニュー */
 	text-align: right;
 }
 /* インフォメーションページの設定ここまで */
+
+/* 検索切り替え用ボックスのサイズ調整 */
+.searchSelect{
+	width:40%;
+}
