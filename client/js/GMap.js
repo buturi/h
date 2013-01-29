@@ -64,8 +64,9 @@ var GMap=(function(){
 
 
 			eventObject.detail.substr(0,200)
+			var iconChar=eventObject['sponsor'].substr(0,1);
 			var infoWnd = new google.maps.InfoWindow({
-				content:"<h1><img class='icon' src='http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=O|"+tmpString+"|000000'><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p>"+eventObject.detail.substr(0,maxChar+1)+"</p><div class='center'><img class='thumbnail' src='"+eventObject.image+"'></div>",
+				content:"<h1><img class='icon' src='http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld="+iconChar+"|"+tmpString+"|000000'><a href='http://higashihiroshima.genki365.net/gnkh12/pub/sheet.php?id="+eventObject.id+"'>"+eventObject.title+"</a></h1><p class='place'>"+eventObject.place+"</p><p>"+eventObject.detail.substr(0,maxChar+1)+"</p><div class='center'><img class='thumbnail' src='"+eventObject.image+"'></div>",
 				maxWidth: 300
 			});
 			//consol.log(resultgid*8%0xFFFFFF);
@@ -74,8 +75,8 @@ var GMap=(function(){
 
 			var marker = new google.maps.Marker({
 			    position: gLatlng, 
-			    map: _mapCanvas, 
-			    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=O|'+tmpString+'|000000',
+			    map: _mapCanvas, //http://chart.apis.google.com/chart?chst=d_map_spin&chld=1|0|aaa|20|b|a
+			    icon: "http://chart.apis.google.com/chart?chst=d_map_spin&chld=1|0|"+tmpString+"|20|b|"+iconChar,//'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+iconChar+'|'+tmpString+'|000000',
 			    title:eventObject.title
 			});
 			markerList.push(marker);
