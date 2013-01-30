@@ -38,13 +38,25 @@ var Utility=(function(){
 	//文字から座標を取得する関数 by nohki
 	//取得できなければnullが返る
 	Utility.getLatLng=function(word,func){
+		if(word==""){
+			func(null)
+			return;
+		}
 		var geocoder = new google.maps.Geocoder();
+
 		geocoder.geocode({
 			address: word,
 			region: 'jp',
+			bounds:  new google.maps.LatLngBounds(new google.maps.LatLng(34.633208,132.966042),new google.maps.LatLng(34.244162,132.566414))
 			//bounds: '34.244162,132.566414|34.633208,132.966042'//たぶん表記の仕方が違う
 		},
 		function( results, status )	{
+			var tmpString="";
+			results.forEach(function(tmpItem){
+				tmpString+=" ["+tmpItem.formatted_address+"]";
+			})
+			console.log(word+" : "+status+" : "+tmpString);
+
 			if( status == google.maps.GeocoderStatus.OK){
 				var latLng = new Object();
 				latLng.lat = results[0].geometry.location.lat();
@@ -83,6 +95,75 @@ var Utility=(function(){
 		}
 		return tmpDateArray;
 	}
+
+	//GID(String)から16進数のカラー値に変換する｡カラー値は#無し
+	Utility.convertGIDToHexColorString=function(gid){
+
+		gid=parseFloat(gid.replace(/G/, "")); //Gを消去してNumber型に変換
+
+		var tmpArray=gid.toString(8).split("")
+		for(var i=0;i<3;i++){
+			if(!tmpArray[i]){
+				tmpArray[i]=0;
+			}
+		}
+		var tmpString=""
+
+		tmpArray.forEach(function(value){
+			value=(8+Number(value)).toString(16)
+			tmpString+=value+""+value
+		})
+		console.log("ts: "+tmpString)
+		return tmpString;
+	}
+
+	/*デバッグ用の関数 http://www.kuma-de.com/blog/2009-10-01/1274 */
+	Utility.trace=function(s){
+	  mylog = [];
+	  function getIndent(num){
+	    var ind = [];
+	    while(num){
+	      ind.push(' ');
+	      num--;
+	    }
+	    return ind.join('');
+	  }
+	  function addLog(txt, defaultIndent){
+	    var cnt = defaultIndent;
+	    //array
+	    if((typeof txt == 'object') && (txt instanceof Array)){
+	      cnt++;
+	      mylog.push('[');
+	      for(var i = 0; i < txt.length; i++){
+	        mylog.push('\r\n' + getIndent(cnt));
+	        addLog(txt[i], cnt);
+	        if(i != txt.length - 1){
+	          mylog.push(',');
+	        }
+	      }
+	      mylog.push('\r\n' + getIndent(cnt - 1) + ']');
+	    //object
+	    }else if((typeof txt == 'object')){
+	      cnt++;
+	      mylog.push('{');
+	      for(var i in txt){
+	        mylog.push('\r\n' + getIndent(cnt) + i + ':');
+	        addLog(txt[i], cnt);
+	        mylog.push(',');
+	      }
+	      mylog.pop();
+	      mylog.push('\r\n' + getIndent(cnt - 1) + '}');
+	    }else{
+	      mylog.push(txt);
+	    }
+	  }
+	  addLog(s, 0);
+	  console.log(mylog.join(''));
+
+	  //Firebugが入っていなかったらこっち
+	  //alert(mylog.join(''));
+	  //$("#output").text(mylog.join(''));
+	};
 
 	return Utility;
 })();

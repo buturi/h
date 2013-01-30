@@ -1,7 +1,8 @@
 var HigashiEventData=(function(){
 
 	//コンストラクタ。引数はリストIDとソート関数、コールバック関数
-	function HigashiEventData(sortFunction,callbackFunction,listID){
+	//必ずloadかコンストラクタの段階でこの3つの属性をもたせること｡
+	function HigashiEventData(sortFunction,callbackFunction,options){
 		
 		/*------------------------------
 			Private Instance Member
@@ -9,11 +10,11 @@ var HigashiEventData=(function(){
 		//読み込み先ドメインを保持する
 		var _domain;
 		//イベントリストの種類を保持する｡これは公式サイトの引数と同じ
-		var _listID;
+		var _options;
 		//ページに存在する項目のリストを格納する
 		var _pageDataArray;
 		//イベントリストを保持する
-		var _eventData;
+		var _eventDataArray;
 		//ソート用の関数を保持する｡sort()の引数と同じ仕様とする
 		var _sortFunction;
 		//リスト詳細データ読み込み完了毎に呼び出される関数を保持する
@@ -26,18 +27,20 @@ var HigashiEventData=(function(){
 		------------------------------*/
 
 		//リスト詳細を受信完了時毎に実行されるメソッド
-		//TODO _sortFunctionを用いて適切な場所に入れる｡入れば_callbackFunctionに返す
 		var _onReceive=function(eventObject){
-
-			//以下暫定設定
-			_eventData.event.push(eventObject);
-			var position=0;
-			//以上暫定設定
+			
+			var len = _eventDataArray.length;
+			for ( compare=len;0<compare;compare-- ) {
+				if( _sortFunction( _eventDataArray[compare-1],eventObject )<=0 ) { //入れ替え
+      					break;
+				}
+			}
+			_eventDataArray.splice(compare,0,eventObject);
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
 			try{
 				if(_callbackFunction){
-					_callbackFunction(eventObject,position);
+					_callbackFunction(eventObject,compare);
 				}
 			}catch(e){
 				console.log(e);
@@ -55,11 +58,14 @@ var HigashiEventData=(function(){
 		------------------------------*/
 
 
-		//データをロードするメソッド｡オーバライドする
-		//受け取ったListIDに対応するイベントリストを取得､それをスクレイピングしていく
-		this.load=function(sortFunction,callbackFunction,listID){
-			if(listID){
-				_listID=listID;
+		//受け取ったoptionsに対応するイベントリストを取得､それをスクレイピングしていく
+		this.load=function(sortFunction,callbackFunction,options){
+			if(options){
+				_options=options;
+			}
+			//type属性がない場合は取得できないので､11を付与する
+			if(!_options.type){
+				_options.type=11;
 			}
 			if(sortFunction){
 				_sortFunction=sortFunction;
@@ -67,11 +73,33 @@ var HigashiEventData=(function(){
 			if(callbackFunction){
 				_callbackFunction=callbackFunction;
 			}
-			_pageDataArray=Data.getPageDataArray(_listID);
+
+			//Dataクラスからtype別のページ構成情報を取得する
+			_pageDataArray=Data.getPageDataArray(_options.type);
 			/*スクレイピング処理*/
 
-			$.get(_domain+"content_search.php?type="+_listID+"&sort=5&select_class=1&select_code1=1",function(data){
+			//オプションをクエリストリングにする
+			var qString="?";
+			for (var key in _options) {
+			    qString += key + "=" + _options[key] + "&";
+			}
+
+			//サーバ死亡時に切り替えるテスト実装
+			//var siteSurvivalFlg=false;
+
+			//サイトが死んでて､ドメインリストにまだ試していないドメインがあれば｡forを回す｡
+			//for(var count=0;(!siteSurvivalFlg)&&count<Data.getDomainList().length;count++){
+			$.get(_domain+"content_search.php"+qString,function(data){
 				var content=$(data.responseText).find('a[href*="sheet.php?"]');
+
+				//サーバ死亡時に切り替えるテスト実装
+				/*if(content.length=0){
+					_domain=Data.getDomainList()[count+1];
+					return;
+				}
+				siteSurvivalFlg=true
+
+				alert("domain="+_domain)*/
 
 				content.each(function(){
 		
@@ -84,7 +112,8 @@ var HigashiEventData=(function(){
 					$.get(_domain+"sheet.php?id="+$(this).attr('href').split('id=')[1], function(detailData){
 						
 						//団体のマイページへつながるリンクを探し､リンクからグループIDを抽出する
-						tmpEventData["gid"] = $(detailData.responseText).find('a[href*="/mypage/index.php?"]').attr("href").split("gid=")[1];
+						var gid=$(detailData.responseText).find('a[href*="/mypage/index.php?"]').attr("href").split("gid=")[1];
+						tmpEventData["gid"] = gid;
 						
 						/*thに続いてtdタグがつづいている部分を探し､抽出する*/
 						var detailContent=$(detailData.responseText).find('th ~ td');
@@ -93,9 +122,20 @@ var HigashiEventData=(function(){
 						detailContent.each(function(i){
 							/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
 		                    
-							tmpEventData[_pageDataArray[i]]=$(this).text();
+							tmpEventData[_pageDataArray[i]]=$(this).text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');;
 							
 						});
+
+						/* 画像のみimgのsrcを取り出すため､特別処理を行う｡ */
+						/* thに続くtdを探し､その子としてのimgが存在する要素を探す｡そのあとsrc要素を取り出し､/で区切る */
+						var tmpjQueryObject=$(detailData.responseText).find('th ~ td img')//$('th ~ td img')
+
+						if(tmpjQueryObject[0]){
+							var tmpArray=tmpjQueryObject.attr("src").split("/");
+							/* /で区切った最後の値､つまりファイル名のみをとりだす｡ */
+							tmpEventData["image"]="http://higashihiroshima.genki365.net/gnkh12/pub/"+tmpArray[tmpArray.length-1];
+						}
+
 						
 						/*String型の年月日をDate型に変換する*/
 						/*複数日程記述時に､分離･記憶する必要がある*/
@@ -108,39 +148,50 @@ var HigashiEventData=(function(){
 						}
 						
 						//他の絞り込みが必要
-						Utility.getLatLng("東広島 "+tmpEventData["place"],function(latLng){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む
+						Utility.getLatLng(tmpEventData["place"],function(latLng){//検索範囲が東広島か確認する過程も必要かと｡"東広島"にすると絞り込みでなく東広島市自体がひっかかってしまう｡早急なbound実装を求む
 							if(latLng){
 								tmpEventData["latLng"]={"lat":latLng.lat,"lng":latLng.lng};//住所に対応する座標があったときはそれをいれる
 							}else{//見つからない､精度が極端に低い際は上のgroupID->座標変換リストを使う｡
-								tmpEventData["latLng"]=Data.getLatLngObjectFromGID(tmpEventData["gid"])
-								//{"lat":34.426744,"lng":132.743763};
-								
+								tmpEventData["latLng"]=Data.getLatLngObjectFromGID(gid);
+								tmpEventData["latLng"].lat+=Math.random()/10000-0.00005;
+								tmpEventData["latLng"].lng+=Math.random()/10000-0.00005;
 							}
+							_onReceive(tmpEventData);
 						});
-						_onReceive(tmpEventData);
 					});
 					
 				});
-			});
+			}) 
+			.error(function() { 
+				_domain=Data.getDomainList()[count+1];
+				});
+			//サーバ死亡時に切り替えるテスト実装
+			//}
 
 			/*  */
 		}
 
 		//全体のデータを取得するインスタンスメソッド。配列がかえる
-		this.getData=function(){
-			return _eventData;
+		this.getEventDataArray=function(){
+			return _eventDataArray;
 		}
 
 		//全体ソートするメソッド。引数はソート関数
-		this.sort=function(){
+		this.sort=function(sortFunction){
 
 			/*ソート処理*/
-
+			_eventDataArray.sort(sortFunction);
 		}
 
 		this.size=function(){
-			return _eventData.event.length
+			return _eventDataArray.length
 		}
+
+		this.deleteAll=function(){
+			_eventDataArray.length=0;
+		}
+
+
 
 		/*------------------------------
 			Constructor
@@ -149,8 +200,8 @@ var HigashiEventData=(function(){
 		//EventData.apply(this, arguments);
 		//初期化処理
 		_domain=Data.getDomainList()[0];
-		_listID=listID;
-		_eventData={"event":new Array()};
+		_options=options;
+		_eventDataArray=new Array();
 		_sortFunction=sortFunction;
 		_callbackFunction=callbackFunction;
 

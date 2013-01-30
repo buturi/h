@@ -1,284 +1,455 @@
-﻿html , body , header {
-	font-family: "ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", Osaka-mono, monospace ; /* 文字のフォントを指定 */
-	color: #000000; /* 文字の色を指定 */
-}
-
+/*-------------------------------------------------------------------------
+		基本設定
+-------------------------------------------------------------------------*/
 html {
-	width: 100%;
-	height: 100%;
+	width: 100% ;
+	height: 100% ;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif ; /* 文字のフォントを指定 */
+	color: #000000 ; /* 文字の色を指定 */
 }
 
 body {
-	margin: 0px;
-	padding: 0px;
-	overflow-y: hidden;
-	overflow-x: hidden;
+	margin: 0px ;
+	padding: 0px ;
+	overflow-y: hidden ;
+	overflow-x: hidden ;
 }
 
 ul {
-	margin: 0;
-	padding: 0;
+	margin: 0 ;
+	padding: 0 ;
 }
 
+/*-------------------------------------------------------------------------
+		トップバー
+-------------------------------------------------------------------------*/
 ul > .cen {	/* カンマは複数の記述を表すので、内包される意味で'>'を用いる */
-	width: 150px;
-	position: relative;
-	display: inline-block;
-	list-style-type: none;
+	width: 180px ;
+	position: relative ;
+	display: inline-block ;
+	list-style-type: none ;
 	/* 次の行 http://homepage3.nifty.com/sho-nan/mokei.files/sonota.files/color.html(スタイル："background: #555;") */
-	background: #555;
-	padding-bottom: 5px;
-	color: white;
+	/*background: #555;*/
+	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
+	/* Firefox用(左から順に、方向・開始色・終了色) */
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
+	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
+	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
+	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
+	border-color: 5px solid #000 ;
+	padding-bottom: 5px ;
+	color: #2F4F4F ;
+	z-index: 9999 ; /* 最前面に表示 */
+}
+
+#topbar {
+	top: 0 ;
+	left: 0 ;
+	width: 100% ;
+	height: 50px ;
+	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
+	/* Firefox用(左から順に、方向・開始色・終了色) */
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
+	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
+	padding-bottom: 5px ;
+	padding-top: 5px ;
+	box-shadow: 1px 1px 5px rgb(170, 170, 170) ;
+	z-index: 9999 ; /* 最前面に表示 */
 }
 
 ul ul {
-	position: relative;
-	display: none;
-	background-color: #999;
+	position: relative ;
+	display: none ;
+	background-color: #999 ;
 }
 
 ul .cen:hover > ul {
-	display: inline-block;
-	position: absolute;
-	top: 100%;
-	left: 0px;
-	z-index: 9999; /* 最前面に表示 */
+	display: inline-block ;
+	position: absolute ;
+	top: 100% ;
+	left: 0px ;
+	z-index: 9999 ; /* 最前面に表示 */
 }
 
-/* バーの見出し */
+/* バーの見出し（ボタン部分）*/
 ul a{
-	display: block;
-	font-size: 16px;
-	color: white; /* 通常時の文字の色 */
-	text-decoration: none; /* 下線なし */
-	cursor: pointer; /* マウスの形をポインター */
-	outline: none;
+	display: block ;
+	font-size: 20px ;
+	/*width: 250px ;*/
+	color: #2F4F4F ; /* 通常時の文字の色 */
+	text-decoration: none ; /* 下線なし */
+	cursor: pointer ; /* マウスの形をポインター */
+	outline: none ;
 }
 
 ul a:hover > .cen {
-	color: red; /* オンマウス時の文字の色 */
-	background-color: #272727;
+	color: red ; /* オンマウス時の文字の色 */
+	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
+	/* Firefox用(左から順に、方向・開始色・終了色) */
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
+	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
 }
 
 .cen {
-	width: 150px;
+	/*width: 150px;*/
+	padding-left: 10px ;
+	padding-right: 10px ;
 	/* height < line-height のとき、文字が各メニューの下に寄る */
 	/* height > line-height のとき、文字が各メニューの上に寄る */
-	height: 45px; /* バーの高さ */
-	line-height: 45px; /* 行間の高さ */
+	height: 45px ; /* バーの高さ */
+	line-height: 45px ; /* 行間の高さ */
 }
 
 #mapCanvas {
-	position: absolute; /* "debug button"の直下 */
-	width: 100%;
-	height: 100%;
+	position: absolute ; /* "debug button"の直下 */
+	width: 100% ;
+	height: 100% ;
+}
+
+	#mapCanvas h1{
+		font-size: 14px;
+	}
+	
+	#mapCanvas p{
+		font-size: 12px;
+	}
+	
+	#mapCanvas a{
+	    color: #336699;
+	    text-decoration: none;
+	    border-bottom: 1px dashed #2a9c3b;   
+	}
+	
+	#mapCanvas .icon{
+	    width:12px;
+	    float:left;  
+	}
+
+	#mapCanvas .thumbnail{
+		max-height: 250px;
+		max-width: 250px;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+	}
+
+	#mapCanvas .center{
+		text-align: center;
+	}
+
+	#mapCanvas .place{
+		text-align: right;
+		text-shadow: 1px 0 0 #999;
+	}
+
+
+#bachelor {
+	text-align: center ;
 }
 
 #bar {
-	background-color: #ffffff;
-	width: 100%;
-	z-index: 9999; /* 最前面に表示 */
+	background-color: #ffffff ;
+	width: 100% ;
+	z-index: 9999 ; /* 最前面に表示 */
 }
 
 #title {
-	line-height: 20px;
-	text-align: center;
-	color: #ffffff;
-	background-color: #6F9;
+	line-height: 20px ;
+	text-align: center ;
+	color: #ffffff ;
+	background-color: #6F9 ;
 }
 
-/* 上端のバーの色 */
 #topbar {
-	width: 100%;
-	height: 50px;
+	width: 100% ;
+	height: 50px ;
 	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
 	/* Firefox用(左から順に、方向・開始色・終了色) */
-	background: -moz-linear-gradient(left top, rgb(229,255,221), rgb(180,209,192));
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
-	background: -webkit-gradient(linear, left top, left bottom, from(rgb(229,255,221)), to(rgb(180,209,192)));
-	padding-bottom: 5px;
-	padding-top: 5px;
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
+	padding-bottom: 5px ;
+	padding-top: 5px ;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
-	box-shadow: 1px 1px 5px #aaa; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
+	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 }
 
 /*-------------------------------------------------------------------------
 		listArea部分
 -------------------------------------------------------------------------*/
-#listArea {
-	background-color: white; /* 背景色:白 */
-	border-radius: 5px; /* 角丸 */
-	opacity: 0.8; /* 透過度:80% */
-	height: calc(100% - 120px); /* 縦:100% - 120px */
-	height: -webkit-calc(100% - 120px); /* webkit対策 */
-	width: 300px; /* 横：300px */
-	position: absolute; /* 絶対位置 */
-	bottom: 10px; /* 下から10pxの位置 */
-	right: 50px; /* 右から10pxの位置 */
-	overflow: auto; /* はみ出したらスクロールバーを表示 */
+#listArea { /* listArea全体 */
+	background-color: white ; /* 背景色:白 */
+	border-radius: 5px ; /* 角丸 */
+	opacity: 0.8 ; /* 透過度:80% */
+	height: calc(100% - 120px) ; /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 120px) ; /* webkit対策 */
+	width: 300px ; /* 横：300px */
+	position: absolute ; /* 絶対位置 */
+	bottom: 10px ; /* 下から10pxの位置 */
+	right: 50px ; /* 右から50pxの位置 */
+	writing-mode: tb-rl ; /* 横書き */
+	border-top-left-radius: 5px ; /* 左上の角丸：5px */
+	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#btnArea {
+	width: 270px;
+	height: 50px;
+	margin: 10px 0 10px 30px;
+	writing-mode: lr-tb ; /* 横書き */
 }
 
 #buttonArea {
-	position: fixed;
-	width: 215px;
-	margin: 10px 0 10px 30px;
-	cursor: pointer; /* マウスカーソルを常にデフォルト */
+	cursor: pointer ; /* マウスカーソルを常にデフォルト */
 }
 
 #buttonArea li {
-	width: 60px;
-	height: 30px;
-	text-align: center;
-	line-height: 30px;
-	margin-right: 5px;
-	display: inline-block;
-	background-color: #26E8F2;
-	border-radius: 5px; /* 角丸 */
-	font-weight: bold; /* 文字を太字 */
+	width: 60px ;
+	height: 30px ;
+	text-align: center ;
+	line-height: 30px ;
+	margin-right: 5px ;
+	display: inline-block ;
+	background-color: #26E8F2 ;
+	border-radius: 5px ; /* 角丸 */
+	font-weight: bold ; /* 文字を太字 */
+	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
+	/* Firefox用(左から順に、方向・開始色・終了色) */
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
+	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
+	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
+	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
+	border-color: 5px solid #000 ;
 }
 
-#box {
-	margin-top: 50px;
+#boxArea {
+	width: 300px ;
+	height: calc(100% - 80px) ; 
+	height: -webkit-calc(100% - 80px) ; /* webkit対策 */
+	overflow-y: scroll ;  /* はみ出したらスクロールバーを表示 */
+	writing-mode: lr-tb ; /* 横書き */
 }
 
-.wrapBox {
-	height: 60px;
-	width: 270px;
-	margin-bottom: 10px;
+.wrapBox { /* イベントbox */
+	height: 60px ;
+	width: 270px ;
+	margin-bottom: 10px ;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.dateBox {
-	position: relative;
-	font-weight: bold; /* 文字を太字 */
-	height: 50px;
-	width: 50px;
-	margin: 0 0 10px 5px;
-	padding: 5px;
-	color: rgb(50,50,50); /* 文字色：灰色 */
-	border-radius: 3px; /* 角丸 */
-	cursor: default; /* マウスカーソルを常にデフォルト */
-	float: left;
+.dateBox { /* 日付box */
+	position: relative ;
+	font-weight: bold ; /* 文字を太字 */
+	height: 50px ;
+	width: 50px ;
+	margin: 0 0 10px 10px ;
+	padding: 5px ;
+	/*color: rgb(50,50,50) ;  文字色：灰色 */
+	color: rgb(240,240,240) ;
+	border-radius: 3px ; /* 角丸 */
+	cursor: default ; /* マウスカーソルを常にデフォルト */
+	float: left ;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.eventBox {
-	position: relative;
-	font-weight: bold; /* 文字を太字 */
-	height: 50px;
-	width: 190px;
-	margin: 0 0 10px 5px;
-	padding: 5px;
-	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
-	color: rgb(50,50,50); /* 文字色：灰色 */
-	border-radius: 3px; /* 角丸 */
-	cursor: default; /* マウスカーソルを常にデフォルト */
-	float: right;
-	-o-text-overflow: ellipsis;
+.eventBox { /* タイトルbox */
+	line-height: 1.0 ;
+	position: relative ;
+	font-weight: bold ; /* 文字を太字 */
+	height: 50px ;
+	width: 190px ;
+	margin: 0 0 10px 5px ;
+	padding: 5px ;
+	background-color: rgba(0,0,255,0.1) ; /* 背景色指定 */
+	color: rgb(50,50,50) ; /* 文字色：灰色 */
+	border-radius: 0 3px 3px 0 ; /* 角丸 */
+	cursor: default ; /* マウスカーソルを常にデフォルト */
+	float: left ;
+	border-left: 5px solid rgba(0,51,204,0.4) ;
+	-o-text-overflow: ellipsis ;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.eventBox:hover {
-	background-color: rgba(0,0,255,0.3);
-	color: rgb(0,0,0); /* 文字色：黒色 */
+.eventBox:hover { /* 上記アクティブ時 */
+	background-color: rgba(0,0,255,0.3) ;
+	color: rgb(0,0,0) ; /* 文字色：黒色 */
 }
 
-.sponsorBox {
-	text-align: right;
-	color: rgb(100,100,100); /* 文字色：灰色 */
+.sponsorBox { /* スポンサー名 */
+	position: absolute ;
+	top: 40px ;
+	right: 5px ;
+	color: rgb(100,100,100) ; /* 文字色：灰色 */
+	border-bottom: 3px solid rgba(0,51,204,0.4) ;
+	text-shadow: 1px 0 0 #999 ;
 }
 
-.month {
-	top 5px;
-	left: 5px;
-	position: absolute;
+.month { /* 月 */
+	font-size: 1.2em ;
+	top: 3px ;
+	left: 3px ;
+	position: absolute ;
 }
 
-.split {
-	font-size: 3em;
-	line-height: 50px;
-	text-align: center;
-	position: static;
+.split { /* 斜線 */
+	font-size: 2.5em ;
+	line-height: 50px ;
+	text-align: center ;
+	position: static ;
 }
 
-.date {
-	bottom: 5px;
-	right: 5px;
-	position: absolute;
+.date { /* 日にち */
+	font-size: 1.2em ;
+	bottom: 3px ;
+	right: 3px ;
+	position: absolute ;
 }
 
-.sun {
-	background-color: red;
+.sun { /* 日曜日 */
+	background-color: red ;
 }
 
-.sat {
-	background-color: rgb(0,68,204);
+.sat { /* 土曜日 */
+	background-color: rgba(0,68,204,0.8) ;
 }
 
-.ordinary {
-	background-color: rgba(0,0,255,0.1); /* 背景色指定 */
+.ordinary { /* 平日 */
+	background-color: rgba(0,0,255,0.1) ; 
+	color: rgb(50,50,50) ; /* 文字色：灰色 */
 }
 
 
 /*-------------------------------------------------------------------------
 		information部分
 -------------------------------------------------------------------------*/
-#information {
-	background-color: white; /* 背景色:白 */
-	border-radius: 5px; /* 角丸 */
-	opacity: 0.8; /* 透過度:80% */
-	height: calc(100% - 120px); /* 縦:100% - 120px */
-	height: -webkit-calc(100% - 120px); /* webkit対策 */
-	width: 300px; /* 横：300px */
-	position: absolute; /* 絶対位置 */
-	bottom: 10px; /* 下から10pxの位置 */
-	right: 50px; /* 右から10pxの位置 */
-	overflow: auto; /* はみ出したらスクロールバーを表示 */
+#information { /* information全体 */
+	background-color: white ; /* 背景色:白 */
+	border-radius: 5px ; /* 角丸 */
+	opacity: 0.8 ; /* 透過度:80% */
+	height: calc(100% - 200px) ; /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 200px) ; /* webkit対策 */
+	width: 300px ; /* 横：300px */
+	position: absolute ; /* 絶対位置 */
+	bottom: 10px ; /* 下から10pxの位置 */
+	right: 50px ; /* 右から10pxの位置 */
+	overflow: auto ; /* はみ出したらスクロールバーを表示 */
+	writing-mode: tb-rl ; /* 縦書き */
+	border-top-left-radius: 5px ; /* 左上の角丸：5px */
+	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
 }
 
 /*-------------------------------------------------------------------------
 		twit部分
 -------------------------------------------------------------------------*/
-#twit {
-	background-color: white; /* 背景色:白 */
-	border-radius: 5px; /* 角丸 */
-	opacity: 0.8; /* 透過度:80% */
-	height: calc(100% - 120px); /* 縦:100% - 120px */
-	height: -webkit-calc(100% - 120px); /* webkit対策 */
-	width: 300px; /* 横：300px */
-	position: absolute; /* 絶対位置 */
-	bottom: 10px; /* 下から10pxの位置 */
-	right: 50px; /* 右から10pxの位置 */
-	overflow: auto; /* はみ出したらスクロールバーを表示 */
+#twit { /* twit全体 */
+	background-color: white ; /* 背景色:白 */
+	border-radius: 5px ; /* 角丸 */
+	opacity: 0.8 ; /* 透過度:80% */
+	height: calc(100% - 200px) ; /* 縦:100% - 120px */
+	height: -webkit-calc(100% - 200px) ; /* webkit対策 */
+	width: 300px ; /* 横：300px */
+	position: absolute ; /* 絶対位置 */
+	bottom: 10px ; /* 下から10pxの位置 */
+	right: 50px ; /* 右から10pxの位置 */
+	overflow: auto ; /* はみ出したらスクロールバーを表示 */
+	writing-mode: tb-rl ; /* 縦書き */
+	border-top-left-radius: 5px ; /* 左上の角丸：5px */
+	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
 }
 
-#tabArea {
-	top: 200px;
-	right: 0;
-	position: absolute; /* 絶対位置 */
+#tabArea { /* 右側タブ部分全体 */
+	top: 200px ;
+	height: 150px ;
+	width: 30px ;
+	/*margin-right: 0 ; 左に横長で寄ってしまう */
+	right: 0px ;
+	position: absolute ; /* 絶対位置 */
+	writing-mode: tb-rl ; /* 縦書き */
+	color: black ;
 }
 
-.tabmenu {
-	margin: 0 0 1px 0;
-	padding: 0;
-	width: 30px;
-	height: 20%;
-	list-style:none; /* リストの先頭のマークを非表示に */
+ul > .tabmenu { /* 各タブメニュー */
+	margin: 10px 0 10px 0 ;
+	background-color: #C9F ; /* 背景：lightGray */
+	padding: 0 ;
+	width: 30px ;
+	/*height: 150px ;*/
+	list-style: none ; /* リストの先頭のマークを非表示に */
+	border-top-left-radius: 5px ; /* 左上の角丸：5px */
+	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
 }
 
-.tabmenu a {
-	display: inline-block; /* インライン-ブロック要素に変換 */
-	color: black; /* 文字色：黒 */
-	background-color: #CCCCCC; /* 背景：lightGray */
-	text-decoration: none; /* リンクの下線：非表示 */
-	text-align: center; /* 中央寄せ */
-	line-height: 30px; /* 縦方向の中央寄せ */ /* heightと同じ値を指定すると縦方向の中央寄せになる */
-	border-top-left-radius: 5px; /* 左上の角丸：5px */
-	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
-
+.tabmenu a { /* タブメニュー内リンク */
+	display: inline-block ; /* インライン-ブロック要素に変換 */
+/*	background-color: #C9F ; /* 背景：lightGray */
+	color: black ; /* 文字色：黒 */
+	text-decoration: none ; /* リンクの下線：非表示 */
+	text-align: center ; /* 中央寄せ */
+	/*line-height: 150px ;  縦方向の中央寄せ   heightと同じ値を指定すると縦方向の中央寄せになる */
+	border-top-left-radius: 5px ; /* 左上の角丸：5px */
+	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
+	/* グラデーション http://www.css-lecture.com/log/css3/css3-gradient.html("CSS Lecture") より引用 */
+	/* Firefox用(左から順に、方向・開始色・終了色) */
+	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221)) ;
+	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
+	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221))) ;
+	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
+	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
+	border-color: 5px solid #000 ;
 }
 
-.active a {
-	background-color: #000000; /* 背景：黒 */
-	color: white; /* 文字色：白 */
-	font-weight: bold; /* 太文字 */
-	border-top-left-radius: 5px; /* 左上の角丸：5px */
-	border-bottom-left-radius: 5px; /* 左下の角丸：5px */
+.active a { /* 上記アクティブ時 */
+	background-color: #000000 ; /* 背景：黒 */
+	color: white ; /* 文字色：白 */
+	font-weight: bold ; /* 太文字 */
+	background: #000 ;
+	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
+	box-shadow: 1px 1px 5px #aaa ; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
+	border-color: 5px solid #000 ;
+}
+
+/* インフォメーションページのCSS設定 */
+/* 外枠の設定 */
+#informationContainer{
+	/* 最初はかくしておく */
+	display:none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+#informationContainer #informationWindow{
+	width: 800px;
+	margin: 20px auto;
+}
+/* メインエリアの設定 */
+#informationContainer #informationArea {
+	padding: 20px;
+	background-color: rgba(0,0,0,0.5);
+	color: #FFF;
+}
+
+/* aタグの設定 */
+#informationContainer #informationArea a {
+	color: #99CCFF;
+}
+
+/* ボタンの色設定 */
+.simpleButton {
+	background-color: rgba(255,255,255,0);
+	color: #FFF;
+}
+/* バーの設定 */
+.windowBar{
+	background-color: rgba(0,0,0,0.5);
+	text-align: right;
+}
+/* インフォメーションページの設定ここまで */
+
+/* 検索切り替え用ボックスのサイズ調整 */
+.searchSelect{
+	width:40%;
 }
