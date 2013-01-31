@@ -67,26 +67,26 @@
 			<a><!-- <div class="cen"> -->地域センター▼<!-- </div> --></a>
 			<ul>
 				<!-- mapCanvas に対して指定した座標で panTo に移動させる, '#'：同じファイル内の特定位置にジャンプ(http://www.tohoho-web.com/html/a.htm より) -->
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4267515, 132.7437521));"><a href="#">西条地区</a></li>
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4479755, 132.7878226));"><a href="#">高屋地区</a></li>
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4992208, 132.6602356));"><a href="#">志和地区</a></li>
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4407862, 132.6921863));"><a href="#">八本松地区</a></li>
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.47223, 132.8883641));"><a href="#">河内地区</a></li>
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5361797, 132.7781991));"><a href="#">福富地区</a></li>
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5633558, 132.8248603));"><a href="#">豊栄地区</a></li>
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3247474, 132.6762842));"><a href="#">黒瀬地区</a></li>
-				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3196117, 132.8136826));"><a href="#">安芸津地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4267515, 132.7437521));"><a href="#" target="_blank">西条地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4479755, 132.7878226));"><a href="#" target="_blank">高屋地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4992208, 132.6602356));"><a href="#" target="_blank">志和地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.4407862, 132.6921863));"><a href="#" target="_blank">八本松地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.47223, 132.8883641));"><a href="#" target="_blank">河内地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5361797, 132.7781991));"><a href="#" target="_blank">福富地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.5633558, 132.8248603));"><a href="#" target="_blank">豊栄地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3247474, 132.6762842));"><a href="#" target="_blank">黒瀬地区</a></li>
+				<li class="cen" onClick="javascript:gMap.panTo(new google.maps.LatLng(34.3196117, 132.8136826));"><a href="#" target="_blank">安芸津地区</a></li>
 			</ul><!-- "地域センター" の ul タグここまで -->
 		</li><!-- "地域センター" の li タグここまで -->
 		<!-- 次の li タグを作ると、横に表示される -->
-		<li class="cen"><a href="http://higashihiroshima.genki365.net/">市民活動情報サイト</a></li>
-		<li class="cen"><a href="http://www.city.higashihiroshima.hiroshima.jp/">東広島市役所</a>      </li>
+		<li class="cen"><a href="http://higashihiroshima.genki365.net/"  target="_blank">市民活動情報サイト</a></li>
+		<li class="cen"><a href="http://www.city.higashihiroshima.hiroshima.jp/" target="_blank">東広島市役所</a>      </li>
 		<li class="cen">
 			<a>ICT加盟大学一覧▼</a>
 			<ul>
-				<li class="cen"><a href="http://www.hiro.kindai.ac.jp/index.html">近畿大学工学部</a></li>
-				<li class="cen"><a href="http://www.hiroshima-u.ac.jp/index-j.html">広島大学</a></li>
-				<li class="cen"><a href="http://www.hirokoku-u.ac.jp/">広島国際大学</a></li>
+				<li class="cen"><a href="http://www.hiro.kindai.ac.jp/index.html" target="_blank">近畿大学工学部</a></li>
+				<li class="cen"><a href="http://www.hiroshima-u.ac.jp/index-j.html" target="_blank">広島大学</a></li>
+				<li class="cen"><a href="http://www.hirokoku-u.ac.jp/" target="_blank">広島国際大学</a></li>
 			</ul><!-- "ICT加盟大学一覧▼" の ul タグここまで -->
 		</li><!-- "ICT加盟大学一覧▼" の li タグここまで -->
 		
@@ -102,9 +102,9 @@
 
 <div id="tabs">
 	<ul id="tabArea">
-		<li class="tabmenu"><a href="#listArea">リスト</a></li>
-		<li class="tabmenu"><a href="#recruit">募集情報</a></li>
-		<li class="tabmenu"><a href="#information">お知らせ</a></li>
+		<li class="tabmenu"><a class="listSelect" href="#listArea" typeID="11">リスト</a></li>
+		<li class="tabmenu"><a class="listSelect" href="#listArea" typeID="31">募集情報</a></li>
+		<li class="tabmenu"><a class="listSelect" href="#listArea" typeID="51">お知らせ</a></li>
 		<li class="tabmenu"><a href="#twit"><img src="img/twitter.png"></a></li>
 	</ul><!-- tabArea ここまで -->
 <div id="listArea">

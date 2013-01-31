@@ -16,9 +16,45 @@ var Data = (function() {
 	//リストページがもつリストデータオブジェクト
 	var pageDataArrayList={
 		Event:["title","sponsor","image","date","time","limit","place","dammy","capa","target","app","cost","detail","inquiry","url"],
-		Recruitment:["title","recruitment","image","date","deadline","place","map","persons","orientation","cot","app","detail","url","inquiry"],
-		Information:["title","content","image","map","attach","url","inquiry"]
+		Recruitment:["title","sponsor","image","date","deadline","place","map","persons","orientation","cot","app","detail","url","inquiry"],
+		Information:["title","detail","pdf","url","inquiry"]
 	}
+
+	//日本語の項目名から英語の変数名に直すための連想配列 pageItemJapaneseToEnglish["件名"]のように使う
+	var pageItemJapaneseToEnglish=(function(){
+
+		var tmpObj={};
+		var array=[
+		["件名","title"],
+		["主催","sponsor"],
+		["イメージ画像","image"],
+		["開催日","date"],
+		["開催時刻","time"],
+		["締切日","limit"],
+		["会場","place"],
+		["地図・案内図","map"],
+		["定員","capa"],
+		["対象者","target"],
+		["申込方法","app"],
+		["費用","cost"],
+		["内容詳細","detail"],
+		["問い合わせ先","inquiry"],
+		["関連URL","url"],
+		["内容","detail"],
+		["添付ファイル","pdf"],
+		["募集団体","sponsor"],
+		["活動日時","actdate"],
+		["活動場所","place"],
+		["募集人数","persons"],
+		["オリエンテーションの有無","orientation"],
+		["費用負担","cost"]
+		];
+		for (var i = 0; i < array.length; i++) {
+			tmpObj[array[i][0]]=array[i][1]
+		};
+		return tmpObj
+
+	})();
 
 	//地域センターの座標を持つオブジェクト。119だけなぜか重複｡注意｡
 	var latLngObject={
@@ -198,6 +234,9 @@ var Data = (function() {
 	Data.getDomainList=function(){
 		return domainList;
 	};
+	Data.pageItemJapaneseToEnglish=function(){
+		return pageItemJapaneseToEnglish;
+	}
 
 	//公式サイトに記載されているイベント詳細の記載リストと順番を返す｡公式サイトの順番が変わると不具合発生｡配列を返す
 	Data.getPageDataArray=function(listID){
