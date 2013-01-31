@@ -36,14 +36,14 @@ var SideList=(function(){
 						weeks = "ordinary";
 				}
 			}
-			str_title = eventObject['title'];
+			var str_title = eventObject['title'];
 			str_title = str_title.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
 			if ( str_title.length>20 ) {
 				str_title = str_title.substring(0, 20)+"…";
 			} else {
 				str_title = str_title.substring(0, 20);
 			}
-			str_sponsor = eventObject['sponsor'];
+			var str_sponsor = eventObject['sponsor'];
 			str_sponsor = str_sponsor.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
 			if ( str_sponsor.length>10 ) {
 				str_sponsor = str_sponsor.substring(0, 10)+"…";

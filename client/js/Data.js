@@ -234,8 +234,12 @@ var Data = (function() {
 	Data.getDomainList=function(){
 		return domainList;
 	};
-	Data.pageItemJapaneseToEnglish=function(){
-		return pageItemJapaneseToEnglish;
+	Data.pageItemJapaneseToEnglish=function(itemName){
+		if(pageItemJapaneseToEnglish[itemName]){
+			return pageItemJapaneseToEnglish[itemName];
+		}else{
+			return "dammy"
+		}
 	}
 
 	//公式サイトに記載されているイベント詳細の記載リストと順番を返す｡公式サイトの順番が変わると不具合発生｡配列を返す

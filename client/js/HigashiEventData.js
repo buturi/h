@@ -100,13 +100,16 @@ var HigashiEventData=(function(){
 				siteSurvivalFlg=true
 
 				alert("domain="+_domain)*/
-
+				var orderCounter=0;
 				content.each(function(){
-		
+					
 					/*一時的なObjectを作成､これをあとでeventDataに入れる*/
 					var tmpEventData=new Object();
 					/*クエリストリングをid=で分離することで､IDを抽出*/
 					tmpEventData["id"] = parseInt($(this).attr('href').split('id=')[1]);
+
+					//
+					tmpEventData["order"] = orderCounter++;
 					
 					/*それぞれに対して詳細データを取得する*/
 					$.get(_domain+"sheet.php?id="+$(this).attr('href').split('id=')[1], function(detailData){
@@ -116,9 +119,11 @@ var HigashiEventData=(function(){
 						var gid=$(detailData.responseText).find('a[href*="/mypage/index.php?"]')
 						if(gid[0]){
 							tmpEventData["gid"]=gid.attr("href").split("gid=")[1];
+
 						}else{
 							tmpEventData["gid"]=""
 						}
+						gid=tmpEventData["gid"]
 						
 						/*thに続いてtdタグがつづいている部分を探し､抽出する*/
 						var detailContent=$(detailData.responseText).find('th ~ td');
@@ -127,10 +132,7 @@ var HigashiEventData=(function(){
 						detailContent.each(function(i){
 							/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
 		                    
-		                    var itemName=Data.pageItemJapaneseToEnglish()[$(this).prev().text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ')]
-		                    if(!itemName){
-		                    	itemName="dammy"
-		                    }
+		                    var itemName=Data.pageItemJapaneseToEnglish($(this).prev().text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' '))
 							tmpEventData[itemName]=$(this).text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');;
 							
 						});

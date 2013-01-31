@@ -13,7 +13,7 @@ $(function() {
 	var sideList=new SideList(eventData);
 
 	//イベント管理オブジェクトへソート関数､コールバック関数､公式リストIDを渡してロード｡
-	eventData.load(Sort.sortByDate,
+	eventData.load(Sort.sortByOrder,
 		function(eventObject,position){
 			//コールバック関数内部処理
 			//リストへデータを挿入する
@@ -22,6 +22,12 @@ $(function() {
 			gMap.createMarker(eventObject);
 		},
 		{type:11});
+
+
+	$("#orderSort").click(function() {
+		eventData.sort(Sort.sortByOrder);
+		sideList.refresh();
+	})
 
 	$("#dateSort").click(function() {
 		eventData.sort(Sort.sortByDate);
@@ -32,11 +38,6 @@ $(function() {
 		eventData.sort(Sort.sortByGID);
 		sideList.refresh();
 	})
-
-	$("#weekSort").click(function() {
-		sideList.refresh();
-	})
-
 	$('.listSelect').click(function() {
 		reLoad({
 			type : Number($(this).attr("typeID")),//現在のtypeを保持して取得する
@@ -66,7 +67,7 @@ $(function() {
 		gMap.deleteAllMarker();
 		eventData.deleteAll();
 		sideList.refresh();
-		eventData.load(Sort.sortByID,
+		eventData.load(Sort.sortByOrder,
 		function(eventObject,position){
 			sideList.insert(eventObject,position);
 			gMap.createMarker(eventObject);
