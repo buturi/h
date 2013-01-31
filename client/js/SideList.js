@@ -20,7 +20,7 @@ var SideList=(function(){
 				var sph = "#box";
 			}
 	
-			if ( eventObject.date[0] == undefined || eventObject.date[0]['from'] == "Invalid Date" ) { //日付が入ってない場合
+			if ( !eventObject.date || eventObject.date[0] == undefined || eventObject.date[0]['from'] == "Invalid Date" ) { //日付が入ってない場合
 				var days = "</div>";
 				var weeks = "ordinary";
 			} else {

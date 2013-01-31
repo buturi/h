@@ -112,8 +112,13 @@ var HigashiEventData=(function(){
 					$.get(_domain+"sheet.php?id="+$(this).attr('href').split('id=')[1], function(detailData){
 						
 						//団体のマイページへつながるリンクを探し､リンクからグループIDを抽出する
-						var gid=$(detailData.responseText).find('a[href*="/mypage/index.php?"]').attr("href").split("gid=")[1];
-						tmpEventData["gid"] = gid;
+
+						var gid=$(detailData.responseText).find('a[href*="/mypage/index.php?"]')
+						if(gid[0]){
+							tmpEventData["gid"]=gid.attr("href").split("gid=")[1];
+						}else{
+							tmpEventData["gid"]=""
+						}
 						
 						/*thに続いてtdタグがつづいている部分を探し､抽出する*/
 						var detailContent=$(detailData.responseText).find('th ~ td');
@@ -122,7 +127,11 @@ var HigashiEventData=(function(){
 						detailContent.each(function(i){
 							/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
 		                    
-							tmpEventData[_pageDataArray[i]]=$(this).text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');;
+		                    var itemName=Data.pageItemJapaneseToEnglish()[$(this).prev().text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ')]
+		                    if(!itemName){
+		                    	itemName="dammy"
+		                    }
+							tmpEventData[itemName]=$(this).text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');;
 							
 						});
 
@@ -134,6 +143,14 @@ var HigashiEventData=(function(){
 							var tmpArray=tmpjQueryObject.attr("src").split("/");
 							/* /で区切った最後の値､つまりファイル名のみをとりだす｡ */
 							tmpEventData["image"]="http://higashihiroshima.genki365.net/gnkh12/pub/"+tmpArray[tmpArray.length-1];
+						}
+
+						if(!tmpEventData["sponsor"]){
+							tmpEventData["sponsor"]=tmpEventData["inquiry"];
+						}
+
+						if(!tmpEventData["place"]){
+							tmpEventData["place"]="";
 						}
 
 						
@@ -169,6 +186,11 @@ var HigashiEventData=(function(){
 			//}
 
 			/*  */
+		}
+
+		//現在リストがもっているイベントのオプション属性を返すメソッド
+		this.getOptions=function(){
+			return _options;
 		}
 
 		//全体のデータを取得するインスタンスメソッド。配列がかえる

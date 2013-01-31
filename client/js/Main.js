@@ -37,25 +37,41 @@ $(function() {
 		sideList.refresh();
 	})
 
-	//各検索用のセレクタのイベントハンドラ
-	$('.searchSelect').bind('change', function() {
-		//googlemapクリア､リストクリア､再読み込みを行う
-		gMap.deleteAllMarker();
-		eventData.deleteAll();
-		sideList.refresh();
-		eventData.load(Sort.sortByDate,
-		function(eventObject,position){
-			sideList.insert(eventObject,position);
-			gMap.createMarker(eventObject);
-		},
-		{
-			type : 11,
+	$('.listSelect').click(function() {
+		reLoad({
+			type : Number($(this).attr("typeID")),//現在のtypeを保持して取得する
 			class : $('#placeSelect option:selected').val(),
 			select_class : 1,
 			code1 : $('#sectorSelect option:selected').val(),
 			select_code1 : 1,
-		});
+		})
 	});
+
+	//各検索用のセレクタのイベントハンドラ
+	$('.searchSelect').bind('change', function() {
+		reLoad({
+			type : eventData.getOptions().type,//現在のtypeを保持して取得する
+			class : $('#placeSelect option:selected').val(),
+			select_class : 1,
+			code1 : $('#sectorSelect option:selected').val(),
+			select_code1 : 1,
+		})
+	});
+
+
+
+
+	function reLoad(object){
+		//googlemapクリア､リストクリア､再読み込みを行う
+		gMap.deleteAllMarker();
+		eventData.deleteAll();
+		sideList.refresh();
+		eventData.load(Sort.sortByID,
+		function(eventObject,position){
+			sideList.insert(eventObject,position);
+			gMap.createMarker(eventObject);
+		},object);
+	}
 
 
 	var debug=(function(){

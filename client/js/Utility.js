@@ -51,11 +51,11 @@ var Utility=(function(){
 			//bounds: '34.244162,132.566414|34.633208,132.966042'//たぶん表記の仕方が違う
 		},
 		function( results, status )	{
-			var tmpString="";
-			results.forEach(function(tmpItem){
-				tmpString+=" ["+tmpItem.formatted_address+"]";
-			})
-			console.log(word+" : "+status+" : "+tmpString);
+			// var tmpString="";
+			// results.forEach(function(tmpItem){
+			// 	tmpString+=" ["+tmpItem.formatted_address+"]";
+			// })
+			// console.log(word+" : "+status+" : "+tmpString);
 
 			if( status == google.maps.GeocoderStatus.OK){
 				var latLng = new Object();

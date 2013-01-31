@@ -31,6 +31,7 @@ var GMap=(function(){
 		//GoogleMapをロードする
 		this.load=function(){
 			_mapCanvas = new google.maps.Map(document.getElementById("mapCanvas"));
+			// _mapCanvas.highlightArea( { location: "Europe" } );
 			_mapCanvas.setCenter(new google.maps.LatLng(34.426709,132.743629));
 			_mapCanvas.setZoom(11);
 			_mapCanvas.setMapTypeId(google.maps.MapTypeId.ROADMAP);
