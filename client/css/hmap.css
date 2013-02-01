@@ -129,8 +129,8 @@ ul a:hover > .cen {
 	}
 
 	#mapCanvas .thumbnail{
-		max-height: 250px;
-		max-width: 250px;
+		max-height: 200px;
+		max-width: 2080px;
 		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 	}
 
@@ -435,6 +435,10 @@ ul > .tabmenu { /* 各タブメニュー */
 }
 
 /* インフォメーションページのCSS設定 */
+/*informationWindowの影*/
+#informationWindow{
+    box-shadow: 0px 0px 20px #aaa ;
+}
 /* 外枠の設定 */
 #informationContainer{
 	/* 最初はかくしておく */
