@@ -12,13 +12,15 @@ var HigashiEventData=(function(){
 		//イベントリストの種類を保持する｡これは公式サイトの引数と同じ
 		var _options;
 		//ページに存在する項目のリストを格納する
-		var _pageDataArray;
+		// var _pageDataArray;
 		//イベントリストを保持する
 		var _eventDataArray;
 		//ソート用の関数を保持する｡sort()の引数と同じ仕様とする
 		var _sortFunction;
 		//リスト詳細データ読み込み完了毎に呼び出される関数を保持する
 		var _callbackFunction;
+		//
+		var _orderCounter;
 
 		
 
@@ -28,10 +30,7 @@ var HigashiEventData=(function(){
 
 		//リスト詳細を受信完了時毎に実行されるメソッド
 		var _onReceive=function(eventObject){
-			//返ってきたEventObjectと現在のタイプを比較し､異なればデータを破棄する
-			if (eventObject.type!=_options.type) {
-				return;
-			};
+
 			var len = _eventDataArray.length;
 			for ( compare=len;0<compare;compare-- ) {
 				if( _sortFunction( _eventDataArray[compare-1],eventObject )<=0 ) { //入れ替え
@@ -39,6 +38,10 @@ var HigashiEventData=(function(){
 				}
 			}
 			_eventDataArray.splice(compare,0,eventObject);
+
+			if(_eventDataArray.length>=_orderCounter){
+				alert("読み込み完了");
+			}
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
 			try{
@@ -78,7 +81,7 @@ var HigashiEventData=(function(){
 			}
 
 			//Dataクラスからtype別のページ構成情報を取得する
-			_pageDataArray=Data.getPageDataArray(_options.type);
+			// _pageDataArray=Data.getPageDataArray(_options.type);
 			/*スクレイピング処理*/
 
 			//オプションをクエリストリングにする
@@ -103,7 +106,7 @@ var HigashiEventData=(function(){
 				siteSurvivalFlg=true
 
 				alert("domain="+_domain)*/
-				var orderCounter=0;
+				_orderCounter=0;
 				content.each(function(){
 					
 					/*一時的なObjectを作成､これをあとでeventDataに入れる*/
@@ -115,10 +118,14 @@ var HigashiEventData=(function(){
 					tmpEventData["type"] = _options.type;
 
 					//
-					tmpEventData["order"] = orderCounter++;
+					tmpEventData["order"] = _orderCounter++;
 					
 					/*それぞれに対して詳細データを取得する*/
 					$.get(_domain+"sheet.php?id="+$(this).attr('href').split('id=')[1], function(detailData){
+						//返ってきたEventObjectと現在のタイプを比較し､異なればデータを破棄する
+						if (tmpEventData["type"]!=_options.type) {
+							return;
+						};
 						
 						//団体のマイページへつながるリンクを探し､リンクからグループIDを抽出する
 
@@ -168,6 +175,8 @@ var HigashiEventData=(function(){
 						if(tmpEventData["date"]){
 							tmpEventData["date"]=Utility.getDateArrayFromString(tmpEventData["date"])
 							if (tmpEventData["date"][0] && new Date().getTime() - tmpEventData["date"][tmpEventData["date"].length - 1]["to"].getTime() > 1000 * 60 * 60 * 24 * 7) {
+								//はじくときにはカウンターの値を減らしておく｡このカウンターでイベントの総数を把握､終了判定を行うため
+								_orderCounter--;
 								return;
 							}
 						}
