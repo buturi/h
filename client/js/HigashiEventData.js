@@ -28,7 +28,10 @@ var HigashiEventData=(function(){
 
 		//リスト詳細を受信完了時毎に実行されるメソッド
 		var _onReceive=function(eventObject){
-			
+			//返ってきたEventObjectと現在のタイプを比較し､異なればデータを破棄する
+			if (eventObject.type!=_options.type) {
+				return;
+			};
 			var len = _eventDataArray.length;
 			for ( compare=len;0<compare;compare-- ) {
 				if( _sortFunction( _eventDataArray[compare-1],eventObject )<=0 ) { //入れ替え
@@ -107,6 +110,9 @@ var HigashiEventData=(function(){
 					var tmpEventData=new Object();
 					/*クエリストリングをid=で分離することで､IDを抽出*/
 					tmpEventData["id"] = parseInt($(this).attr('href').split('id=')[1]);
+
+					//お知らせや募集に切り替えた際に受信予定していたデータが挿入されてしまうことを防ぐために､typeを記憶しておく｡
+					tmpEventData["type"] = _options.type;
 
 					//
 					tmpEventData["order"] = orderCounter++;
