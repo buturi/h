@@ -363,25 +363,28 @@ ul a:hover > .cen {
 /*-------------------------------------------------------------------------
 		twit部分
 -------------------------------------------------------------------------*/
-#twit { /* twit全体 */
-	background-color: white ; /* 背景色:白 */
-	border-radius: 5px ; /* 角丸 */
-	opacity: 0.8 ; /* 透過度:80% */
-	height: calc(100% - 200px) ; /* 縦:100% - 120px */
-	height: -webkit-calc(100% - 200px) ; /* webkit対策 */
-	width: 300px ; /* 横：300px */
-	position: absolute ; /* 絶対位置 */
-	bottom: 10px ; /* 下から10pxの位置 */
-	right: 50px ; /* 右から10pxの位置 */
-	overflow: auto ; /* はみ出したらスクロールバーを表示 */
-	writing-mode: tb-rl ; /* 縦書き */
-	border-top-left-radius: 5px ; /* 左上の角丸：5px */
-	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
-}
+/* #twit { 
+/*	background-color: white ; /* 背景色:白 */
+/*	border-radius: 5px ; /* 角丸 */
+/*	opacity: 0.8 ; /* 透過度:80% */
+/*	height: calc(100% - 200px) ; /* 縦:100% - 120px */
+/*	height: -webkit-calc(100% - 200px) ; /* webkit対策 */
+/*	width: 300px ; /* 横：300px */
+/*	position: absolute ; /* 絶対位置 */
+/*	bottom: 10px ; /* 下から10pxの位置 */
+/*	right: 50px ; /* 右から10pxの位置 */
+/*	overflow: auto ; /* はみ出したらスクロールバーを表示 */
+/*	writing-mode: tb-rl ; /* 縦書き */
+/*	border-top-left-radius: 5px ; /* 左上の角丸：5px */
+/*	border-bottom-left-radius: 5px ; /* 左下の角丸：5px */
+/*}*/
 
 .twitter-timeline {
-	height: calc(100% - 200px) ; /* 縦:100% - 120px */
-	height: -webkit-calc(100% - 200px) ; /* webkit対策 */
+	background-color: #ffffff; /* 背景色:白 */
+	width: 300px;
+	position: absolute;
+	right: 50px;
+	bottom: 10px;
 }
 
 #tabArea { /* 右側タブ部分全体 */
