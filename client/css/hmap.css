@@ -182,8 +182,9 @@ ul a:hover > .cen {
 	background-color: white ; /* 背景色:白 */
 	border-radius: 5px ; /* 角丸 */
 	opacity: 0.8 ; /* 透過度:80% */
-	height: calc(100% - 120px) ; /* 縦:100% - 120px */
-	height: -webkit-calc(100% - 120px) ; /* webkit対策 */
+	height: 100%;
+	height: calc(100% - 120px) ;  縦:100% - 120px */
+	height: -webkit-calc(100% - 120px) ;  webkit対策 */
 	width: 300px ; /* 横：300px */
 	position: absolute ; /* 絶対位置 */
 	bottom: 10px ; /* 下から10pxの位置 */
