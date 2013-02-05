@@ -11,6 +11,12 @@ var Sort=(function(){
 		return b.id - a.id;
 	}
 
+	//order(新しい順)でソートを行う関数
+	Sort.sortByOrder=function(a,b){
+		return a.order - b.order;
+	}
+
+
 	Sort.sortByGID=function(a,b){
 		var x = Number(a.gid.slice(1));
 		var y = Number(b.gid.slice(1));

@@ -36,14 +36,14 @@ var SideList=(function(){
 						weeks = "ordinary";
 				}
 			}
-			str_title = eventObject['title'];
+			var str_title = eventObject['title'];
 			str_title = str_title.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
 			if ( str_title.length>20 ) {
 				str_title = str_title.substring(0, 20)+"…";
 			} else {
 				str_title = str_title.substring(0, 20);
 			}
-			str_sponsor = eventObject['sponsor'];
+			var str_sponsor = eventObject['sponsor'];
 			str_sponsor = str_sponsor.replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');
 			if ( str_sponsor.length>10 ) {
 				str_sponsor = str_sponsor.substring(0, 10)+"…";
@@ -59,7 +59,9 @@ var SideList=(function(){
 			colorString+="0.9);"
 			console.log(colorString);
 
-			$(sph).after("<div class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div id='list"+_size+"' class='eventBox'>"+str_title+"<div class='sponsorBox' style='border-bottom: 3px solid "+colorString+"'>"+str_sponsor+"</div></div></div>");
+			$(sph).after("<div class='wrap'><div class='dateBox "+weeks+"'>"+days+"<div id='list"+_size+"' class='eventBox'>"+str_title+"<div class='sponsorBox' style='border-bottom: 3px solid "+colorString+"'>"+str_sponsor+"</div></div></div>").hide().show("fast");
+			
+
 			//クリックイベントリスナーを追加しておく
 			$("#list"+_size).click(function(){
 				gMap.panTo(new google.maps.LatLng(eventObject['latLng']['lat'], eventObject['latLng']['lng']));
