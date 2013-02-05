@@ -40,7 +40,7 @@ var HigashiEventData=(function(){
 			_eventDataArray.splice(compare,0,eventObject);
 
 			if(_eventDataArray.length>=_orderCounter){
-				alert("読み込み完了");
+				console.log("読み込み完了");
 			}
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
