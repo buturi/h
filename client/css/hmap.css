@@ -56,6 +56,8 @@ ul > .cen {	/* カンマは複数の記述を表すので、内包される意�
 	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221));
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221)));
+	/*  http://lets-it.jp/memorandum/2013/01/28/ie10opera12%E3%81%A7css%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84%E4%BB%B6/ を参照 */
+	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221)); /* IE10, opera12 */
 	padding-bottom: 5px;
 	padding-top: 5px;
 	box-shadow: 1px 1px 5px rgb(170, 170, 170);
@@ -94,6 +96,8 @@ ul a:hover > .cen {
 	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221));
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221)));
+	/*  http://lets-it.jp/memorandum/2013/01/28/ie10opera12%E3%81%A7css%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84%E4%BB%B6/ を参照 */
+	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221)); /* IE10, opera12 */
 }
 
 .cen {
@@ -172,9 +176,8 @@ ul a:hover > .cen {
 	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221));
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221)));
-	/* http://cappee.net/coding/css3/ie10-css3-prefix より引用 */
-	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221));  /* IE9用 */
-	background: linear-gradient(to right, rgb(180,209,192), rgb(229,255,221));  /* IE10とOpera12.50用 */
+	/*  http://lets-it.jp/memorandum/2013/01/28/ie10opera12%E3%81%A7css%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84%E4%BB%B6/ を参照 */
+	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221)); /* IE10, opera12 */
 	padding-bottom: 5px;
 	padding-top: 5px;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
@@ -188,7 +191,7 @@ ul a:hover > .cen {
 	background-color: white; /* 背景色:白 */
 	border-radius: 5px; /* 角丸 */
 	opacity: 0.8; /* 透過度:80% */
-	height: calc(100% - 120px);  /* 縦:100% - 120px */
+	height: calc(100% - 120px); /* IE10, opera12対策 */
 	height: -moz-calc(100% - 120px); /* 縦:100% - 120px */
 	height: -webkit-calc(100% - 120px); /* webkit対策 */
 	width: 300px; /* 横：300px */
@@ -212,6 +215,9 @@ ul a:hover > .cen {
 	height: 50px;
 	margin: 10px 0 10px 30px;
 	writing-mode: lr-tb; /* 横書き */
+	user-select: none; /* 反転禁止 */
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 
 #buttonArea {
@@ -233,9 +239,8 @@ ul a:hover > .cen {
 	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221));
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221)));
-	/* http://cappee.net/coding/css3/ie10-css3-prefix より引用 */
-	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221));  /* IE9用 */
-	background: linear-gradient(to right, rgb(180,209,192), rgb(229,255,221));  /* IE10とOpera12.50用 */
+	/* http://lets-it.jp/memorandum/2013/01/28/ie10opera12%E3%81%A7css%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84%E4%BB%B6/ を参照 */
+	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221)); /* IE10, opera12 */
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
 	box-shadow: 1px 1px 5px #aaa; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 	border-color: 5px solid #000;
@@ -258,8 +263,9 @@ ul a:hover > .cen {
 
 #boxArea {
 	width: 300px;
-	height: calc(100% - 80px); 
+	height: -ms-calc(100% - 80px); /* IE10, opera12対策 */
 	height: -webkit-calc(100% - 80px); /* webkit対策 */
+	height: -moz-calc(100% - 80px); /* FireFox対策 */
 	overflow-y: scroll;  /* はみ出したらスクロールバーを表示 */
 	writing-mode: lr-tb; /* 横書き */
 }
@@ -381,9 +387,11 @@ ul a:hover > .cen {
 
 #tabArea { /* 右側タブ部分全体 */
 	top: 100px;
-	height: 150px;
+	height: -ms-calc(150px); /* IE10, opera12対策 */
+	height: -moz-calc(150px);
+	height: -webkit-calc(150px);
 	width: 30px;
-	/*margin-right: 0 ; 左に横長で寄ってしまう */
+	/*margin-right: 0; 左に横長で寄ってしまう */
 	right: 0px;
 	position: absolute; /* 絶対位置 */
 	writing-mode: tb-rl; /* 縦書き */
@@ -415,6 +423,8 @@ ul > .tabmenu { /* 各タブメニュー */
 	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221));
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221)));
+	/*  http://lets-it.jp/memorandum/2013/01/28/ie10opera12%E3%81%A7css%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8C%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84%E4%BB%B6/ を参照 */
+	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221)); /* IE10, opera12 */
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
 	box-shadow: 1px 1px 5px #aaa; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 	border-color: 5px solid #000;
