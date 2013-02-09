@@ -172,6 +172,9 @@ ul a:hover > .cen {
 	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221));
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221)));
+	/* http://cappee.net/coding/css3/ie10-css3-prefix より引用 */
+	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221));  /* IE9用 */
+	background: linear-gradient(to right, rgb(180,209,192), rgb(229,255,221));  /* IE10とOpera12.50用 */
 	padding-bottom: 5px;
 	padding-top: 5px;
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
@@ -230,6 +233,9 @@ ul a:hover > .cen {
 	background: -moz-linear-gradient(left 90deg, rgb(180,209,192), rgb(229,255,221));
 	/* Safari,Google Chrome用(左から順に、線形で開始位置・終了位置・開始色・終了色) */
 	background: -webkit-gradient(linear, left bottom, left top, from(rgb(180,209,192)), to(rgb(229,255,221)));
+	/* http://cappee.net/coding/css3/ie10-css3-prefix より引用 */
+	background: -ms-linear-gradient(left, rgb(180,209,192), rgb(229,255,221));  /* IE9用 */
+	background: linear-gradient(to right, rgb(180,209,192), rgb(229,255,221));  /* IE10とOpera12.50用 */
 	/* 次の行 http://webtips-blog.com/2011/04/27/css/("Web Tips Blog") より引用 */
 	box-shadow: 1px 1px 5px #aaa; /* 左から、横方向のずれ、下方向のずれ、ぼかし具合、シャドウの色 */
 	border-color: 5px solid #000;
