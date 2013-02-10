@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<meta name="keywords" content="HTML5,meta,要素,タグ,description,説明">
+	<meta name="keywords" content="東広島,広島,西条,八本松,高屋,白市,">
 	<title>東広島EventMap</title>
 
 	<!-- CSS -->
@@ -81,11 +81,12 @@
 			</ul><!-- "地域センター" の ul タグここまで -->
 		</li><!-- "地域センター" の li タグここまで -->
 		<!-- 次の li タグを作ると、横に表示される -->
-		<li class="cen"><a href="http://higashihiroshima.genki365.net/"  target="_blank">市民活動情報サイト</a></li>
-		<li class="cen"><a href="http://www.city.higashihiroshima.hiroshima.jp/" target="_blank">東広島市役所</a>      </li>
+		
 		<li class="cen">
-			<a>ICT加盟大学一覧▼</a>
+			<a>リンク▼</a>
 			<ul>
+				<li class="cen"><a href="http://higashihiroshima.genki365.net/"  target="_blank">市民活動情報サイト</a></li>
+				<li class="cen"><a href="http://www.city.higashihiroshima.hiroshima.jp/" target="_blank">東広島市役所</a></li>
 				<li class="cen"><a href="http://www.hiro.kindai.ac.jp/index.html" target="_blank">近畿大学工学部</a></li>
 				<li class="cen"><a href="http://www.hiroshima-u.ac.jp/index-j.html" target="_blank">広島大学</a></li>
 				<li class="cen"><a href="http://www.hirokoku-u.ac.jp/" target="_blank">広島国際大学</a></li>
@@ -104,13 +105,13 @@
 
 <div id="tabs">
 	<ul id="tabArea">
-		<li class="tabmenu"><a class="listSelect" href="#listArea" typeID="11">リスト</a></li>
+		<li class="tabmenu"><a class="listSelect" href="#listArea" typeID="11">イベント</a></li>
 		<li class="tabmenu"><a class="listSelect" href="#listArea" typeID="31">募集情報</a></li>
 		<li class="tabmenu"><a class="listSelect" href="#listArea" typeID="51">お知らせ</a></li>
 		<li class="tabmenu"><a href="#twit"><img src="img/twitter.png"></a></li>
 	</ul><!-- tabArea ここまで -->
-<div id="listArea">
-<div id="btnArea">
+<div id="listArea" style="display: block;">
+<div id="btnArea" style="display: block;">
 	<select id="sectorSelect" class="searchSelect">
 	<option value="" selected>分野</option>
 	<option value="1">まちづくり・住民自治協議会</option>
@@ -149,12 +150,13 @@
 		<li id="areaSort">地区別</li>
 	</ul><!-- #buttonArea -->
 </div><!-- #btnArea -->
-	<div id="boxArea"><div id="box"></div><!-- #boxArea -->
+	<div id="boxArea" style="display: block;"><div id="box" style="display: block;"></div><!-- #boxArea -->
 	</div><!-- てすと -->
 </div><!-- #listArea -->
-<div id="twit">
-	<a class="twitter-timeline" data-dnt=true href="https://twitter.com/search?q=%E6%9D%B1%E5%BA%83%E5%B3%B6" data-widget-id="296544466850947072">東広島 に関するツイート</a>
+<div id="twit" style="display: none;">
+	<a class="twitter-timeline"  href="https://twitter.com/search?q=%E6%9D%B1%E5%BA%83%E5%B3%B6+OR++OR+%E8%A5%BF%E9%AB%98%E5%B1%8B+OR+%E7%99%BD%E5%B8%82+OR+%E5%85%AB%E6%9C%AC%E6%9D%BE+OR+%E5%AE%89%E8%8A%B8%E6%B4%A5+OR+%28%E5%BA%83%E5%B3%B6+AND+%28%E8%A5%BF%E6%9D%A1+OR+%E9%BB%92%E7%80%AC+OR+%E6%B2%B3%E5%86%85+OR+%E5%85%A5%E9%87%8E%29%29+OR+%E9%85%92%E7%A5%AD%E3%82%8A+OR+%E9%85%92%E3%81%BE%E3%81%A4%E3%82%8A"  data-widget-id="277432419341189121">東広島 OR  OR 西高屋 OR 白市 OR 八本松 OR 安芸津 OR (広島 AND (西条 OR 黒瀬 OR 河内 OR 入野)) OR 酒祭り OR 酒まつり に関するツイート</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 
 </div><!-- #twit -->
 </div><!-- #tabs -->
