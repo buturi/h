@@ -44,13 +44,13 @@ var HigashiEventData=(function(){
 			}
 			
 			//sortFunctionにしたがって配列の適切な場所にeventObjectを挿入後､コールバック関数があればそこに挿入位置を返す
-			try{
+			// try{
 				if(_callbackFunction){
 					_callbackFunction(eventObject,compare);
 				}
-			}catch(e){
-				console.log(e);
-			}
+			// }catch(e){
+				// console.log(e);
+			// }
 			
 		}
 
@@ -144,9 +144,12 @@ var HigashiEventData=(function(){
 						
 						detailContent.each(function(i){
 							/*属性を上のArray->Object変換から取得､順番に合った属性へ代入*/
-		                    
+		                    try{
 		                    var itemName=Data.pageItemJapaneseToEnglish($(this).prev().text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' '))
 							tmpEventData[itemName]=$(this).text().replace(/^\s+|\s+$/g,'').replace(/ +/g,' ');;
+						}catch(e){
+							alert(e);
+						}
 							
 						});
 
@@ -179,6 +182,11 @@ var HigashiEventData=(function(){
 								_orderCounter--;
 								return;
 							}
+						}
+						if(!tmpEventData["title"]){
+							//はじくときにはカウンターの値を減らしておく｡このカウンターでイベントの総数を把握､終了判定を行うため
+							_orderCounter--;
+							return;
 						}
 						
 						//他の絞り込みが必要
